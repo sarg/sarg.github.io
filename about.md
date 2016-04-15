@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 Desperate software developer.
-I am publishing my notes for a purpose of practicing my english writing skills.
+I am publishing my notes for a purpose of practicing my technical writing skill.
 
 
 ### Contact me
