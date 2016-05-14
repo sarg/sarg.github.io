@@ -1,4 +1,4 @@
-I've chose my next toy. It will be mechanical ergonomic keyboard with separate parts for each hand. Something like ErgoDox or Kinesis.
+I've chosen my next toy. It would be mechanical ergonomic keyboard with separate parts for each hand. Something like ErgoDox or Kinesis.
 
 I've decided to train my typing skills first and to get rid of using mouse.
 
@@ -13,5 +13,3 @@ Mail
 * in progress
 Shell
 * readline in emacs mode
-
-
