@@ -4,7 +4,7 @@ title: Configuring X-Accel-Redirect in nginx.
 ---
 
 I have to maintain a java web application. It is being run with Jetty server.
-Nearly half of daily requests are to download image.
+Nearly half of daily requests are to download static files (images).
 
 	$ wc -l /var/log/nginx/access.log
 	260520 /var/log/nginx/access.log

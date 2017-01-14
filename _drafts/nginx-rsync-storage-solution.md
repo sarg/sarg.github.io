@@ -3,7 +3,7 @@ layout: post
 title: Configuring http accessible file storage.
 ---
 
-Our application is producing plenty of files everyday. The lifecycle of one cycle is as follows.
+Our application is producing plenty of files everyday. The lifecycle of one file is as follows.
 First we download it from external service, then we save it on a disk, then it is processed once, then it could be moved to archive.
 In the archive files are stored indefinitily. 
 I had looked for a distributed file storage solutions and found them over-complicated for my case.
