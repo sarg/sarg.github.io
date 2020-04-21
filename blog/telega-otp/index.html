@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Get the brain off the instant gratification hook. - Random forest</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Get the brain off the instant gratification hook." />
+<meta property="og:description" content="It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
+(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sarg.org.ru/blog/telega-otp/" />
+<meta property="article:published_time" content="2018-09-21T00:00:00+02:00" />
+<meta property="article:modified_time" content="2020-04-22T08:12:52+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Get the brain off the instant gratification hook."/>
+<meta name="twitter:description" content="It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
+(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice."/>
+
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="http://sarg.org.ru/css/main.css" />
+</head>
+<body>
+	<div class="content">
+		<div class="content">
+<header>
+<div class="main">
+	<a href="http://sarg.org.ru/">Random forest</a>
+</div>
+<nav>
+			
+				<a href="/about/">About</a>
+			
+				<a href="/books/">Books</a>
+			
+</nav>
+</header>
+<main>
+<article>
+		<div class="title">
+			<h1 class="title">Get the brain off the instant gratification hook.</h1>
+			<div class="meta">Posted on Sep 21, 2018</div>
+		</div>
+		<div>
+			
+		</div>
+
+		<section class="body">
+			<p>It easily becomes automatic to check for notifications/new messages/new emails
+etc. To give my rational self some time to intercept compulsive behaviour I have
+made this elisp snippet.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(defun sarg/otp-for-confirm ()
+  <span style="color:#e6db74">&#34;Generates random hex string&#34;</span>
+  (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%06x%06x%06x&#34;</span>
+          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))
+          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))
+          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))))
+
+(defun confirm-advice (proc <span style="color:#66d9ef">&amp;rest</span> args)
+  <span style="color:#e6db74">&#34;Asks to enter random string as confirmation before executing PROC.&#34;</span>
+  (interactive)
+  (let* ((pass (sarg/otp-for-confirm))
+         (input (<span style="color:#a6e22e">read-string</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;Enter %s if you wish to proceed: &#34;</span> pass))))
+
+    (if (string= input pass)
+        (<span style="color:#a6e22e">apply</span> proc args))))
+
+<span style="color:#75715e">;; Apply the advice.</span>
+(advice-add <span style="color:#e6db74">&#39;ivy-telega-chat-with</span> :around <span style="color:#a6e22e">#&#39;</span>confirm-advice)
+</code></pre></div>
+		</section>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="tags">
+								
+								<li><a href="/tags/it">it</a></li>
+								
+								<li><a href="/tags/emacs">emacs</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		
+	
+	<footer>
+<hr>⚡️
+	2020  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+
+<script>
+      feather.replace()
+</script>
+
+
+	</div>
+</body>
+</html>

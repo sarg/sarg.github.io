@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Random forest</title>
+    <link>http://sarg.org.ru/pages/</link>
+    <description>Recent content in Pages on Random forest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2020 07:03:26 +0200</lastBuildDate>
+    
+	<atom:link href="http://sarg.org.ru/pages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://sarg.org.ru/pages/about/</link>
+      <pubDate>Wed, 22 Apr 2020 06:52:14 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/pages/about/</guid>
+      <description>Desperate software developer.
+Contact me sarg@sarg.org.ru</description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>http://sarg.org.ru/pages/books/</link>
+      <pubDate>Wed, 22 Apr 2020 07:03:26 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/pages/books/</guid>
+      <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read     </description>
+    </item>
+    
+  </channel>
+</rss>

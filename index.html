@@ -1,16 +1,86 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.69.0" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Random forest  </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="http://sarg.org.ru/index.xml" title="Random forest" />
+	<meta property="og:title" content="Random forest" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://sarg.org.ru/" />
+<meta property="og:updated_time" content="2020-04-22T08:12:52+02:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Random forest"/>
+<meta name="twitter:description" content=""/>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.content }}
-      </div>
-    </article>
-  {% endfor %}
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen" href="http://sarg.org.ru/css/main.css" />
+</head>
+<body>
+		<div class="content">
+<header>
+<div class="main">
+	<a href="http://sarg.org.ru/">Random forest</a>
 </div>
+<nav>
+			
+				<a href="/about/">About</a>
+			
+				<a href="/books/">Books</a>
+			
+</nav>
+</header>
+    	
+			<main class="list">
+      <div class="site-description"></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/freeotp-to-pass/">Exporting secrets from FreeOTP to Pass.</a></h1>
+					<time>Sep 21, 2018</time>
+					<br><span class="description">
+						
+						I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device.
+So, first I need to find where FreeOTP stores OTP secrets. Android apps usually use sqlite db for that, but not in this case.&hellip;
+						
+					</span><br/>
+					<a href="/blog/freeotp-to-pass/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/blog/telega-otp/">Get the brain off the instant gratification hook.</a></h1>
+					<time>Sep 21, 2018</time>
+					<br><span class="description">
+						
+						It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
+(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice.&hellip;
+						
+					</span><br/>
+					<a href="/blog/telega-otp/">Read more ⟶</a>
+				</section>
+				
+				
+
+
+			</main>
+			<footer>
+<hr>⚡️
+	2020  <a href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+</footer>
+
+
+
+<script>
+      feather.replace()
+</script>
+
+
+		</div>
+		
+	</div>
+	
+</body>
+</html>

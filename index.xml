@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random forest</title>
+    <link>http://sarg.org.ru/</link>
+    <description>Recent content on Random forest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2020 08:12:52 +0200</lastBuildDate>
+    
+	<atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://sarg.org.ru/about/</link>
+      <pubDate>Wed, 22 Apr 2020 08:12:52 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/about/</guid>
+      <description>Desperate software developer.
+Contact me sarg@sarg.org.ru</description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>http://sarg.org.ru/books/</link>
+      <pubDate>Wed, 22 Apr 2020 08:12:52 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/books/</guid>
+      <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read      </description>
+    </item>
+    
+    <item>
+      <title>Exporting secrets from FreeOTP to Pass.</title>
+      <link>http://sarg.org.ru/blog/freeotp-to-pass/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/freeotp-to-pass/</guid>
+      <description>I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device.
+So, first I need to find where FreeOTP stores OTP secrets. Android apps usually use sqlite db for that, but not in this case.</description>
+    </item>
+    
+    <item>
+      <title>Get the brain off the instant gratification hook.</title>
+      <link>http://sarg.org.ru/blog/telega-otp/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/telega-otp/</guid>
+      <description>It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
+(defun sarg/otp-for-confirm () &amp;#34;Generates random hex string&amp;#34; (format &amp;#34;%06x%06x%06x&amp;#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;amp;rest args) &amp;#34;Asks to enter random string as confirmation before executing PROC.&amp;#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &amp;#34;Enter %s if you wish to proceed: &amp;#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice.</description>
+    </item>
+    
+  </channel>
+</rss>
