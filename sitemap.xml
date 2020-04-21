@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/categories/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/freeotp-to-pass/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/it/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/categories/topic/</loc>
+    <lastmod>2020-04-21T22:25:22+02:00</lastmod>
+  </url>
+  
+</urlset>

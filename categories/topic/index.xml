@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>topic on Random forest</title>
+    <link>http://sarg.org.ru/categories/topic/</link>
+    <description>Recent content in topic on Random forest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="http://sarg.org.ru/categories/topic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exporting secrets from FreeOTP to Pass.</title>
+      <link>http://sarg.org.ru/blog/freeotp-to-pass/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/freeotp-to-pass/</guid>
+      <description>I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device.
+So, first I need to find where FreeOTP is storing otp secrets. Android apps usually use sqlite db for that, but not in this case.</description>
+    </item>
+    
+  </channel>
+</rss>
