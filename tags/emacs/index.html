@@ -16,7 +16,7 @@
 <link rel="icon" type="image/x-icon" href="http://sarg.org.ru/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://sarg.org.ru/favicon.png">
 
-<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587537955" />
+<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587540112" />
 
 <meta property="og:title" content="emacs" />
 <meta property="og:description" content="" />
@@ -68,8 +68,9 @@
             </h1>
         </header>
         <div class="content">
-            It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
-(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice.
+            <p>It easily becomes automatic to check for notifications/new messages/new emails
+etc. To give my rational self some time to intercept compulsive behaviour I have
+made this elisp snippet.</p>
         </div>
         <div class="article-info">
     

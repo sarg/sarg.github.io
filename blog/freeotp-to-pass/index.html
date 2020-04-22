@@ -16,20 +16,24 @@
 <link rel="icon" type="image/x-icon" href="http://sarg.org.ru/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://sarg.org.ru/favicon.png">
 
-<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587537955" />
+<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587540112" />
 
 <meta property="og:title" content="Exporting secrets from FreeOTP to Pass." />
-<meta property="og:description" content="I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device.
-So, first I need to find where FreeOTP stores OTP secrets. Android apps usually use sqlite db for that, but not in this case." />
+<meta property="og:description" content="I have broken my phone screen. Not a big deal but I use it for 2FA. While
+replacement is on the way I will extract credentials from FreeOTP and import
+them in password store. Be aware that it is completeley against the idea of 2FA,
+because now both password and otp are on the same device." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://sarg.org.ru/blog/freeotp-to-pass/" />
 <meta property="article:published_time" content="2018-09-21T00:00:00+02:00" />
-<meta property="article:modified_time" content="2020-04-22T08:12:52+02:00" />
+<meta property="article:modified_time" content="2020-04-22T09:14:02+02:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Exporting secrets from FreeOTP to Pass."/>
-<meta name="twitter:description" content="I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device.
-So, first I need to find where FreeOTP stores OTP secrets. Android apps usually use sqlite db for that, but not in this case."/>
+<meta name="twitter:description" content="I have broken my phone screen. Not a big deal but I use it for 2FA. While
+replacement is on the way I will extract credentials from FreeOTP and import
+them in password store. Be aware that it is completeley against the idea of 2FA,
+because now both password and otp are on the same device."/>
 
 
 
@@ -149,7 +153,6 @@ inp<span style="color:#f92672">.</span>close()
 Or you can manually put <code>otpauth://</code> string in an appropriate pass file. I did
 the latter way, because my already existing entries have had another names.
 Then check that everything went fine - <code>pass otp 'Amazon Web Services/sarg@organization'</code></p>
-
         </div>
         <div class="article-info">
     

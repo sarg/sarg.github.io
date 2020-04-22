@@ -16,20 +16,22 @@
 <link rel="icon" type="image/x-icon" href="http://sarg.org.ru/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://sarg.org.ru/favicon.png">
 
-<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587537955" />
+<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587540112" />
 
 <meta property="og:title" content="Get the brain off the instant gratification hook." />
-<meta property="og:description" content="It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
-(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice." />
+<meta property="og:description" content="It easily becomes automatic to check for notifications/new messages/new emails
+etc. To give my rational self some time to intercept compulsive behaviour I have
+made this elisp snippet." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://sarg.org.ru/blog/telega-otp/" />
 <meta property="article:published_time" content="2018-09-21T00:00:00+02:00" />
-<meta property="article:modified_time" content="2020-04-22T08:12:52+02:00" />
+<meta property="article:modified_time" content="2020-04-22T09:13:23+02:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Get the brain off the instant gratification hook."/>
-<meta name="twitter:description" content="It easily becomes automatic to check for notifications/new messages/new emails etc. To give my rational self some time to intercept compulsive behaviour I have made this elisp snippet.
-(defun sarg/otp-for-confirm () &#34;Generates random hex string&#34; (format &#34;%06x%06x%06x&#34; (random (expt 16 6)) (random (expt 16 6)) (random (expt 16 6)))) (defun confirm-advice (proc &amp;rest args) &#34;Asks to enter random string as confirmation before executing PROC.&#34; (interactive) (let* ((pass (sarg/otp-for-confirm)) (input (read-string (format &#34;Enter %s if you wish to proceed: &#34; pass)))) (if (string= input pass) (apply proc args)))) ;; Apply the advice."/>
+<meta name="twitter:description" content="It easily becomes automatic to check for notifications/new messages/new emails
+etc. To give my rational self some time to intercept compulsive behaviour I have
+made this elisp snippet."/>
 
 
 

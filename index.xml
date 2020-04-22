@@ -6,7 +6,7 @@
     <description>Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 08:12:52 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 09:01:04 +0200</lastBuildDate>
     
     <atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>About</title>
       <link>http://sarg.org.ru/about/</link>
-      <pubDate>Wed, 22 Apr 2020 08:12:52 +0200</pubDate>
+      <pubDate>Wed, 22 Apr 2020 09:01:04 +0200</pubDate>
       
       <guid>http://sarg.org.ru/about/</guid>
       <description>&lt;p&gt;Desperate software developer.&lt;/p&gt;
@@ -26,7 +26,7 @@
     <item>
       <title>Books</title>
       <link>http://sarg.org.ru/books/</link>
-      <pubDate>Wed, 22 Apr 2020 08:12:52 +0200</pubDate>
+      <pubDate>Wed, 22 Apr 2020 09:01:04 +0200</pubDate>
       
       <guid>http://sarg.org.ru/books/</guid>
       <description>
@@ -152,8 +152,7 @@ inp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now what&amp;rsquo;s left is just to import everything into pass with &lt;code&gt;pass otp insert -e&lt;/code&gt;.
 Or you can manually put &lt;code&gt;otpauth://&lt;/code&gt; string in an appropriate pass file. I did
 the latter way, because my already existing entries have had another names.
-Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;
-</description>
+Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

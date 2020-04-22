@@ -101,8 +101,7 @@ inp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now what&amp;rsquo;s left is just to import everything into pass with &lt;code&gt;pass otp insert -e&lt;/code&gt;.
 Or you can manually put &lt;code&gt;otpauth://&lt;/code&gt; string in an appropriate pass file. I did
 the latter way, because my already existing entries have had another names.
-Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;
-</description>
+Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
