@@ -1,0 +1,5 @@
+baseURL = "http://sarg.org.ru/"
+languageCode = "en-us"
+title = "Random forest"
+theme = "anubis"
+publishDir = "../"
