@@ -3,12 +3,12 @@
   <channel>
     <title>android on Random forest</title>
     <link>http://sarg.org.ru/tags/android/</link>
-    <description>Random forest (android)</description>
+    <description>Recent content in android on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0200</lastBuildDate>
     
-    <atom:link href="http://sarg.org.ru/tags/android/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sarg.org.ru/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,88 +20,7 @@
       <description>&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
 replacement is on the way I will extract credentials from &lt;a href=&#34;https://freeotp.github.io/&#34;&gt;FreeOTP&lt;/a&gt; and import
 them in &lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;password store&lt;/a&gt;. Be aware that it is completeley against the idea of 2FA,
-because now both password and otp are on the same device.&lt;/p&gt;
-&lt;p&gt;So, first I need to find where FreeOTP stores OTP secrets. Android apps
-usually use sqlite db for that, but not in this case. FreeOTP uses shared_prefs.&lt;/p&gt;
-&lt;p&gt;Pull prefs from the phone (root needed).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;adb root
-adb pull /data/data/org.fedorahosted.freeotp/shared_prefs/tokens.xml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here is what they look like.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#080&#34;&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39; standalone=&amp;#39;yes&amp;#39; ?&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;map&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;string&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services:sarg@organization&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;{&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;algo&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;SHA1&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;counter&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:0,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;digits&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:6,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;issuerExt&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;issuerInt&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;label&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;sarg@organization&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;period&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:30,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;secret&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:[52,19,105,64,67,-120,-45],&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;type&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;TOTP&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;}&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;string&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;tokenOrder&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;[&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services:sarg@organization&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Google:sarg@sarg.org.ru&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;GitHub:sarg&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;]&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/map&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Storing JSON in XML - that&amp;rsquo;s a beaty. If you decode the value, it looks better:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;TOTP&amp;#34;&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;secret&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#666&#34;&gt;52&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;19&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;64&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;67&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;-120&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;-45&lt;/span&gt;],
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;period&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;30&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;sarg@organization&amp;#34;&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;issuerInt&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services&amp;#34;&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;issuerExt&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services&amp;#34;&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;digits&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;6&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;counter&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;,
-    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;algo&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;SHA1&amp;#34;&lt;/span&gt;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now I need to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;parse xml&lt;/li&gt;
-&lt;li&gt;extract json from xml&lt;/li&gt;
-&lt;li&gt;extract secret from json and encode it with base32&lt;/li&gt;
-&lt;li&gt;construct otpauth:// uri using details from json&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;URI format is described in google-authenticator &lt;a href=&#34;https://github.com/google/google-authenticator/wiki/Key-Uri-Format&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;Provision a TOTP key for user alice@google.com, to use with a service provided
-by Example, Inc:
-
-otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&amp;amp;issuer=Example
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For one-time scripts I prefer using python.
-There is a handy library for dealing with html/xml - BeautifulSoup.
-And I will consult with FreeOTP &lt;a href=&#34;https://github.com/freeotp/freeotp-android&#34;&gt;sources&lt;/a&gt; to get things right.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
-
-&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;urllib.parse&lt;/span&gt;
-&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;base64&lt;/span&gt;
-&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;json&lt;/span&gt;
-&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;bs4&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; BeautifulSoup
-
-inp &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;tokens.xml&amp;#39;&lt;/span&gt;)
-soup &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BeautifulSoup(inp, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;lxml&amp;#39;&lt;/span&gt;)
-
-&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; tag &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; soup&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;find_all(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;string&amp;#39;&lt;/span&gt;):
-    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# it&amp;#39;s a special setting, skip it&lt;/span&gt;
-    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; tag[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;tokenOrder&amp;#39;&lt;/span&gt;:
-        &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;continue&lt;/span&gt;
-
-    token &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;loads(tag&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;text)
-
-    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# secret is stored as signed byte array&lt;/span&gt;
-    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# so first make it unsigned by adding 256 modulo 256&lt;/span&gt;
-    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# and then convert to python&amp;#39;s bytearray&lt;/span&gt;
-    secret &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;bytearray&lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;map&lt;/span&gt;(&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;lambda&lt;/span&gt; x: (x&lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;256&lt;/span&gt;)&lt;span style=&#34;color:#666&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;256&lt;/span&gt;, token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;]))
-
-    issuer &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; token&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;issuerExt&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
-    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;otpauth://{type}/{issuer}?{args}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;format(
-        &lt;span style=&#34;color:#a2f&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lower(),
-
-        &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# issuer should be URL encoded&lt;/span&gt;
-        issuer&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;urllib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;parse&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;quote(
-            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#a2f&#34;&gt;filter&lt;/span&gt;(None, (issuer, token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;label&amp;#39;&lt;/span&gt;])))),
-
-        args&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;urllib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;parse&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;urlencode({
-            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;: base64&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;b32encode(secret)&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;),
-            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;algo  &amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;algo&amp;#39;&lt;/span&gt;],
-            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;digits&amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;digits&amp;#39;&lt;/span&gt;],
-            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;period&amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;period&amp;#39;&lt;/span&gt;]
-        })
-    ))
-
-inp&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now what&amp;rsquo;s left is just to import everything into pass with &lt;code&gt;pass otp insert -e&lt;/code&gt;.
-Or you can manually put &lt;code&gt;otpauth://&lt;/code&gt; string in an appropriate pass file. I did
-the latter way, because my already existing entries have had another names.
-Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;</description>
+because now both password and otp are on the same device.&lt;/p&gt;</description>
     </item>
     
   </channel>

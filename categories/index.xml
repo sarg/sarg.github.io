@@ -3,13 +3,22 @@
   <channel>
     <title>Categories on Random forest</title>
     <link>http://sarg.org.ru/categories/</link>
-    <description>Random forest (Categories)</description>
+    <description>Recent content in Categories on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0200</lastBuildDate>
     
-    <atom:link href="http://sarg.org.ru/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sarg.org.ru/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>topic</title>
+      <link>http://sarg.org.ru/categories/topic/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/categories/topic/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

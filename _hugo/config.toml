@@ -1,7 +1,7 @@
 baseURL = "http://sarg.org.ru/"
 languageCode = "en-us"
 title = "Random forest"
-theme = "anubis"
+theme = "xmin"
 publishDir = "../"
 
 [markup]
@@ -16,15 +16,25 @@ publishDir = "../"
     style = "emacs"
     tabWidth = 4
 
-
-[menu]
-  [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 2
-
-
 [taxonomies]
-category = "categories"
 tag = "tags"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[[menu.main]]
+name = "Books"
+url = "/books"
+weight = 5
