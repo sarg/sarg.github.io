@@ -3,3 +3,28 @@ languageCode = "en-us"
 title = "Random forest"
 theme = "anubis"
 publishDir = "../"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "emacs"
+    tabWidth = 4
+
+
+[menu]
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+
+
+[taxonomies]
+category = "categories"
+tag = "tags"

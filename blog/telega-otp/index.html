@@ -16,7 +16,7 @@
 <link rel="icon" type="image/x-icon" href="http://sarg.org.ru/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://sarg.org.ru/favicon.png">
 
-<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587544215" />
+<link rel="stylesheet" href="http://sarg.org.ru/css/style.css?rnd=1587617770" />
 
 <meta property="og:title" content="Get the brain off the instant gratification hook." />
 <meta property="og:description" content="It easily becomes automatic to check for notifications/new messages/new emails
@@ -25,7 +25,7 @@ made this elisp snippet." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://sarg.org.ru/blog/telega-otp/" />
 <meta property="article:published_time" content="2018-09-21T00:00:00+02:00" />
-<meta property="article:modified_time" content="2020-04-22T10:14:46+02:00" />
+<meta property="article:modified_time" content="2020-04-22T21:53:55+02:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Get the brain off the instant gratification hook."/>
@@ -52,6 +52,8 @@ made this elisp snippet."/>
     
     <a class="" href="/about/" title="About">About</a>
     
+    <a class="" href="/tags/" title="">Tags</a>
+    
     <a class="" href="/books/" title="Books">Books</a>
     
 </nav>
@@ -69,24 +71,24 @@ made this elisp snippet."/>
             <p>It easily becomes automatic to check for notifications/new messages/new emails
 etc. To give my rational self some time to intercept compulsive behaviour I have
 made this elisp snippet.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(defun sarg/otp-for-confirm ()
-  <span style="color:#e6db74">&#34;Generates random hex string&#34;</span>
-  (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%06x%06x%06x&#34;</span>
-          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))
-          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))
-          (<span style="color:#a6e22e">random</span> (<span style="color:#a6e22e">expt</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">6</span>))))
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#a2f">defun</span> <span style="color:#b8860b">sarg/otp-for-confirm</span> ()
+  <span style="color:#b44">&#34;Generates random hex string&#34;</span>
+  (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;%06x%06x%06x&#34;</span>
+          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
+          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
+          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))))
 
-(defun confirm-advice (proc <span style="color:#66d9ef">&amp;rest</span> args)
-  <span style="color:#e6db74">&#34;Asks to enter random string as confirmation before executing PROC.&#34;</span>
-  (interactive)
-  (let* ((pass (sarg/otp-for-confirm))
-         (input (<span style="color:#a6e22e">read-string</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;Enter %s if you wish to proceed: &#34;</span> pass))))
+(<span style="color:#a2f">defun</span> <span style="color:#b8860b">confirm-advice</span> (<span style="color:#b8860b">proc</span> <span style="color:#a2f">&amp;rest</span> <span style="color:#b8860b">args</span>)
+  <span style="color:#b44">&#34;Asks to enter random string as confirmation before executing PROC.&#34;</span>
+  (<span style="color:#a2f">interactive</span>)
+  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">pass</span> (<span style="color:#b8860b">sarg/otp-for-confirm</span>))
+         (<span style="color:#b8860b">input</span> (<span style="color:#00a000">read-string</span> (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;Enter %s if you wish to proceed: &#34;</span> <span style="color:#b8860b">pass</span>))))
 
-    (if (string= input pass)
-        (<span style="color:#a6e22e">apply</span> proc args))))
+    (<span style="color:#a2f">if</span> (<span style="color:#b8860b">string=</span> <span style="color:#b8860b">input</span> <span style="color:#b8860b">pass</span>)
+        (<span style="color:#00a000">apply</span> <span style="color:#b8860b">proc</span> <span style="color:#b8860b">args</span>))))
 
-<span style="color:#75715e">;; Apply the advice.</span>
-(advice-add <span style="color:#e6db74">&#39;ivy-telega-chat-with</span> :around <span style="color:#a6e22e">#&#39;</span>confirm-advice)
+<span style="color:#080;font-style:italic">;; Apply the advice.</span>
+(<span style="color:#b8860b">advice-add</span> <span style="color:#b8860b">&#39;ivy-telega-chat-with</span> <span style="color:#a2f">:around</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">confirm-advice</span>)
 </code></pre></div>
         </div>
         <div class="article-info">
