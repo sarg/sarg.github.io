@@ -3,63 +3,68 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://sarg.org.ru/blog/android-apps/</loc>
-    <lastmod>2020-04-24T07:28:46+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/</loc>
-    <lastmod>2020-04-24T07:28:46+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/about/</loc>
-    <lastmod>2020-04-23T22:01:27+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://sarg.org.ru/books/</loc>
-    <lastmod>2020-04-23T22:01:27+02:00</lastmod>
+    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://sarg.org.ru/</loc>
-    <lastmod>2020-04-23T22:01:27+02:00</lastmod>
+    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sarg.org.ru/tags/emacs/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/it/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/emacs-hugo/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
+    <loc>http://sarg.org.ru/about/</loc>
+    <lastmod>2020-04-24T11:46:13+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://sarg.org.ru/tags/android/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
+    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/android-apps/</loc>
+    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/android-backup/</loc>
+    <lastmod>2020-04-24T11:46:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/</loc>
+    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/it/</loc>
+    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/</loc>
+    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/emacs/</loc>
+    <lastmod>2020-04-24T11:46:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/emacs-hugo/</loc>
+    <lastmod>2020-04-24T11:46:15+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://sarg.org.ru/blog/freeotp-to-pass/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
+    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://sarg.org.ru/blog/telega-otp/</loc>
-    <lastmod>2020-04-23T22:01:28+02:00</lastmod>
+    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
   </url>
   
 </urlset>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Backing up Android phone | Random forest</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/tags">Tags</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Backing up Android phone</span></h1>
+<h2 class="date">2020/04/24</h2>
+</div>
+
+<main>
+<p>One day my wife asked me to help her backup about 30Gb of photos from her
+android phone. At first we had tried to copy files over MTP (in Win10). This
+idea quickly showed its incapacity. You see, Win10 wants to be nice and tries
+to calculate ETA. But 30Gb is a lot of files and over MTP it takes one request
+per file to get its size. So, we waited half an hour while Win10 was preparing
+to start the transfer and I had aborted this madness.</p>
+<p>Here is a sane approach to do the job.</p>
+<ol>
+<li>
+<p>Install <a href="https://f-droid.org/packages/org.galexander.sshd/">SimpleSSHD</a> on the phone.
+Set <code>&quot;Start on Open&quot;</code> in app settings.</p>
+</li>
+<li>
+<p>Grab <a href="https://github.com/google/adb-sync#adb-channel"><code>adb-channel</code></a> script and add this snippet to <code>~/.ssh/config</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">   Host sshelper
+       Port 2222
+       ProxyCommand adb-channel tcp:%p org.galexander.sshd/.SimpleSSHD 1
+</code></pre></div></li>
+<li>
+<p>Copy your public key to the phone.</p>
+<p>Please note that <code>ssh-copy-id</code> won&rsquo;t work. Just <code>ssh sshelper</code> and then paste
+the key into <code>authorized_keys</code>. Details <a href="http://www.galexander.org/software/simplesshd/">here</a>.</p>
+</li>
+<li>
+<p>Now backup with rsync as usual.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e ssh -av sshelper:/sdcard/DCIM .
+</code></pre></div></li>
+<li>
+<p>Optional</p>
+<p>This setup assumes that you copy files over USB. But nothing stops you from
+starting SimpleSSHD manually and copy files over WiFi.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e <span style="color:#b44">&#39;ssh -p 2222&#39;</span> -av 192.168.178.42:/sdcard/DCIM .
+</code></pre></div></li>
+</ol>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

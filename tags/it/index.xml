@@ -6,13 +6,32 @@
     <description>Recent content in it on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/tags/it/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Making hugo powered blog in emacs.</title>
+      <title>Android apps that I use</title>
+      <link>http://sarg.org.ru/blog/android-apps/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/android-apps/</guid>
+      <description>My phone is running AOSP without google services and almost all of the applications I use come from F-Droid. Few exceptions are apps for paid services that I use and they are installed from Aurora Store.
+ I use fdroidcl to install and update applications. Backup is covered in post &amp;ldquo;Backing up Android phone&amp;quot;. I use syncthing to share a directory between my laptops and phone. I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to passwords on phone (rarely).</description>
+    </item>
+    
+    <item>
+      <title>Backing up Android phone</title>
+      <link>http://sarg.org.ru/blog/android-backup/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/android-backup/</guid>
+      <description>One day my wife asked me to help her backup about 30Gb of photos from her android phone. At first we had tried to copy files over MTP (in Win10). This idea quickly showed its incapacity. You see, Win10 wants to be nice and tries to calculate ETA. But 30Gb is a lot of files and over MTP it takes one request per file to get its size. So, we waited half an hour while Win10 was preparing to start the transfer and I had aborted this madness.</description>
+    </item>
+    
+    <item>
+      <title>Making hugo powered blog in emacs</title>
       <link>http://sarg.org.ru/blog/emacs-hugo/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0200</pubDate>
       
@@ -21,7 +40,7 @@
     </item>
     
     <item>
-      <title>Exporting secrets from FreeOTP to Pass.</title>
+      <title>Exporting secrets from FreeOTP to Pass</title>
       <link>http://sarg.org.ru/blog/freeotp-to-pass/</link>
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
       
@@ -33,7 +52,7 @@ because now both password and otp are on the same device.&lt;/p&gt;</description
     </item>
     
     <item>
-      <title>Get the brain off the instant gratification hook.</title>
+      <title>Get the brain off the instant gratification hook</title>
       <link>http://sarg.org.ru/blog/telega-otp/</link>
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
       
