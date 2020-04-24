@@ -6,15 +6,24 @@
     <description>Recent content on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2020 09:36:35 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2020 22:01:27 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Android apps that I use.</title>
+      <link>http://sarg.org.ru/blog/android-apps/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/android-apps/</guid>
+      <description>Name Description     OpenVPN for Android OpenVPN without root   AnkiDroid A flashcard-based study aid   OpenKeychain Encrypt your Files and Communications. Compatible with the OpenPGP Standard.   andOTP Time-based One-time Passwords (TOTP) from QR codes for two-factor authentication   NewPipe Lightweight YouTube frontend   Fennec F-Droid Browse the web   SatStat GPS, sensor and network status   Barcode Scanner Scan barcodes on products, or barcodes containing URLs, contact info, and so on   AFWall+ Control network traffic   VLC The best video and music player.</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>http://sarg.org.ru/about/</link>
-      <pubDate>Thu, 23 Apr 2020 09:36:35 +0200</pubDate>
+      <pubDate>Thu, 23 Apr 2020 22:01:27 +0200</pubDate>
       
       <guid>http://sarg.org.ru/about/</guid>
       <description>Hi there! To take a look of where I&amp;rsquo;ve worked visit my LinkedIn.
@@ -24,7 +33,7 @@ This site is built in Emacs org-mode then exported with ox-hugo and compiled by 
     <item>
       <title>Books</title>
       <link>http://sarg.org.ru/books/</link>
-      <pubDate>Thu, 23 Apr 2020 07:44:47 +0200</pubDate>
+      <pubDate>Thu, 23 Apr 2020 22:01:27 +0200</pubDate>
       
       <guid>http://sarg.org.ru/books/</guid>
       <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read      </description>

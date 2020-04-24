@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android apps that I use.</title>
+      <link>http://sarg.org.ru/blog/android-apps/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/android-apps/</guid>
+      <description>Name Description     OpenVPN for Android OpenVPN without root   AnkiDroid A flashcard-based study aid   OpenKeychain Encrypt your Files and Communications. Compatible with the OpenPGP Standard.   andOTP Time-based One-time Passwords (TOTP) from QR codes for two-factor authentication   NewPipe Lightweight YouTube frontend   Fennec F-Droid Browse the web   SatStat GPS, sensor and network status   Barcode Scanner Scan barcodes on products, or barcodes containing URLs, contact info, and so on   AFWall+ Control network traffic   VLC The best video and music player.</description>
+    </item>
     
     <item>
       <title>Making hugo powered blog in emacs.</title>
