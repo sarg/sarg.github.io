@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://sarg.org.ru/books/</loc>
-    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
+    <loc>http://sarg.org.ru/movies/</loc>
+    <lastmod>2020-04-26T10:12:09+02:00</lastmod>
   </url>
   
   <url>
     <loc>http://sarg.org.ru/</loc>
+    <lastmod>2020-04-26T10:12:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/</loc>
+    <lastmod>2020-04-26T10:08:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/blog/tmdb-export/</loc>
+    <lastmod>2020-04-26T10:08:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/it/</loc>
+    <lastmod>2020-04-26T10:08:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/tags/</loc>
+    <lastmod>2020-04-26T10:08:53+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sarg.org.ru/books/</loc>
     <lastmod>2020-04-24T11:46:14+02:00</lastmod>
   </url>
   
@@ -30,21 +55,6 @@
   <url>
     <loc>http://sarg.org.ru/blog/android-backup/</loc>
     <lastmod>2020-04-24T11:46:15+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/</loc>
-    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/it/</loc>
-    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/</loc>
-    <lastmod>2020-04-24T12:01:47+02:00</lastmod>
   </url>
   
   <url>

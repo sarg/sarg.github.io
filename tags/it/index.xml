@@ -6,10 +6,20 @@
     <description>Recent content in it on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/tags/it/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exporting watch list from TMDb</title>
+      <link>http://sarg.org.ru/blog/tmdb-export/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/tmdb-export/</guid>
+      <description>I keep list of movies I&amp;rsquo;ve watched on TheMovieDB. The service is great and I&amp;rsquo;ve used it for quite a long time (&amp;gt;700 movies in my list). I was using another service before, which unfortunately had closed without giving me a chance to export the data and I had to scrape my watchlist from google cache.
+To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from TMDb and will use the service only as a secondary source with nice UI.</description>
+    </item>
     
     <item>
       <title>Android apps that I use</title>

@@ -1,0 +1,5 @@
+Title | Overview | Rating
+--- | --- | ---
+{{ range sort $.Site.Data.rated "rating" "desc" -}}
+[{{ index . "title" }}](https://www.themoviedb.org/movie/{{ index . "id" }}) | {{ index . "overview" }} | {{ index . "rating" }}
+{{ end }}

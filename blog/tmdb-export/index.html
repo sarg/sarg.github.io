@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exporting watch list from TMDb | Random forest</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/tags">Tags</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Exporting watch list from TMDb</span></h1>
+<h2 class="date">2020/04/26</h2>
+</div>
+
+<main>
+<p>I keep list of movies I&rsquo;ve watched on <a href="https://www.themoviedb.org/u/sarg/ratings">TheMovieDB</a>. The service is great and I&rsquo;ve
+used it for quite a long time (&gt;700 movies in my list). I was using another
+service before, which unfortunately had closed without giving me a chance to
+export the data and I had to scrape my watchlist from google cache.</p>
+<p>To prevent that from happening again, I&rsquo;ve exported my watchlist from TMDb and
+will use the service only as a secondary source with nice UI.</p>
+<p>TMDb has a decent API and there are several python wrappers for it. The script
+for export is pretty straightforward. Retrieve <code>request_token</code>, open session
+(login) for your account and retrieve the list of rated movies from paginated endpoint.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">tmdbsimple</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">tmdb</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">json</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">subprocess</span>
+
+tmdb<span style="color:#666">.</span>API_KEY <span style="color:#666">=</span> <span style="color:#b44">&#34;bafca4e813ca8fc43b3c9f1e32d1932b&#34;</span>
+res <span style="color:#666">=</span> subprocess<span style="color:#666">.</span>run(
+    [<span style="color:#b44">&#34;pass&#34;</span>, <span style="color:#b44">&#34;show&#34;</span>, <span style="color:#b44">&#34;Sites/themoviedb.org&#34;</span>], capture_output<span style="color:#666">=</span>True, check<span style="color:#666">=</span>True
+)
+password <span style="color:#666">=</span> res<span style="color:#666">.</span>stdout<span style="color:#666">.</span>splitlines()[<span style="color:#666">0</span>]
+
+auth <span style="color:#666">=</span> tmdb<span style="color:#666">.</span>Authentication()
+token <span style="color:#666">=</span> auth<span style="color:#666">.</span>token_new()[<span style="color:#b44">&#34;request_token&#34;</span>]
+
+auth<span style="color:#666">.</span>token_validate_with_login(request_token<span style="color:#666">=</span>token, username<span style="color:#666">=</span><span style="color:#b44">&#34;sarg&#34;</span>, password<span style="color:#666">=</span>password)
+
+session_id <span style="color:#666">=</span> auth<span style="color:#666">.</span>session_new(request_token<span style="color:#666">=</span>token)[<span style="color:#b44">&#34;session_id&#34;</span>]
+acc <span style="color:#666">=</span> tmdb<span style="color:#666">.</span>Account(session_id)
+acc<span style="color:#666">.</span>info()
+
+movies <span style="color:#666">=</span> []
+idx <span style="color:#666">=</span> <span style="color:#666">1</span>
+<span style="color:#a2f;font-weight:bold">while</span> True:
+    res <span style="color:#666">=</span> acc<span style="color:#666">.</span>rated_movies()
+    movies <span style="color:#666">=</span> movies <span style="color:#666">+</span> res[<span style="color:#b44">&#34;results&#34;</span>]
+    idx <span style="color:#666">=</span> idx <span style="color:#666">+</span> <span style="color:#666">1</span>
+    <span style="color:#a2f;font-weight:bold">if</span> idx <span style="color:#666">&gt;</span> res[<span style="color:#b44">&#34;total_pages&#34;</span>]:
+        <span style="color:#a2f;font-weight:bold">break</span>
+
+<span style="color:#a2f;font-weight:bold">print</span>(json<span style="color:#666">.</span>dumps(movies, indent<span style="color:#666">=</span><span style="color:#666">2</span>))
+</code></pre></div>
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

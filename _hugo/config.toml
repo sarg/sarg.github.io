@@ -38,3 +38,8 @@ weight = 4
 name = "Books"
 url = "/books"
 weight = 5
+
+[[menu.main]]
+name = "Movies"
+url = "/movies"
+weight = 5
