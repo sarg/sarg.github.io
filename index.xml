@@ -6,15 +6,38 @@
     <description>Recent content on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2020 10:12:09 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 08:48:47 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>CV</title>
+      <link>http://sarg.org.ru/cv/</link>
+      <pubDate>Sat, 16 May 2020 08:48:47 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/cv/</guid>
+      <description>pdf version
+Sergey Trofimov, Software Engineer, Berlin [ linkedin.com/in/sarg | github.com/sarg | sarg@sarg.org.ru ]
+Summary 2006-2010 perl webdev, 2010-present java webdev. I know java, kotlin, python, perl. Linux user since 2001, can do DevOps but nothing fancy. In Java I&amp;rsquo;ve worked mostly with Spring and Hibernate and now I prefer smaller hand-picked libraries. I like to “grok” things, follow best practices and try to keep things simple. I can work autonomously but it’s important for me to have like-minded colleagues for technical discussions.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://sarg.org.ru/about/</link>
+      <pubDate>Fri, 15 May 2020 23:06:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/about/</guid>
+      <description>Hi there!
+I am a software engineer who still is fascinated by technology even after 15 years of working with it. You can find my resume here.
+This website is my personal space where I document my little side projects.
+This site is built in Emacs org-mode then exported with ox-hugo and compiled by Hugo. The theme is slightly modified xmin. I&amp;rsquo;ve left detailed instructions how this blog is setted up here: &amp;ldquo;Making hugo powered blog in emacs&amp;quot;.</description>
+    </item>
+    
+    <item>
       <title>Movies</title>
       <link>http://sarg.org.ru/movies/</link>
-      <pubDate>Sun, 26 Apr 2020 10:12:09 +0200</pubDate>
+      <pubDate>Wed, 13 May 2020 21:53:26 +0200</pubDate>
       
       <guid>http://sarg.org.ru/movies/</guid>
       <description>Here is a list of movies that I&amp;rsquo;ve watched and rated. For better UX please look the list on TheMovieDB. This page is under construction.
@@ -38,16 +61,6 @@ To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from 
       
       <guid>http://sarg.org.ru/books/</guid>
       <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read      </description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://sarg.org.ru/about/</link>
-      <pubDate>Fri, 24 Apr 2020 11:46:13 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/about/</guid>
-      <description>Hi there! To take a look of where I&amp;rsquo;ve worked visit my LinkedIn.
-This site is built in Emacs org-mode then exported with ox-hugo and compiled by Hugo. The theme is slightly modified xmin. I&amp;rsquo;ve left detailed instructions how this blog is setted up here: &amp;ldquo;Making hugo powered blog in emacs&amp;quot;.</description>
     </item>
     
     <item>
