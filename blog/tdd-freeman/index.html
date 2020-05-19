@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Growing Object-Oriented Softwared, Guided by Tests. | Random forest</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/tags">Tags</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Growing Object-Oriented Softwared, Guided by Tests.</span></h1>
+<h2 class="date">2020/05/19</h2>
+</div>
+
+<main>
+<p>I&rsquo;ve finished reading <a href="https://www.goodreads.com/book/show/4268826-growing-object-oriented-software-guided-by-tests">Growing Object-Oriented Softwared, Guided by Tests</a> by
+Steve Freeman and Nat Pryce. The book is a good introduction into TDD. First it
+goes through core concepts and then demonstrates how to implement TDD on a simple project.</p>
+<p>My takeouts throughout the reading:</p>
+<ul>
+<li>TDD is a core practice of XP. TDD is not about keeping defects from the users, but helping the team to understand the features and to deliver them reliably and predictably.</li>
+<li>Making code accessible for testing often drives it towards being cleaner and more modular.</li>
+<li>TDD cycle: red/green/refactor</li>
+<li>Different kinds of tests:
+<ul>
+<li><strong>acceptance</strong> - exercises the functionality we want to build. Does the whole system work? Whenever possible should be end-to-end without directly calling internal code.</li>
+<li><strong>integration</strong> - does our code work against code we can&rsquo;t change?</li>
+<li><strong>unit</strong> - do our objects do the right thing, are they convenient to work with?</li>
+</ul>
+</li>
+<li>External/internal quality: customer facing or developer/admin facing</li>
+<li>OOP focuses more on the communication between objects than on the objects themselves. An object has a method of handling every type of message that it understands and in encapsulates some internal state.</li>
+<li>Objects could have different semantics:<br />
+<ul>
+<li><strong>values</strong> model unchanging quantities</li>
+<li><strong>objects</strong> have identity that may change over time and model computational process</li>
+</ul>
+</li>
+</ul>
+<p>TDD best practices:</p>
+<ul>
+<li>First make a minimal &ldquo;skeleton&rdquo; of an app and set up deployment infrastructure. E.g. for a web app it would be a one page site which shows a field in database.</li>
+<li>The development cycle goes like this. When implementing an object, we discover that it needs a service to be provided by another object. We give the new service a name and mock it out in the client object’s unit tests, to clarify the relationship between the two. Then we write an object to provide that service and, in doing so, discover what services that object needs. We follow this chain (or perhaps a directed graph) of collaborator relationships until we connect up to existing objects, either our own or from a third-party API. We think of this as “on-demand” design: we “pull” interfaces and their implementations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.</li>
+</ul>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

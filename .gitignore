@@ -1,4 +1,5 @@
 _site
+_hugo/static
 .DS_Store
 .jekyll
 .jekyll-metadata
