@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="http://sarg.org.ru/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cracking The Code To A Successful Interview</title>
+      <link>http://sarg.org.ru/blog/cracking-interview/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/blog/cracking-interview/</guid>
+      <description>Goodreads - 3/5.
+First impression: Overall the tone of the book is slightly arrogant. The author&amp;rsquo;s ego is soaking from every page.
+After the read: The book is best suited for a sales position in corporate America. Overall the message of the book is: Be prepared, know what&amp;rsquo;s expected of you and give it to the inverviewer in advance. In chapter 9 there is a summary of REAPRICH method. Chapter 10-12,15 are unrelated to hiring process.</description>
+    </item>
     
     <item>
       <title>Growing Object-Oriented Softwared, Guided by Tests.</title>
