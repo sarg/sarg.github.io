@@ -44,13 +44,13 @@ will use the service only as a secondary source with nice UI.</p>
 <p>TMDb has a decent API and there are several python wrappers for it. The script
 for export is pretty straightforward. Retrieve <code>request_token</code>, open session
 (login) for your account and retrieve the list of rated movies from paginated endpoint.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">tmdbsimple</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">tmdb</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">tmdbsimple</span> <span style="color:#a2f;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">tmdb</span>
 <span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">json</span>
 <span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">subprocess</span>
 
 tmdb<span style="color:#666">.</span>API_KEY <span style="color:#666">=</span> <span style="color:#b44">&#34;bafca4e813ca8fc43b3c9f1e32d1932b&#34;</span>
 res <span style="color:#666">=</span> subprocess<span style="color:#666">.</span>run(
-    [<span style="color:#b44">&#34;pass&#34;</span>, <span style="color:#b44">&#34;show&#34;</span>, <span style="color:#b44">&#34;Sites/themoviedb.org&#34;</span>], capture_output<span style="color:#666">=</span>True, check<span style="color:#666">=</span>True
+    [<span style="color:#b44">&#34;pass&#34;</span>, <span style="color:#b44">&#34;show&#34;</span>, <span style="color:#b44">&#34;Sites/themoviedb.org&#34;</span>], capture_output<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">True</span>, check<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">True</span>
 )
 password <span style="color:#666">=</span> res<span style="color:#666">.</span>stdout<span style="color:#666">.</span>splitlines()[<span style="color:#666">0</span>]
 
@@ -65,14 +65,14 @@ acc<span style="color:#666">.</span>info()
 
 movies <span style="color:#666">=</span> []
 idx <span style="color:#666">=</span> <span style="color:#666">1</span>
-<span style="color:#a2f;font-weight:bold">while</span> True:
+<span style="color:#a2f;font-weight:bold">while</span> <span style="color:#a2f;font-weight:bold">True</span>:
     res <span style="color:#666">=</span> acc<span style="color:#666">.</span>rated_movies()
     movies <span style="color:#666">=</span> movies <span style="color:#666">+</span> res[<span style="color:#b44">&#34;results&#34;</span>]
     idx <span style="color:#666">=</span> idx <span style="color:#666">+</span> <span style="color:#666">1</span>
     <span style="color:#a2f;font-weight:bold">if</span> idx <span style="color:#666">&gt;</span> res[<span style="color:#b44">&#34;total_pages&#34;</span>]:
         <span style="color:#a2f;font-weight:bold">break</span>
 
-<span style="color:#a2f;font-weight:bold">print</span>(json<span style="color:#666">.</span>dumps(movies, indent<span style="color:#666">=</span><span style="color:#666">2</span>))
+<span style="color:#a2f">print</span>(json<span style="color:#666">.</span>dumps(movies, indent<span style="color:#666">=</span><span style="color:#666">2</span>))
 </code></pre></div>
 </main>
 

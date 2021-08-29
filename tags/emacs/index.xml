@@ -6,11 +6,7 @@
     <description>Recent content in emacs on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="http://sarg.org.ru/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0200</lastBuildDate><atom:link href="http://sarg.org.ru/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making hugo powered blog in emacs</title>
       <link>http://sarg.org.ru/blog/emacs-hugo/</link>
@@ -23,7 +19,7 @@
     <item>
       <title>Get the brain off the instant gratification hook</title>
       <link>http://sarg.org.ru/blog/telega-otp/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://sarg.org.ru/blog/telega-otp/</guid>
       <description>&lt;p&gt;It easily becomes automatic to check for notifications/new messages/new emails

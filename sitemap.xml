@@ -1,105 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/</loc>
-    <lastmod>2020-05-28T12:17:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/book/</loc>
-    <lastmod>2020-05-28T12:17:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/cracking-interview/</loc>
-    <lastmod>2020-05-28T12:17:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/it/</loc>
-    <lastmod>2020-05-28T12:17:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/tags/</loc>
-    <lastmod>2020-05-28T12:17:36+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/cv/</loc>
-    <lastmod>2020-05-19T14:39:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/</loc>
-    <lastmod>2020-05-19T14:39:33+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/tdd-freeman/</loc>
-    <lastmod>2020-05-19T14:30:52+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/</loc>
-    <lastmod>2020-05-18T11:54:02+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/about/</loc>
-    <lastmod>2020-05-15T23:06:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/movies/</loc>
-    <lastmod>2020-05-13T21:53:26+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://sarg.org.ru/blog/tmdb-export/</loc>
-    <lastmod>2020-04-26T10:08:53+02:00</lastmod>
-  </url>
-  
   <url>
     <loc>http://sarg.org.ru/books/</loc>
-    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:09+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/cv/</loc>
+    <lastmod>2021-08-29T11:23:09+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/movies/</loc>
+    <lastmod>2021-08-29T11:23:09+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/about/</loc>
+    <lastmod>2021-08-29T11:23:08+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/blog/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/tags/book/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/tags/it/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/tags/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/blog/cracking-interview/</loc>
+    <lastmod>2021-08-29T11:23:12+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/blog/tdd-freeman/</loc>
+    <lastmod>2021-08-29T11:23:11+02:00</lastmod>
+  </url><url>
+    <loc>http://sarg.org.ru/blog/tmdb-export/</loc>
+    <lastmod>2021-08-29T11:23:11+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/tags/android/</loc>
-    <lastmod>2020-05-27T21:04:15+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:11+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/blog/android-apps/</loc>
-    <lastmod>2020-05-27T21:04:15+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:11+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/blog/android-backup/</loc>
-    <lastmod>2020-05-20T12:16:27+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:11+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/tags/emacs/</loc>
-    <lastmod>2020-04-24T11:46:15+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:10+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/blog/emacs-hugo/</loc>
-    <lastmod>2020-04-24T11:46:15+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:10+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/blog/freeotp-to-pass/</loc>
-    <lastmod>2020-05-12T06:54:44+02:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-29T11:23:10+02:00</lastmod>
+  </url><url>
     <loc>http://sarg.org.ru/blog/telega-otp/</loc>
-    <lastmod>2020-04-24T11:46:14+02:00</lastmod>
+    <lastmod>2021-08-29T11:23:10+02:00</lastmod>
   </url>
-  
 </urlset>

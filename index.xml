@@ -6,13 +6,52 @@
     <description>Recent content on Random forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 May 2020 14:39:33 +0200</lastBuildDate>
-    
-	<atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0200</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Books</title>
+      <link>http://sarg.org.ru/books/</link>
+      <pubDate>Sun, 29 Aug 2021 11:23:09 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/books/</guid>
+      <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read      </description>
+    </item>
     
     <item>
-      <title>Cracking The Code To A Successful Interview</title>
+      <title>CV</title>
+      <link>http://sarg.org.ru/cv/</link>
+      <pubDate>Sun, 29 Aug 2021 11:23:09 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/cv/</guid>
+      <description>pdf version
+Sergey Trofimov, Software Engineer, Berlin [ linkedin.com/in/sarg | github.com/sarg | sarg@sarg.org.ru ]
+Objective A position in software engineering with autonomy and challenge. I would like to try myself in mentoring and leading small teams.
+Skills  designing and implementing scalable distributed web applications from the ground up adopting best practices in coding / documenting / deploying / monitoring refactoring and optimizing applications without end user impact  Summary 2010-present java webdev, 2006-2010 perl webdev.</description>
+    </item>
+    
+    <item>
+      <title>Movies</title>
+      <link>http://sarg.org.ru/movies/</link>
+      <pubDate>Sun, 29 Aug 2021 11:23:09 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/movies/</guid>
+      <description>Here is a list of movies that I&amp;rsquo;ve watched and rated. For better UX please look the list on TheMovieDB. This page is under construction.
+   Title Overview Rating     Tickled Journalist David Farrier stumbles upon a mysterious tickling competition online. As he delves deeper he comes up against fierce resistance, but that doesn’t stop him getting to the bottom of a story stranger than fiction.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://sarg.org.ru/about/</link>
+      <pubDate>Sun, 29 Aug 2021 11:23:08 +0200</pubDate>
+      
+      <guid>http://sarg.org.ru/about/</guid>
+      <description>Hi there!
+I am a software engineer who still is fascinated by technology even after 15 years of working with it. You can find my resume here.
+This website is my personal space where I document my little side projects.
+This site is built in Emacs org-mode then exported with ox-hugo and compiled by Hugo. The theme is slightly modified xmin. I&amp;rsquo;ve left detailed instructions how this blog is setted up here: &amp;ldquo;Making hugo powered blog in emacs&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>🕮 Cracking The Code To A Successful Interview</title>
       <link>http://sarg.org.ru/blog/cracking-interview/</link>
       <pubDate>Thu, 28 May 2020 00:00:00 +0200</pubDate>
       
@@ -23,19 +62,7 @@ After the read: The book is best suited for a sales position in corporate Americ
     </item>
     
     <item>
-      <title>CV</title>
-      <link>http://sarg.org.ru/cv/</link>
-      <pubDate>Tue, 19 May 2020 14:39:33 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/cv/</guid>
-      <description>pdf version
-Sergey Trofimov, Software Engineer, Berlin [ linkedin.com/in/sarg | github.com/sarg | sarg@sarg.org.ru ]
-Objective A position in software engineering with autonomy and challenge. I would like to try myself in mentoring and leading small teams.
-Skills  designing and implementing scalable distributed web applications from the ground up adopting best practices in coding / documenting / deploying / monitoring refactoring and optimizing applications without end user impact  Summary 2010-present java webdev, 2006-2010 perl webdev.</description>
-    </item>
-    
-    <item>
-      <title>Growing Object-Oriented Softwared, Guided by Tests.</title>
+      <title>🕮 Growing Object-Oriented Softwared, Guided by Tests.</title>
       <link>http://sarg.org.ru/blog/tdd-freeman/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0200</pubDate>
       
@@ -43,817 +70,6 @@ Skills  designing and implementing scalable distributed web applications from th
       <description>I&amp;rsquo;ve finished reading Growing Object-Oriented Softwared, Guided by Tests by Steve Freeman and Nat Pryce. The book is a good introduction into TDD. First it goes through core concepts and then demonstrates how to implement TDD on a simple project.
 My takeouts throughout the reading:
  TDD is a core practice of XP. TDD is not about keeping defects from the users, but helping the team to understand the features and to deliver them reliably and predictably.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://sarg.org.ru/blog/</link>
-      <pubDate>Mon, 18 May 2020 11:54:02 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/blog/</guid>
-      <description>&lt;h2 id=&#34;pages&#34;&gt;Pages&lt;/h2&gt;
-&lt;h3 id=&#34;about&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; About&lt;/h3&gt;
-&lt;p&gt;Hi there!&lt;/p&gt;
-&lt;p&gt;I am a software engineer who still is fascinated by technology even after 15
-years of working with it. You can find my resume &lt;a href=&#34;#cv&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This website is my personal space where I document my little side projects.&lt;/p&gt;
-&lt;p&gt;This site is built in Emacs &lt;a href=&#34;https://orgmode.org/&#34;&gt;org-mode&lt;/a&gt; then exported with
-&lt;a href=&#34;https://ox-hugo.scripter.co/&#34;&gt;ox-hugo&lt;/a&gt; and compiled by &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. The theme is slightly modified
-&lt;a href=&#34;https://themes.gohugo.io/hugo-xmin/&#34;&gt;xmin&lt;/a&gt;. I&amp;rsquo;ve left detailed instructions how this blog is setted up here: &amp;ldquo;&lt;a href=&#34;#making-hugo-powered-blog-in-emacs&#34;&gt;Making hugo powered blog in emacs&lt;/a&gt;&amp;quot;.&lt;/p&gt;
-&lt;h3 id=&#34;cv&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; CV&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://sarg.org.ru/ox-hugo/cv-sergey-trofimov.pdf&#34;&gt;pdf version&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;sergey-trofimov-software-engineer-berlin&#34;&gt;Sergey Trofimov, Software Engineer, Berlin&lt;/h4&gt;
-&lt;p&gt;[ &lt;a href=&#34;https://linkedin.com/in/sarg&#34;&gt;linkedin.com/in/sarg&lt;/a&gt; | &lt;a href=&#34;https://github.com/sarg&#34;&gt;github.com/sarg&lt;/a&gt; | &lt;a href=&#34;mailto:sarg@sarg.org.ru&#34;&gt;sarg@sarg.org.ru&lt;/a&gt; ]&lt;/p&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;span class=&#34;org-todo todo TODO&#34;&gt;TODO&lt;/span&gt;  fixes&lt;/p&gt;
-&lt;p&gt;email / phone
-education up
-remove &amp;ldquo;grok&amp;rdquo; and technicalities
-make skills in summary more visible
-write an objective&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Objective&lt;/p&gt;
-&lt;p&gt;A position in software engineering with autonomy and challenge. I would like to try myself in mentoring and leading small teams.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Skills&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;designing and implementing scalable distributed web applications from the ground up&lt;/li&gt;
-&lt;li&gt;adopting best practices in coding / documenting / deploying / monitoring&lt;/li&gt;
-&lt;li&gt;refactoring and optimizing applications without end user impact&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Summary&lt;/p&gt;
-&lt;p&gt;2010-present java webdev, 2006-2010 perl webdev. I know java, kotlin, python, perl. Linux user since 2001, can do DevOps but nothing fancy. In Java I&amp;rsquo;ve worked mostly with Spring and Hibernate and now I prefer smaller hand-picked libraries. I “grok” things, follow best practices and keep things simple. I can work autonomously but it’s important for me to have like-minded colleagues for technical discussions. I think that readability of code is really important so I strive for clean code and thorough documentation. I have a BSc in Software Engineering and have EU Blue Card residence permit.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Work experience&lt;/p&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Expert Software Engineer at Auto1 07/2019 - present&lt;/p&gt;
-&lt;p&gt;Stack: java8, spring5, aws, consul, postgresql, redis&lt;/p&gt;
-&lt;p&gt;Europe&amp;rsquo;s leading online B2B marketplace for used cars. I am working in the Core Team which focuses on the internal software ecosystem. We do company-wide refactorings, support common libraries and provide other teams with tools to increase their productivity.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Promoted after 6 months because of outstanding performance&lt;/li&gt;
-&lt;li&gt;Created tools to mitigate migration of ~300 java APIs to OpenAPI&lt;/li&gt;
-&lt;li&gt;Reduced AWS costs by investigating spring-boot apps startup time  and memory consumption and finding a way to lower it&lt;/li&gt;
-&lt;li&gt;Streamlined migration to spring5/spring-boot 2.x by a complex overhaul of dependency tree and refactoring common libraries&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Senior Kotlin Developer at HortiCloud 05/2018 - 06/2019&lt;/p&gt;
-&lt;p&gt;Stack: kotlin, ebean, hk2, aws kinesis/ebs/redshift/rds/s3, jetty, terraform, reactjs, clickhouse, postgresql, letsencrypt&lt;/p&gt;
-&lt;p&gt;Startup in the agricultural industry that builds a complex SaaS for greenhouses. An agent installed on a greenhouse climate computer sends vast amounts of raw climate metrics to the cloud where the data is being processed and rendered in a beautiful modern dashboard. We had set strict SLAs and enforcing them was a challenge.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Implemented a system for unattended upgrades of our software installed on customer climate computers&lt;/li&gt;
-&lt;li&gt;Created admin interface (reactjs) and automated routine customer supporting tasks&lt;/li&gt;
-&lt;li&gt;Halved AWS costs for development environments by getting rid of ALB&lt;/li&gt;
-&lt;li&gt;Sped up graph plotting by replacing Redshift with Clickhouse&lt;/li&gt;
-&lt;li&gt;Brought in Terraform to describe and maintain AWS infrastructure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Development Lead at [SRG] 02/2015 - 05/2018&lt;/p&gt;
-&lt;p&gt;Stack: java8, spring4, spring-boot, thymeleaf, nginx, puppet, jetty, tomcat7, grafana, zabbix, jenkins,  mysql, redis&lt;/p&gt;
-&lt;p&gt;Company makes estimations of real-estate properties for banks by means of ML. I started as a senior and gradually assumed more roles and ended up being responsible for all technology in the company. I worked on SOAP/REST services, developed several web apps, scraped and cleaned lots of data for ML, tuned and enhanced ML algorithms, did DevOps and hiring interviews (~40).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Migrated company to infrastructure-as-a-code (puppet)&lt;/li&gt;
-&lt;li&gt;Implemented monitoring and alerting (zabbix)&lt;/li&gt;
-&lt;li&gt;Significantly reduced time for a daily data scrape by redesigning the scraping robot from scratch&lt;/li&gt;
-&lt;li&gt;Made process of gathering data predictable and measurable by introducing metrics collection and analysis (grafana, statsd)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Senior Software Engineer at TezTour 09/2011 - 02/2015&lt;/p&gt;
-&lt;p&gt;Stack: java7, maven, jenkins, oracle+pl/sql, spring, hibernate, jquery, gwt, jsp&lt;/p&gt;
-&lt;p&gt;One of the biggest tour operators in Russia. I was the main developer of a CRM system for travel agencies. Also with the help of business analytic I designed and implemented a B2C solution for direct tour sales from the company website.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Reduced codebase 3 times by upgrading gwt from 1.6 to 2.4&lt;/li&gt;
-&lt;li&gt;Reduced boilerplate code by introducing spring annotations and lombok&lt;/li&gt;
-&lt;li&gt;Introduced CI in the company (jenkins)&lt;/li&gt;
-&lt;li&gt;Introduced automated Selenium testing&lt;/li&gt;
-&lt;li&gt;Optimized PDF generation and reduced file size from 1mb to 100kb&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Junior Java Developer at John Wiley and Sons 11/2010 - 08/2011&lt;/p&gt;
-&lt;p&gt;Stack: ejb, jsf, marklogic&lt;/p&gt;
-&lt;p&gt;Wiley is a well-known book publisher and they had IT department in my city. After several months sabbatical I&amp;rsquo;ve decided to pivot my career from Perl to Java and got into the company. As a junior java developer I&amp;rsquo;ve closed a lot of long-standing bug reports.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Software Developer at Yandex 01/2008 - 02/2010&lt;/p&gt;
-&lt;p&gt;Stack: perl, mapreduce, amcharts&lt;/p&gt;
-&lt;p&gt;Yandex is a russian Google. The company is built around search and is hugely popular in Russia. I was working in the statistics department. Our team was developing an internal analytics platform akin Google Analytics, which used access logs as a source. I had to work with terabyte sized databases and to write effective SQL aggregating queries. My main duty was to implement statistical reports that were requested by other teams and used for A/B testing or KPI measurements.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Improved UX for working with data by replacing statically generated graphs by interactive charting engine&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- &lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Software Developer at Rambler&amp;amp;Co 06/2006 - 12/2007&lt;/p&gt;
-&lt;p&gt;Stack: Perl, SQL, HTML, CSS, Postgresql&lt;/p&gt;
-&lt;p&gt;Rambler is one of the oldest russian IT companies. Started as a search engine now it’s a big media holding that operates multiple websites. I was working on Rambler&amp;rsquo;s early social network &amp;ldquo;Planeta&amp;rdquo;. Despite it wasn&amp;rsquo;t that popular - the website received enough traffic so that performance started to matter. Here I learned about caches and their invalidation, database replication, scheduled backups, SQL query optimization. And obviously lots of HTML/CSS.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Designed and implemented SMS voting system&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--list-separator--&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Education&lt;/p&gt;
-&lt;p&gt;2004-2009 Moscow State Technical University
-Engineer of Metalworking Machines&lt;/p&gt;
-&lt;p&gt;2016-2019 Moscow State Institute of Radio Engineering, Electronics and Automation
-BSc in Computer Software Engineering&lt;/p&gt;
-&lt;p&gt;Constantly educate myself with various online courses and side projects.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;movies&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; Movies&lt;/h3&gt;
-&lt;p&gt;Here is a list of movies that I&amp;rsquo;ve watched and rated. For better UX please look
-the list on &lt;a href=&#34;https://www.themoviedb.org/u/sarg/ratings&#34;&gt;TheMovieDB&lt;/a&gt;. This page is &lt;a href=&#34;#exporting-watch-list-from-tmdb&#34;&gt;under construction&lt;/a&gt;.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Title&lt;/th&gt;
-&lt;th&gt;Overview&lt;/th&gt;
-&lt;th&gt;Rating&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/373072&#34;&gt;Tickled&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Journalist David Farrier stumbles upon a mysterious tickling competition online. As he delves deeper he comes up against fierce resistance, but that doesn’t stop him getting to the bottom of a story stranger than fiction.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/2907&#34;&gt;The Addams Family&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When an evil doctor finds out Uncle Fester has been missing for 25 years, he introduces a fake Fester in an attempt to get the Addams family&#39;s money. Wednesday has some doubts about the new uncle Fester, but the fake uncle adapts very well to the strange family.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/279&#34;&gt;Amadeus&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The incredible story of genius musician Wolfgang Amadeus Mozart, told in flashback by his peer and secret rival, Antonio Salieri—now confined to an insane asylum.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/583&#34;&gt;Life of Brian&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Brian Cohen is an average young Jewish man, but through a series of ridiculous events, he gains a reputation as the Messiah. When he&#39;s not dodging his followers or being scolded by his shrill mother, the hapless Brian has to contend with the pompous Pontius Pilate and acronym-obsessed members of a separatist movement. Rife with Monty Python&#39;s signature absurdity, the tale finds Brian&#39;s life paralleling Biblical lore, albeit with many more laughs.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/324857&#34;&gt;Spider-Man: Into the Spider-Verse&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson &amp;quot;Kingpin&amp;quot; Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/149&#34;&gt;Akira&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A secret military project endangers Neo-Tokyo when it turns a biker gang member into a rampaging psychic psychopath that only two teenagers and a group of psychics can stop.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/515042&#34;&gt;Free Solo&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Follow Alex Honnold as he attempts to become the first person to ever free solo climb Yosemite&#39;s 3,000 foot high El Capitan wall. With no ropes or safety gear, this would arguably be the greatest feat in rock climbing history.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/9434&#34;&gt;Grosse Pointe Blank&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Martin Blank is a freelance hitman who starts to develop a conscience, which causes him to botch a couple of routine assignments. On the advice of his secretary and his psychiatrist, he decides to attend his 10 year high school reunion in Grosse Pointe, Michigan.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/71883&#34;&gt;Redline&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The most dangerous and exciting car race in the universe is held only once every five years. And that&#39;s tonight. The competitors are lined up at the starting block. In his vehicle, JP, the most daredevil driver on the circuit, is ready for the green light. Female driver Sonoshee, with whom he is secretly in love, is also on the starting line. She will stop at nothing to get on to that podium. In this race, not only is anything possible, but also anything is allowed. In fact, their adversaries have modified their vehicles to equip them with highly destructive weapons; with such participants, it is hardly surprising that Redline is forbidden by the authorities, who will try anything to halt the proceedings. These speed addicts have to put themselves in mortal danger to achieve their aim: eternal glory for those who finally mount the podium.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/26672&#34;&gt;The Thief and the Cobbler&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;It is written among the limitless constellations of the celestial heavens, and  in the depths of the emerald seas, and upon every grain of sand in the vast  deserts, that the world which we see is an outward and visible dream, of an  inward and invisible reality &amp;hellip; Once upon a time there was a golden city. In  the center of the golden city, atop the tallest minaret, were three golden  balls. The ancients had prophesied that if the three golden balls were ever  taken away, harmony would yield to discord, and the city would fall to  destruction and death. But&amp;hellip; the mystics had also foretold that the city might  be saved by the simplest soul with the smallest and simplest of things. In the  city there dwelt a lowly shoemaker, who was known as Tack the Cobbler. Also in  the city&amp;hellip; existed a Thief, who shall be&amp;hellip; nameless.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/59966&#34;&gt;Mozart, l&#39;Opéra Rock&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/74643&#34;&gt;The Artist&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Hollywood, 1927: As silent movie star George Valentin wonders if the arrival of talking pictures will cause him to fade into oblivion, he sparks with Peppy Miller, a young dancer set for a big break.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/104&#34;&gt;Run Lola Run&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Lola receives a phone call from her boyfriend Manni. He lost 100,000 DM in a subway train that belongs to a very bad guy. She has 20 minutes to raise this amount and meet Manni. Otherwise, he will rob a store to get the money. Three different alternatives may happen depending on some minor event along Lola&#39;s run.&lt;/td&gt;
-&lt;td&gt;10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/11910&#34;&gt;Hogfather&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;It&#39;s the night before Hogswatch, usually a time of joy on Discworld, but there are suspicious going-on and the criminal underworld is abuzz. The beloved Hogfather - the jolly bearer of glee and pork-related gifts for children everywhere - has vanished. Suddenly, Discworld&#39;s entire mythical system is under threat. The fate of this magical time rests in the hands of a very motley group: A band of wizards headed up by a mystical university president named Mustrum Ridcully (Joss Ackland), a loyal manservant called Albert (David Jason), a level-headed governess called Susan Sto Heilt (Michelle Dockery), and her grandfather, who happens to be - Death (Marnix van den Broeke).&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/372058&#34;&gt;Your Name.&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/146233&#34;&gt;Prisoners&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When Keller Dover&#39;s daughter and her friend go missing, he takes matters into his own hands as the police pursue multiple leads and the pressure mounts. But just how far will this desperate father go to protect his family?&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/4960&#34;&gt;Synecdoche, New York&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A theater director struggles with his work, and the women in his life, as he attempts to create a life-size replica of New York inside a warehouse as part of his new play.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/263115&#34;&gt;Logan&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In the near future, a weary Logan cares for an ailing Professor X in a hideout on the Mexican border. But Logan&#39;s attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/354912&#34;&gt;Coco&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel&#39;s family history.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/146&#34;&gt;Crouching Tiger, Hidden Dragon&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Two warriors in pursuit of a stolen sword and a notorious fugitive are led to an impetuous, physically-skilled, teenage nobleman&#39;s daughter, who is at a crossroads in her life.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/54138&#34;&gt;Star Trek Into Darkness&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When the crew of the Enterprise is called back home, they find an unstoppable force of terror from within their own organization has detonated the fleet and everything it stands for, leaving our world in a state of crisis.  With a personal score to settle, Captain Kirk leads a manhunt to a war-zone world to capture a one man weapon of mass destruction. As our heroes are propelled into an epic chess game of life and death, love will be challenged, friendships will be torn apart, and sacrifices must be made for the only family Kirk has left: his crew.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/496243&#34;&gt;Parasite&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;All unemployed, Ki-taek&#39;s family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/262&#34;&gt;The King of Comedy&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Aspiring comic Rupert Pupkin attempts to achieve success in show business by stalking his idol, a late night talk-show host who craves his own privacy.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/152839&#34;&gt;The Chairman&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Year 1947&amp;hellip; Yegor Trubnikov is giving all his powers to make life in his own Kolhoz better.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/83542&#34;&gt;Cloud Atlas&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A set of six nested stories spanning time between the 19th century and a distant post-apocalyptic future. Cloud Atlas explores how the actions and consequences of individual lives impact one another throughout the past, the present and the future. Action, mystery and romance weave through the story as one soul is shaped from a killer into a hero and a single act of kindness ripples across centuries to inspire a revolution in the distant future.  Based on the award winning novel by David Mitchell. Directed by Tom Tykwer and the Wachowskis.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/343668&#34;&gt;Kingsman: The Golden Circle&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When an attack on the Kingsman headquarters takes place and a new villain rises, Eggsy and Merlin are forced to work together with the American agency known as the Statesman to save the world.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/329865&#34;&gt;Arrival&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/273481&#34;&gt;Sicario&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/1592&#34;&gt;Primal Fear&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;An arrogant, high-powered attorney takes on the case of a poor altar boy found running away from the scene of the grisly murder of the bishop who has taken him in. The case gets a lot more complex when the accused reveals that there may or may not have been a third person in the room. The intensity builds when a surprise twist alters everyone&#39;s perception of the crime.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/335984&#34;&gt;Blade Runner 2049&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what&#39;s left of society into chaos. K&#39;s discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/14919&#34;&gt;Batman: Mask of the Phantasm&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Andrea Beaumont strolls back into town, rekindling an old romance with Bruce Wayne. At the same time, Batman is mistaken for a masked vigilante assassin who has begun systematically eliminating Gotham&#39;s crime bosses. Now on the run, Batman must solve the mystery, while navigating his relationship with Andrea.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/10315&#34;&gt;Fantastic Mr. Fox&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The Fantastic Mr. Fox bored with his current life, plans a heist against the three local farmers. The farmers, tired of sharing their chickens with the sly fox, seek revenge against him and his family.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/487558&#34;&gt;BlacKkKlansman&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Colorado Springs, late 1970s. Ron Stallworth, an African American police officer, and Flip Zimmerman, his Jewish colleague, run an undercover operation to infiltrate the Ku Klux Klan.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/399174&#34;&gt;Isle of Dogs&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In the future, an outbreak of canine flu leads the mayor of a Japanese city to banish all dogs to an island that&#39;s a garbage dump. The outcasts must soon embark on an epic journey when a 12-year-old boy arrives on the island to find his beloved pet.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/359940&#34;&gt;Three Billboards Outside Ebbing, Missouri&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;After seven months have passed without a culprit in her daughter&#39;s murder case, Mildred Hayes makes a bold move, painting three signs leading into her town with a controversial message directed at Bill Willoughby, the town&#39;s revered chief of police. When his second-in-command Officer Jason Dixon, an immature mother&#39;s boy with a penchant for violence, gets involved, the battle between Mildred and Ebbing&#39;s law enforcement is only exacerbated.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/10674&#34;&gt;Mulan&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A tomboyish girl disguises herself as a young man so she can fight with the Imperial Chinese Army against the invading Huns. With help from wise-cracking dragon Mushu, Mulan just might save her country &amp;ndash; and win the heart of handsome Captain Li Shang.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/346364&#34;&gt;It&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/762&#34;&gt;Monty Python and the Holy Grail&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as &amp;quot;it is a silly place&amp;quot;.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/24869&#34;&gt;Ink&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Invisible forces exert power over us in our sleep. A mercenary named Ink, on a literal nightmare mission, captures the spirit of 8-year-old Emma in the dream world. To save her, the dream-givers marshal all their resources, focusing on saving the soul of Emma&#39;s tragically broken father.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/333339&#34;&gt;Ready Player One&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When the creator of a popular video game system dies, a virtual contest is created to compete for his fortune.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/220289&#34;&gt;Coherence&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;On the night of an astronomical anomaly, eight friends at a dinner party experience a troubling chain of reality bending events.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/490132&#34;&gt;Green Book&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Tony Lip, a bouncer in 1962, is hired to drive pianist Don Shirley on a tour through the Deep South in the days when African Americans, forced to find alternate accommodations and services due to segregation laws below the Mason-Dixon Line, relied on a guide called The Negro Motorist Green Book.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/379149&#34;&gt;The Foreigner&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Quan is a humble London businessman whose long-buried past erupts in a revenge-fueled vendetta when the only person left for him to love – his teenage daughter – dies in a senseless act of politically-motivated terrorism. His relentless search to find the terrorists leads to a cat-and-mouse conflict with a British government official whose own past may hold the clues to the identities of the elusive killers.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/408&#34;&gt;Snow White and the Seven Dwarfs&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A beautiful girl, Snow White, takes refuge in the forest in the house of seven dwarfs to hide from her stepmother, the wicked Queen. The Queen is jealous because she wants to be known as &amp;quot;the fairest in the land,&amp;quot; and Snow White&#39;s beauty surpasses her own.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/533&#34;&gt;Wallace &amp;amp; Gromit: The Curse of the Were-Rabbit&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Cheese-loving eccentric Wallace and his cunning canine pal, Gromit, investigate a mystery in Nick Park&#39;s animated adventure, in which the lovable inventor and his intrepid pup run a business ridding the town of garden pests. Using only humane methods that turn their home into a halfway house for evicted vermin, the pair stumble upon a mystery involving a voracious vegetarian monster that threatens to ruin the annual veggie-growing contest.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/299536&#34;&gt;Avengers: Infinity War&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/44737&#34;&gt;Babies&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Babies, also known as Baby(ies) and Bébé(s), is a 2009 French documentary film by Thomas Balmès that follows four infants from birth to when they are one year old. The babies featured in the film are two from rural areas: Ponijao from Opuwo, Namibia, and Bayar from Bayanchandmani, Mongolia, as well as two from urban areas: Mari from Tokyo, Japan, and Hattie from San Francisco, USA.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/446894&#34;&gt;Smallfoot&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A bright young yeti finds something he thought didn&#39;t exist—a human. News of this “smallfoot” throws the simple yeti community into an uproar over what else might be out there in the big world beyond their snowy village.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/381288&#34;&gt;Split&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Though Kevin has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher, there remains one still submerged who is set to materialize and dominate all the others. Compelled to abduct three teenage girls led by the willful, observant Casey, Kevin reaches a war for survival among all of those contained within him — as well as everyone around him — as the walls between his compartments shatter apart.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/500664&#34;&gt;Upgrade&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A brutal mugging leaves Grey Trace paralyzed in the hospital and his beloved wife dead. A billionaire inventor soon offers Trace a cure — an artificial intelligence implant called STEM that will enhance his body. Now able to walk, Grey finds that he also has superhuman strength and agility — skills he uses to seek revenge against the thugs who destroyed his life.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/313297&#34;&gt;Kubo and the Two Strings&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Kubo mesmerizes the people in his village with his magical gift for spinning wild tales with origami. When he accidentally summons an evil spirit seeking vengeance, Kubo is forced to go on a quest to solve the mystery of his fallen samurai father and his mystical weaponry, as well as discover his own magical powers.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/170657&#34;&gt;Journey to the West: Conquering the Demons&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In a world plagued by demons who cause great human suffering, young demon hunter Xuan Zang risks his all to conquer a water demon, a pig demon and the demon of all demons, Sun Wukong.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/419430&#34;&gt;Get Out&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Chris and his girlfriend Rose go upstate to visit her parents for the weekend. At first, Chris reads the family&#39;s overly accommodating behavior as nervous attempts to deal with their daughter&#39;s interracial relationship, but as the weekend progresses, a series of increasingly disturbing discoveries lead him to a truth that he never could have imagined.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/70670&#34;&gt;Headhunters&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;An accomplished headhunter risks everything to obtain a valuable painting owned by a former mercenary..&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/4011&#34;&gt;Beetlejuice&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Thanks to an untimely demise via drowning, a young couple end up as poltergeists in their New England farmhouse, where they fail to meet the challenge of scaring away the insufferable new owners, who want to make drastic changes. In desperation, the undead newlyweds turn to an expert frightmeister, but he&#39;s got a diabolical agenda of his own.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/443009&#34;&gt;Don&#39;t Worry, He Won&#39;t Get Far on Foot&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;On the rocky path to sobriety after a life-changing accident, John Callahan discovers the healing power of art, willing his injured hands into drawing hilarious, often controversial cartoons, which bring him a new lease on life.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/353081&#34;&gt;Mission: Impossible - Fallout&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When an IMF mission ends badly, the world is faced with dire consequences. As Ethan Hunt takes it upon himself to fulfill his original briefing, the CIA begin to question his loyalty and his motives. The IMF team find themselves in a race against time, hunted by assassins while trying to prevent a global catastrophe.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/370755&#34;&gt;Paterson&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A week in the life of Paterson, a poet bus driver, and his wife Laura, a very creative artist, who live in Paterson, New Jersey, hometown of many famous poets and artists.&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/11621&#34;&gt;Porco Rosso&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Porco Rosso, known in Japan as Crimson Pig (Kurenai no Buta) is the sixth animated film by Hayao Miyazaki and released in 1992. You&#39;re introduced to an Italian World War I fighter ace, now living as a freelance bounty hunter chasing &amp;quot;air pirates&amp;quot; in the Adriatic Sea. He has been given a curse that changed his head to that of a pig. Once called Marco Pagot, he is now known to the world as &amp;quot;Porco Rosso&amp;quot;, Italian for &amp;quot;Red Pig.&amp;quot;&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/26963&#34;&gt;The Secret of Kells&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Adventure awaits 12 year old Brendan who must fight Vikings and a serpent god to find a crystal and complete the legendary Book of Kells. In order to finish Brother Aiden&#39;s book, Brendan must overcome his deepest fears on a secret quest that will take him beyond the abbey walls and into the enchanted forest where dangerous mythical creatures hide. Will Brendan succeed in his quest?&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/300668&#34;&gt;Annihilation&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don&#39;t apply.&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/383498&#34;&gt;Deadpool 2&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy&#39;s life.&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/284053&#34;&gt;Thor: Ragnarok&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/302401&#34;&gt;Snowden&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;CIA employee Edward Snowden leaks thousands of classified documents to the press.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/259316&#34;&gt;Fantastic Beasts and Where to Find Them&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In 1926, Newt Scamander arrives at the Magical Congress of the United States of America with a magically expanded briefcase, which houses a number of dangerous creatures and their habitats. When the creatures escape from the briefcase, it sends the American wizarding authorities after Newt, and threatens to strain even further the state of magical and non-magical relations.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/339403&#34;&gt;Baby Driver&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/333385&#34;&gt;Mr. Right&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A girl falls for the &amp;quot;perfect&amp;quot; guy, who happens to have a very fatal flaw: he&#39;s a hitman on the run from the crime cartels who employ him.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/11827&#34;&gt;Heavy Metal&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A glowing orb terrorizes a young girl with a collection of stories of dark fantasy, eroticism and horror.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/324670&#34;&gt;Spectral&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A special-ops team is dispatched to fight supernatural beings that have taken over a European city.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/66150&#34;&gt;Life in a Day&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A documentary shot by filmmakers all over the world that serves as a time capsule to show future generations what it was like to be alive on the 24th of July, 2010.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/381341&#34;&gt;Perfect Strangers&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;During a dinner, a group of friends decide to share whatever text message or phone call they will receive during the evening - and all hell breaks loose.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/399579&#34;&gt;Alita: Battle Angel&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When Alita awakens with no memory of who she is in a future world she does not recognize, she is taken in by Ido, a compassionate doctor who realizes that somewhere in this abandoned cyborg shell is the heart and soul of a young woman with an extraordinary past.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/1621&#34;&gt;Trading Places&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A snobbish investor and a wily street con-artist find their positions reversed as part of a bet by two callous millionaires.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/277834&#34;&gt;Moana&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In Ancient Polynesia, when a terrible curse incurred by Maui reaches an impetuous Chieftain&#39;s daughter&#39;s island, she answers the Ocean&#39;s call to seek out the demigod to set things right.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/619264&#34;&gt;The Platform&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A mysterious place, an indescribable prison, a deep hole. An unknown number of levels. Two inmates living on each level. A descending platform containing food for all of them. An inhuman fight for survival, but also an opportunity for solidarity…&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/302946&#34;&gt;The Accountant&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;As a math savant uncooks the books for a new client, the Treasury Department closes in on his activities and the body count starts to rise.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/369972&#34;&gt;First Man&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon on July 20, 1969.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/138697&#34;&gt;Don Jon&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A New Jersey guy dedicated to his family, friends, and church, develops unrealistic expectations from watching porn and works to find happiness and intimacy with his potential true love.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/71859&#34;&gt;We Need to Talk About Kevin&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;After her son Kevin commits a horrific act, troubled mother Eva reflects on her complicated relationship with her disturbed son as he grew from a toddler into a teenager.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/283995&#34;&gt;Guardians of the Galaxy Vol. 2&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The Guardians must fight to keep their newfound family together as they unravel the mysteries of Peter Quill&#39;s true parentage.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/9387&#34;&gt;Conan the Barbarian&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A film adaptation of the classic sword and sorcery hero, Conan the Barbarian. A horde of rampaging warriors massacre the parents of young Conan and enslave the young child for years on The Wheel of Pain. As the sole survivor of the childhood massacre, Conan is released from slavery and taught the ancient arts of fighting. Transforming himself into a killing machine, Conan travels into the wilderness to seek vengeance on Thulsa Doom, the man responsible for killing his family. In the wilderness, Conan takes up with the thieves Valeria and Subotai. The group comes upon King Osric, who wants the trio of warriors to help rescue his daughter who has joined Doom in the hills.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/289&#34;&gt;Casablanca&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In Casablanca, Morocco in December 1941, a cynical American expatriate meets a former lover, with unforeseen complications.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/18533&#34;&gt;Bronson&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A young man who was sentenced to 7 years in prison for robbing a post office ends up spending 30 years in solitary confinement. During this time, his own personality is supplanted by his alter ego, Charles Bronson.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/188927&#34;&gt;Star Trek Beyond&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The USS Enterprise crew explores the furthest reaches of uncharted space, where they encounter a mysterious new enemy who puts them and everything the Federation stands for to the test.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/42430&#34;&gt;Symbol&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A Japanese man wakes up alone in a brightly illuminated white room with no windows or doors. When he presses a mysteriously phallic protuberance that appears on one wall, a pink toothbrush materializes from nowhere, clattering to the floor and setting in motion a genuinely bizarre chain of events. Soon the imprisoned man is engaged in absurd and hilarious attempts to escape the gleaming room, releasing random objects from the walls, creating a life sized mouse trap game in which a rope, a toilet plunger and an earthenware jug full of sushi might just be the keys to his escape. Meanwhile, in a dusty town, a green masked Mexican wrestler known as Escargot Man prepares for an important match.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/181886&#34;&gt;Enemy&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A mild-mannered college professor discovers a look-alike actor and delves into the other man&#39;s private affairs.&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/813&#34;&gt;Airplane!&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Alcoholic pilot, Ted Striker has developed a fear of flying due to wartime trauma, but nevertheless boards a passenger jet in an attempt to woo back his stewardess girlfriend. Food poisoning decimates the passengers and crew, leaving it up to Striker to land the plane with the help of a glue-sniffing air traffic controller and Striker&#39;s vengeful former Air Force captain, who must both talk him down.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/36647&#34;&gt;Blade&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When Blade&#39;s mother was bitten by a vampire during pregnancy, she did not know that she gave her son a special gift while dying—all the good vampire attributes in combination with the best human skills. Blade and his mentor battle an evil vampire rebel who plans to take over the outdated vampire council, capture Blade and resurrect a voracious blood god.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/335983&#34;&gt;Venom&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/206487&#34;&gt;Predestination&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Predestination chronicles the life of a Temporal Agent sent on an intricate series of time-travel journeys designed to prevent future killers from committing their crimes. Now, on his final assignment, the Agent must stop the one criminal that has eluded him throughout time and prevent a devastating attack in which thousands of lives will be lost.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/126889&#34;&gt;Alien: Covenant&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Bound for a remote planet on the far side of the galaxy, the crew of the colony ship &#39;Covenant&#39; discovers what is thought to be an uncharted paradise, but is actually a dark, dangerous world—which has a sole inhabitant: the &#39;synthetic&#39;, David, survivor of the doomed Prometheus expedition.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/297802&#34;&gt;Aquaman&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm&#39;s half-human, half-Atlantean brother and true heir to the throne.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/363088&#34;&gt;Ant-Man and the Wasp&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Just when his time under house arrest is about to end, Scott Lang once again puts his freedom at risk to help Hope van Dyne and Dr. Hank Pym dive into the quantum realm and try to accomplish, against time and any chance of success, a very dangerous rescue mission.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/284054&#34;&gt;Black Panther&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;King T&#39;Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country&#39;s new leader. However, T&#39;Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T&#39;Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan &#39;special forces&#39;) and an American secret agent, to prevent Wakanda from being dragged into a world war.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/505948&#34;&gt;I Am Mother&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A teenage girl is raised underground by a robot &amp;quot;Mother&amp;quot;, designed to repopulate the earth following an extinction event. But their unique bond is threatened when an inexplicable stranger arrives with alarming news.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/430447&#34;&gt;Mary and the Witch&#39;s Flower&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Mary Smith, a young girl who lives with her great-aunt in the countryside, follows a mysterious cat into the nearby forest where she finds a strange flower and an old broom, none of which is as ordinary as it seems.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/31203&#34;&gt;Little Nicholas&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Nicolas has a happy existence, parents who love him, a great group of friends with whom he has great fun, and all he wants is that nothing changes. However, one day, he overhears a conversation that leads him to believe that his life might change forever, his mother is pregnant! He panics and envisions the worst.&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/461615&#34;&gt;MFKZ&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Angelino is just one of thousands of deadbeats living in Dark Meat City. But an otherwise unremarkable scooter accident caused by a beautiful, mysterious stranger is about to transform his life&amp;hellip; into a waking nightmare! He starts seeing monstrous forms prowling around all over the city&amp;hellip; Is Angelino losing his mind, or could an alien invasion really be happening this quietly&amp;hellip;?&lt;/td&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/120850&#34;&gt;Line of Sight&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Line Of Sight is a rare view into underground bicycle messenger racing which has become a global phenomenon. For over a decade Lucas Brunelle has been riding with the fastest, most skilled urban cyclists around the world while capturing all the action with his customized helmet cameras to bring you along for the ride.  This is bike riding like you&#39;ve never seen before, in gripping first-person perspective through the most hectic city streets, on expressways in Mexico City, over the frozen Charles River, under the Mediterranean Sea, across the Great Wall of China and deep into the jungles of Guatemala. Directed and Edited by Benny Zenga, Line of Sight is 60 minutes of the best Lucas Brunelle footage from a decade of Alleycat races around the world.  &amp;quot;Lucas Brunelle goes for it. If you want to see what it&#39;s like to play a live game of &#39;frogger&#39;, on a bike, with only one life, check out Line Of Sight.&amp;quot; -Mat Hoffman, Professional BMX Rider&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/299534&#34;&gt;Avengers: Endgame&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos&#39; actions and restore order to the universe once and for all, no matter what consequences may be in store.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/324552&#34;&gt;John Wick: Chapter 2&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;John Wick is forced out of retirement by a former associate looking to seize control of a shadowy international assassins’ guild. Bound by a blood oath to aid him, Wick travels to Rome and does battle against some of the world’s most dangerous killers.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/508965&#34;&gt;Klaus&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;When Jesper distinguishes himself as the Postal Academy&#39;s worst student, he is sent to Smeerensburg, a small village located on an icy island above the Arctic Circle, where grumpy inhabitants barely exchange words, let alone letters. Jesper is about to give up and abandon his duty as a postman when he meets local teacher Alva and Klaus, a mysterious carpenter who lives alone in a cabin full of handmade toys.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/211672&#34;&gt;Minions&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Minions Stuart, Kevin and Bob are recruited by Scarlet Overkill, a super-villain who, alongside her inventor husband Herb, hatches a plot to take over the world.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/315837&#34;&gt;Ghost in the Shell&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In the near future, Major (Scarlett Johansson) is the first of her kind: A human saved from a terrible crash, who is cyber-enhanced to be a perfect soldier devoted to stopping the world&#39;s most dangerous criminals. When terrorism reaches a new level that includes the ability to hack into people&#39;s minds and control them, Major is uniquely qualified to stop it. As she prepares to face a new enemy, Major discovers that she has been lied to: her life was not saved, it was stolen. She will stop at nothing to recover her past, find out who did this to her and stop them before they do it to others. Based on the internationally acclaimed Japanese Manga, &amp;quot;The Ghost in the Shell.&amp;quot;&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/168259&#34;&gt;Furious 7&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/284052&#34;&gt;Doctor Strange&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;After his career is destroyed, a brilliant but arrogant surgeon gets a new lease on life when a sorcerer takes him under her wing and trains him to defend the world against evil.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/433251&#34;&gt;Naked&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Following a wild night out with his Best Man, Rob Anderson wakes up to find himself naked in an elevator on the morning of his wedding day and is forced to relive the morning over and over again.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/384018&#34;&gt;Fast &amp;amp; Furious Presents: Hobbs &amp;amp; Shaw&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Ever since US Diplomatic Security Service Agent Hobbs and lawless outcast Shaw first faced off, they just have swapped smacks and bad words. But when cyber-genetically enhanced anarchist Brixton&#39;s ruthless actions threaten the future of humanity, both join forces to defeat him. (A spin-off of “The Fate of the Furious,” focusing on Johnson&#39;s Luke Hobbs and Statham&#39;s Deckard Shaw.)&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/274870&#34;&gt;Passengers&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A spacecraft traveling to a distant colony planet and transporting thousands of people has a malfunction in its sleep chambers. As a result, two passengers are awakened 90 years early.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/458156&#34;&gt;John Wick: Chapter 3 - Parabellum&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/86838&#34;&gt;Seven Psychopaths&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A struggling screenwriter inadvertently becomes entangled in the Los Angeles criminal underworld after his oddball friends kidnap a gangster&#39;s beloved Shih Tzu.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/2616&#34;&gt;Uncle Buck&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;As an idle, good-natured bachelor, Uncle Buck is the last person you would think of to watch the kids. However, during a family crisis, he is suddenly left in charge of his nephew and nieces. Unaccustomed to suburban life, fun-loving Uncle Buck soon charms his younger relatives Miles and Maizy with his hefty cooking and his new way of doing the laundry. His carefree style does not impress everyone though - especially his rebellious teenage niece, Tia, and his impatient girlfriend, Chanice. With a little bit of luck and a lot of love, Uncle Buck manages to surprise everyone in this heartwarming family comedy.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/324668&#34;&gt;Jason Bourne&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The most dangerous former operative of the CIA is drawn out of hiding to uncover hidden truths about his past.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/392553&#34;&gt;Minimalism: A Documentary About the Important Things&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;How might your life be better with less? The popular simple-living duo The Minimalists examines the many flavors of minimalism by taking the audience inside the lives of minimalists from various walks of life.&lt;/td&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.themoviedb.org/movie/811&#34;&gt;Silent Running&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;In a future Earth barren of all flora and fauna, the planet&#39;s ecosystems exist only in large pods attached to spacecraft. When word comes in that the pods are to be jettisoned into space and destroyed so that the spacecraft can be reused for commercial purposes, most of the crew of the Valley Forge rejoice at the prospect of going home. Not so for botanist Freeman Lowell who loves the forest and its creatures, so decides to take matters into his own hands to protect what he loves.&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;books&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; Books&lt;/h3&gt;
-
-
-
-&lt;style type=&#34;text/css&#34; media=&#34;screen&#34;&gt;
- .gr_grid_container {
-     /* customize grid container div here. eg: width: 500px; */
- }
-
- .gr_grid_book_container {
-     /* customize book cover container div here */
-     float: left;
-     width: 98px;
-     height: 160px;
-     padding: 0px 0px;
-     overflow: hidden;
- }
-&lt;/style&gt;
-&lt;div id=&#34;gr_grid_widget_1480253929&#34;&gt;
-    &lt;!-- Show static html as a placeholder in case js is not enabled - javascript include will override this if things work --&gt;
-    &lt;h2&gt;
-        &lt;a style=&#34;text-decoration: none;&#34; href=&#34;https://www.goodreads.com/review/list/56912100-sergey-trofimov?shelf=read&amp;utm_medium=api&amp;utm_source=grid_widget&#34;&gt;Sergey&#39;s bookshelf: read&lt;/a&gt;
-    &lt;/h2&gt;
-    &lt;div class=&#34;gr_grid_container&#34;&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;script src=&#34;https://www.goodreads.com/review/grid_widget/56912100.Sergey&#39;s%20bookshelf:%20read?cover_size=medium&amp;hide_link=&amp;hide_title=&amp;num_books=200&amp;order=a&amp;shelf=read&amp;sort=date_read&amp;widget_id=1480253929&#34; type=&#34;text/javascript&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;br/&gt;
-
-
-&lt;h2 id=&#34;posts&#34;&gt;Posts&lt;/h2&gt;
-&lt;h3 id=&#34;topic&#34;&gt;Topic&lt;/h3&gt;
-&lt;h4 id=&#34;exporting-secrets-from-freeotp-to-pass&#34;&gt;&lt;span class=&#34;org-todo done DONE&#34;&gt;DONE&lt;/span&gt; Exporting secrets from FreeOTP to Pass&lt;/h4&gt;
-&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
-replacement is on the way I will extract credentials from &lt;a href=&#34;https://freeotp.github.io/&#34;&gt;FreeOTP&lt;/a&gt; and import
-them in &lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;password store&lt;/a&gt;. Be aware that it is completeley against the idea of 2FA,
-because now both password and otp are on the same device.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://sarg.org.ru/about/</link>
-      <pubDate>Fri, 15 May 2020 23:06:00 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/about/</guid>
-      <description>Hi there!
-I am a software engineer who still is fascinated by technology even after 15 years of working with it. You can find my resume here.
-This website is my personal space where I document my little side projects.
-This site is built in Emacs org-mode then exported with ox-hugo and compiled by Hugo. The theme is slightly modified xmin. I&amp;rsquo;ve left detailed instructions how this blog is setted up here: &amp;ldquo;Making hugo powered blog in emacs&amp;quot;.</description>
-    </item>
-    
-    <item>
-      <title>Movies</title>
-      <link>http://sarg.org.ru/movies/</link>
-      <pubDate>Wed, 13 May 2020 21:53:26 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/movies/</guid>
-      <description>Here is a list of movies that I&amp;rsquo;ve watched and rated. For better UX please look the list on TheMovieDB. This page is under construction.
-   Title Overview Rating     Tickled Journalist David Farrier stumbles upon a mysterious tickling competition online. As he delves deeper he comes up against fierce resistance, but that doesn’t stop him getting to the bottom of a story stranger than fiction.</description>
     </item>
     
     <item>
@@ -867,22 +83,13 @@ To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from 
     </item>
     
     <item>
-      <title>Books</title>
-      <link>http://sarg.org.ru/books/</link>
-      <pubDate>Fri, 24 Apr 2020 11:46:14 +0200</pubDate>
-      
-      <guid>http://sarg.org.ru/books/</guid>
-      <description> .gr_grid_container { /* customize grid container div here. eg: width: 500px; */ } .gr_grid_book_container { /* customize book cover container div here */ float: left; width: 98px; height: 160px; padding: 0px 0px; overflow: hidden; }   Sergey&#39;s bookshelf: read      </description>
-    </item>
-    
-    <item>
       <title>Android apps that I use</title>
       <link>http://sarg.org.ru/blog/android-apps/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
       
       <guid>http://sarg.org.ru/blog/android-apps/</guid>
       <description>My phone is running AOSP without google services and almost all of the applications I use come from F-Droid. Few exceptions are apps for paid services that I use and they are installed from Aurora Store.
- I use fdroidcl to install and update applications. Backup is covered in post &amp;ldquo;Backing up Android phone&amp;quot;. I use syncthing to share a directory between my laptops and phone. I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to passwords on phone (rarely).</description>
+ I use fdroidcl to install and update applications. Backup is covered in post &amp;ldquo;Backing up Android phone&amp;rdquo;. I use syncthing to share a directory between my laptops and phone. I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to passwords on phone (rarely).</description>
     </item>
     
     <item>
@@ -906,7 +113,7 @@ To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from 
     <item>
       <title>Exporting secrets from FreeOTP to Pass</title>
       <link>http://sarg.org.ru/blog/freeotp-to-pass/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://sarg.org.ru/blog/freeotp-to-pass/</guid>
       <description>&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
@@ -918,7 +125,7 @@ because now both password and otp are on the same device.&lt;/p&gt;</description
     <item>
       <title>Get the brain off the instant gratification hook</title>
       <link>http://sarg.org.ru/blog/telega-otp/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0200</pubDate>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://sarg.org.ru/blog/telega-otp/</guid>
       <description>&lt;p&gt;It easily becomes automatic to check for notifications/new messages/new emails

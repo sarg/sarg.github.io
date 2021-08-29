@@ -49,7 +49,7 @@ Set <code>&quot;Start on Open&quot;</code> in app settings.</p>
 </li>
 <li>
 <p>Grab <a href="https://github.com/google/adb-sync#adb-channel"><code>adb-channel</code></a> script and add this snippet to <code>~/.ssh/config</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">   Host sshelper
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">   Host sshelper
        Port 2222
        ProxyCommand adb-channel tcp:%p org.galexander.sshd/.SimpleSSHD 1
 </code></pre></div></li>
@@ -60,13 +60,13 @@ the key into <code>authorized_keys</code>. Details <a href="http://www.galexande
 </li>
 <li>
 <p>Now backup with rsync as usual.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e ssh -av sshelper:/sdcard/DCIM .
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e ssh -av sshelper:/sdcard/DCIM .
 </code></pre></div></li>
 <li>
 <p>Optional</p>
 <p>This setup assumes that you copy files over USB. But nothing stops you from
 starting SimpleSSHD manually and copy files over WiFi.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e <span style="color:#b44">&#39;ssh -p 2222&#39;</span> -av 192.168.178.42:/sdcard/DCIM .
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   rsync -e <span style="color:#b44">&#39;ssh -p 2222&#39;</span> -av 192.168.178.42:/sdcard/DCIM .
 </code></pre></div></li>
 </ol>
 
