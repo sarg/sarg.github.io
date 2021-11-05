@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>🕮 Growing Object-Oriented Softwared, Guided by Tests. | Random forest</title>
+    <title>📖 Growing Object-Oriented Softwared, Guided by Tests. | Random forest</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -30,7 +30,7 @@
     </nav>
 
 <div class="article-meta">
-<h1><span class="title">🕮 Growing Object-Oriented Softwared, Guided by Tests.</span></h1>
+<h1><span class="title">📖 Growing Object-Oriented Softwared, Guided by Tests.</span></h1>
 <h2 class="date">2020/05/19</h2>
 </div>
 
@@ -62,6 +62,7 @@ goes through core concepts and then demonstrates how to implement TDD on a simpl
 <p>TDD best practices:</p>
 <ul>
 <li>First make a minimal &ldquo;skeleton&rdquo; of an app and set up deployment infrastructure. E.g. for a web app it would be a one page site which shows a field in database.</li>
+<li>Develop from outer boundary. E.g. write end-to-end acceptance test and start unrolling the logic from the incoming external message.</li>
 <li>The development cycle goes like this. When implementing an object, we discover that it needs a service to be provided by another object. We give the new service a name and mock it out in the client object’s unit tests, to clarify the relationship between the two. Then we write an object to provide that service and, in doing so, discover what services that object needs. We follow this chain (or perhaps a directed graph) of collaborator relationships until we connect up to existing objects, either our own or from a third-party API. We think of this as “on-demand” design: we “pull” interfaces and their implementations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.</li>
 </ul>
 
