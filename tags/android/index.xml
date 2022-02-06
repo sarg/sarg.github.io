@@ -32,10 +32,8 @@
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>http://sarg.org.ru/blog/freeotp-to-pass/</guid>
-      <description>&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
-replacement is on the way I will extract credentials from &lt;a href=&#34;https://freeotp.github.io/&#34;&gt;FreeOTP&lt;/a&gt; and import
-them in &lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;password store&lt;/a&gt;. Be aware that it is completeley against the idea of 2FA,
-because now both password and otp are on the same device.&lt;/p&gt;</description>
+      <description>I have broken my phone screen. Not a big deal but I use it for 2FA. While replacement is on the way I will extract credentials from FreeOTP and import them in password store. Be aware that it is completeley against the idea of 2FA, because now both password and otp are on the same device. &amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;
+So, first I need to find where FreeOTP stores OTP secrets. Android apps usually use sqlite db for that, but not in this case.</description>
     </item>
     
   </channel>

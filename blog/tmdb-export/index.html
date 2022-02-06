@@ -66,7 +66,7 @@ acc<span style="color:#666">.</span>info()
 movies <span style="color:#666">=</span> []
 idx <span style="color:#666">=</span> <span style="color:#666">1</span>
 <span style="color:#a2f;font-weight:bold">while</span> <span style="color:#a2f;font-weight:bold">True</span>:
-    res <span style="color:#666">=</span> acc<span style="color:#666">.</span>rated_movies()
+    res <span style="color:#666">=</span> acc<span style="color:#666">.</span>rated_movies(page<span style="color:#666">=</span>idx)
     movies <span style="color:#666">=</span> movies <span style="color:#666">+</span> res[<span style="color:#b44">&#34;results&#34;</span>]
     idx <span style="color:#666">=</span> idx <span style="color:#666">+</span> <span style="color:#666">1</span>
     <span style="color:#a2f;font-weight:bold">if</span> idx <span style="color:#666">&gt;</span> res[<span style="color:#b44">&#34;total_pages&#34;</span>]:

@@ -38,7 +38,8 @@
 <p>I have broken my phone screen. Not a big deal but I use it for 2FA. While
 replacement is on the way I will extract credentials from <a href="https://freeotp.github.io/">FreeOTP</a> and import
 them in <a href="https://www.passwordstore.org/">password store</a>. Be aware that it is completeley against the idea of 2FA,
-because now both password and otp are on the same device.</p>
+because now both password and otp are on the same device.
+&lt;!&ndash;more&ndash;&gt;</p>
 <p>So, first I need to find where FreeOTP stores OTP secrets. Android apps
 usually use sqlite db for that, but not in this case. FreeOTP uses shared_prefs.</p>
 <p>Pull prefs from the phone (root needed).</p>
@@ -120,6 +121,7 @@ inp<span style="color:#666">.</span>close()
 Or you can manually put <code>otpauth://</code> string in an appropriate pass file. I did
 the latter way, because my already existing entries have had another names.
 Then check that everything went fine - <code>pass otp 'Amazon Web Services/sarg@organization'</code></p>
+
 </main>
 
   <footer>

@@ -49,3 +49,9 @@ table {
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
+
+span.tag {
+  padding: 0.2rem 0.4rem;
+  border: 1px dotted black;
+  border-radius: 1.5rem;
+}
