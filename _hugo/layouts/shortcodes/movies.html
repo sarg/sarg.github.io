@@ -1,5 +1,42 @@
-Title | Overview | Rating
---- | --- | ---
+<style>
+.ratings > li > p {
+    font-size: 0.6em;
+    line-height: 10px;
+    color: gray;
+    padding-top: 3px;
+    margin: 0;
+}
+
+.ratings img {
+    border-radius: 4px;
+}
+
+ul.ratings {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+}
+
+ul.ratings > li {
+    margin: 0 0 10px 10px;
+}
+
+ul.ratings > li > div {
+    height: 115px;
+}
+</style>
+
+<ul class="ratings">
 {{ range sort $.Site.Data.rated "rating" "desc" -}}
-[{{ index . "title" }}](https://www.themoviedb.org/movie/{{ index . "id" }}) | {{ index . "overview" }} | {{ index . "rating" }}
+  {{- $rating := (int (index . "rating")) -}}
+  <li>
+    <div>
+    <a href="https://letterboxd.com/tmdb/{{ index . "id" }}">
+    <img src="https://www.themoviedb.org/t/p/w154{{ index . "poster_path" }}" width="76px" title="{{ index . "title" }}">
+    </a>
+    </div>
+    <p class="rating">{{ strings.Repeat (div $rating 2) "★" }}</p>
+    </li>
 {{ end }}
+</ul>
