@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advent of Code 2019 | Random forest</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/tags">Tags</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Advent of Code 2019</span></h1>
+<h2 class="date">2020/01/01</h2>
+</div>
+
+<main>
+<p>For the first time I&rsquo;ve participated in <a href="https://adventofcode.com/2019">&ldquo;Advent of Code&rdquo;</a> contest. It promised to
+be a fun time and a good opportunity to learn a new programming language. I&rsquo;ve
+taken Clojure from my bucket list and dived head first into the contest.</p>
+<p>The first few tasks are deliberately very easy, so that participants firstly
+would get into the mood and would not detract by the bar raised too high, and
+secondly to let one to get acquainted with the platform and rules, set up the
+coding environment and get hands-on with the new language (if you one uses
+such).</p>
+<p>The problems were of varying complexity and some of them required prior
+knowledge of algorithms. The hardest one were about searching a path in a maze.
+The cool twist was the addition of the IntCode virtual machine. Over the course
+of a few days the problems were shaping the definition of the IndCode VM.
+Participants were expected to implement and to debug it in order to solve the
+problem.</p>
+<p>Clojure has shown strong and I&rsquo;ve rarely struggled with the language. Debugging
+tools could be better though. All the solutions could be found <a href="https://github.com/sarg/advent2019">here on Github</a>.</p>
+<p>For an additional fun I&rsquo;ve produced animations for some of the problems. For
+that I&rsquo;ve used awesome <a href="https://github.com/quil/quil">Quil</a> library which implements <a href="https://processing.org/reference">Processing.org API</a>.</p>
+<h2 id="problem-13-care-package"><a href="https://adventofcode.com/2019/day/13">Problem 13 - Care Package</a></h2>
+<p>Arkanoid AI should be implemented in IntCode. Each block in the game has its own
+unique value and the answer of the problem is the end score.</p>
+<p><video controls src="https://raw.githubusercontent.com/sarg/advent2019/master/resources/day13.mp4"></video></p>
+<h2 id="problem-15-oxygen-system"><a href="https://adventofcode.com/2019/day/15">Problem 15 - Oxygen System</a></h2>
+<p>A robot have been deployed to a maze of unknown structure. By issuing movement
+and observation commands the maze should be fully explored and a marked cell
+should be found. Then the time to fill the maze with air should be calculated,
+given that the air is injected in the bottome left corner and it spreads each
+tick to the adjacent cells.</p>
+<p><video controls src="https://raw.githubusercontent.com/sarg/advent2019/master/resources/day15.mp4"></video></p>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+
