@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Random forest"
 theme = "xmin"
 publishDir = "../"
-disableKinds = ["RSS", "sitemap"]
+disableKinds = ["RSS", "sitemap", "taxonomy", "term"]
 
 [markup]
   [markup.goldmark.renderer]
@@ -37,11 +37,6 @@ weight = 3
 name = "CV"
 url = "/cv"
 weight = 4
-
-[[menu.main]]
-name = "Tags"
-url = "/tags"
-weight = 5
 
 [[menu.main]]
 name = "Books"
