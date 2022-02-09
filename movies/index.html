@@ -75,7 +75,6 @@ ul.tags > li.active {
   background: lightgray;
 }
 </style>
-<p></style></p>
 <ul class="tags">
     <li tag="r5">5</li>
     <li tag="r4">4</li>
@@ -6272,34 +6271,7 @@ ul.tags > li.active {
     <p class="rating"></p>
     </li>
 </ul>
-<script type="text/javascript">
-var filter = {};
-
-function applyFilters() {
-  document.querySelectorAll("ul.ratings > li").forEach(function(el) {
-    var v = true;
-    for (var k in filter) {
-      v = filter[k](el);
-      if (!v) break;
-    }
-    el.hidden = !v;
-  });
-}
-
-document.querySelectorAll("ul.tags > li").forEach(el => el.onclick = function(event) {
-     var active = event.srcElement.classList.toggle('active');
-     var tagName = event.srcElement.innerText;
-     var tag = event.srcElement.getAttribute('tag');
-     if (active) {
-         var rx = new RegExp('\\b' + tag + '\\b');
-         filter[tag] = el => rx.test(el.getAttribute('data-tags'));
-     } else {
-         delete filter[tag];
-     }
-
-     applyFilters();
-});
-</script>
+<script type="text/javascript" src="/js/filter.js"></script>
 
 </main>
   <footer>
