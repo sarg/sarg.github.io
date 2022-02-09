@@ -29,62 +29,57 @@
 
 <main>
 <style>
-.tag span {
-  padding: 0.2rem 0.4rem;
-  margin: 0.2rem;
-  border: 1px dotted black;
-  border-radius: 1.5rem;
+p.rating {
+    font-size: 0.6em;
+    line-height: 10px;
+    color: gray;
+    padding-top: 3px;
+    margin: 0;
 }
 
-.tag > .core::before {
-  content: '👍';
+img {
+  width: 115px;
+  height: 180px;
+  border-radius: 4px;
 }
 
-.tag > .epic::before {
-  content: '🤯';
+ul.ratings {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
 }
 
-.tag > .star5, .tag>.star4, .tag>.star3, .tag>.star2, .tag>.star1 {
-    visibility: hidden;
+div.cover {
+    width: 115px;
+    height: 185px;
 }
 
-.tag > .star5::before {
-  content: '★★★★★';
-  visibility: visible;
-  font-size: 0.5em;
-  color: gold;
+div.cover > a > div {
+  height: 100%;
+  border: 1px dotted gray;
+  text-align: center;
 }
 
-.tag > .star4::before {
-  content: '★★★★☆';
-  visibility: visible;
-  font-size: 0.5em;
-  color: gold;
+ul.ratings > li {
+    margin: 0 0 10px 10px;
 }
 
-.tag > .star3::before {
-  content: '★★★☆☆';
-  visibility: visible;
-  font-size: 0.5em;
-  color: gold;
+ul.tags {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
 }
 
-.tag > .star2::before {
-  content: '★★☆☆☆';
-  visibility: visible;
-  font-size: 0.5em;
-  color: gold;
+ul.tags > li {
+    margin: 0 0 10px 10px;
+    padding: 3px;
+    border: 1px solid black;
 }
 
-.tag > .star1::before {
-  content: '★☆☆☆☆';
-  visibility: visible;
-  font-size: 0.5em;
-  color: gold;
-}
-
-h2 {
-  text-decoration: underline;
+ul.tags > li.active {
+  background: lightgray;
 }
 </style>
 <p>The list of books I&rsquo;ve read sometime. In no particular order, but grouped in
@@ -93,162 +88,50 @@ categories.</p>
 <a href="https://en.wikipedia.org/wiki/Stanis%C5%82aw_Lem">Stanisław Lem</a>, <a href="https://en.wikipedia.org/wiki/Peter_Watts_(author)">Peter Watts</a>, <a href="https://en.wikipedia.org/wiki/Greg_Egan">Greg Egan</a>.</p>
 <p>I get book recommendations either from people I follow or from
 a list of reputable award nominees: <a href="https://en.wikipedia.org/wiki/Hugo_Award">Hugo Award</a>, <a href="https://en.wikipedia.org/wiki/Nebula_Award">Nebula Award</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">TODO:
-- Expose =ISBN=, =Date Read= and =Rating=
-- Links to https://openlibrary.org/
-- Cover images?
-</code></pre></div><h2 id="deutsch">Deutsch</h2>
-<h3 id="eine-insel">Eine Insel</h3>
-<h3 id="krabat">Krabat</h3>
-<p>Das Buch zieht sich in die Länge.</p>
-<h3 id="voll-im-bilde">Voll im Bilde</h3>
-<h3 id="papa-hörst-du-mich">Papa, hörst du mich?</h3>
-<h2 id="russian">Russian</h2>
-<h3 id="смерть-ивана-ильича">Смерть Ивана Ильича</h3>
-<h3 id="iphuck-10">iPhuck 10</h3>
-<h3 id="незнайка-на-луне">Незнайка на Луне</h3>
-<h3 id="холодная-вода-венисаны">Холодная вода Венисаны</h3>
-<h3 id="тайные-виды-на-гору-фудзи">Тайные виды на гору Фудзи</h3>
-<h3 id="понедельник-начинается-в-субботу">Понедельник начинается в субботу</h3>
-<h3 id="нет">НЕТ</h3>
-<h3 id="мама-не-горюй">Мама, не горюй!</h3>
-<h3 id="непобедимое-солнце">Непобедимое солнце</h3>
-<h3 id="искусство-легких-касаний">Искусство легких касаний</h3>
-<h3 id="том-1-dot-путь-базилио">Том 1. Путь Базилио</h3>
-<h3 id="я-хобо-времена-смерти">Я, Хобо: Времена смерти</h3>
-<h2 id="fantasy">Fantasy</h2>
-<h3 id="good-omens">Good Omens</h3>
-<h3 id="snuff">Snuff</h3>
-<h3 id="the-fifth-elephant">The Fifth Elephant</h3>
-<h3 id="perdido-street-station">Perdido Street Station</h3>
-<p>First half of the book is so shallow with action that I almost dropped it. I persevered in hope that it&rsquo;ll flourish, that all this detailed scene-setting was to pull something crazy. But it never happened. I have to admit that Mieville has a good way with words and puts his vivid imagination in text masterfully. The world he is building is so well defined that you can almost see it. In the end it felt like a visual novel put into words. You chose the wrong medium, Mieville.</p>
-<h3 id="neverwhere">Neverwhere</h3>
-<h3 id="harry-potter-and-the-methods-of-rationality">Harry Potter and the Methods of Rationality <span class="tag"><span class="epic">epic</span><span class="core">core</span></span></h3>
-<h3 id="the-study-of-anglophysics">The Study of Anglophysics</h3>
-<h3 id="the-nix">The Nix</h3>
-<h2 id="science-fiction">Science Fiction</h2>
-<h3 id="the-three-body-problem">The Three-Body Problem</h3>
-<p>What seemed to be an interesting sci-fi puzzle at first glance was solved by the author in a fairy-tale fashion. The book lacks scientific depth to be a sci-fi novel.</p>
-<h3 id="permutation-city">Permutation City</h3>
-<h3 id="three-worlds-collide">Three Worlds Collide</h3>
-<p><a href="http://lesswrong.com/lw/y4/three_worlds_collide_08/">http://lesswrong.com/lw/y4/three_worlds_collide_08/</a></p>
-<h3 id="leviathan-wakes">Leviathan Wakes</h3>
-<p>It seems that I&rsquo;m not a big fan of space opera genre. While the book made me giggle time to time, I find it rather dull overall. The characters are too cartoonish and scientific side of the book is questionable.</p>
-<h3 id="ubik">Ubik</h3>
-<h3 id="exhalation">Exhalation</h3>
-<h3 id="zima-blue-and-other-stories">Zima Blue and Other Stories</h3>
-<h3 id="the-library-at-mount-char">The Library at Mount Char <span class="tag"><span class="epic">epic</span></span></h3>
-<h3 id="when-breath-becomes-air">When Breath Becomes Air</h3>
-<h3 id="redshirts">Redshirts</h3>
-<h3 id="the-martian">The Martian</h3>
-<h3 id="lord-of-light">Lord of Light</h3>
-<h3 id="unsong">Unsong <span class="tag"><span class="epic">epic</span></span></h3>
-<h3 id="bd11f0"><del>Schild&rsquo;s Ladder</del></h3>
-<p>This book bored me out and I dropped it. The characters are weak and the story is washy.</p>
-<h3 id="the-lifecycle-of-software-objects">The Lifecycle of Software Objects</h3>
-<h3 id="axiomatic">Axiomatic</h3>
-<p>Any of the book&rsquo;s stories could easily become a &ldquo;Black Mirror&rdquo; series scenario.</p>
-<h3 id="starfish">Starfish</h3>
-<h3 id="blindsight">Blindsight</h3>
-<h3 id="stories-of-your-life-and-others">Stories of Your Life and Others</h3>
-<h3 id="i-robot">I, Robot</h3>
-<h3 id="the-moon-is-a-harsh-mistress">The Moon Is a Harsh Mistress</h3>
-<h3 id="stranger-in-a-strange-land">Stranger in a Strange Land</h3>
-<h3 id="do-androids-dream-of-electric-sheep">Do Androids Dream of Electric Sheep?</h3>
-<h3 id="brave-new-world">Brave New World</h3>
-<h3 id="1984">1984</h3>
-<h3 id="so-long-and-thanks-for-all-the-fish">So Long, and Thanks for All the Fish</h3>
-<h3 id="friday">Friday</h3>
-<h3 id="fahrenheit-451">Fahrenheit 451</h3>
-<h3 id="the-jaunt">The Jaunt</h3>
-<h3 id="63b23b"><del>The Draco Tavern</del></h3>
-<h2 id="easy-reads-positive">Easy Reads / Positive</h2>
-<h3 id="gut-gegen-nordwind">Gut gegen Nordwind</h3>
-<h3 id="alle-sieben-wellen">Alle sieben Wellen</h3>
-<h3 id="all-creatures-great-and-small">All Creatures Great and Small <span class="tag"><span class="bio">bio</span></span></h3>
-<h3 id="james-herriot-s-dog-stories">James Herriot&rsquo;s Dog Stories <span class="tag"><span class="bio">bio</span></span></h3>
-<h2 id="self-help-psychology">Self-help / Psychology</h2>
-<h3 id="deep-work">Deep Work <span class="tag"><span class="core">core</span></span></h3>
-<h3 id="zen-and-the-art-of-motorcycle-maintenance">Zen and the Art of Motorcycle Maintenance <span class="tag"><span class="core">core</span></span></h3>
-<h3 id="feeling-good-the-new-mood-therapy">Feeling Good: The New Mood Therapy <span class="tag"><span class="core">core</span></span></h3>
-<p>The book was a little tedious to read, because of the parts that were not relevant to me. Overall it is a nice introduction to rational coping with everyday stress.</p>
-<h3 id="the-life-changing-magic-of-tidying-up">The Life-Changing Magic of Tidying Up <span class="tag"><span class="core">core</span></span></h3>
-<h3 id="the-motivation-hacker">The Motivation Hacker</h3>
-<h3 id="atomic-habits">Atomic Habits</h3>
-<p>It could have been a blog post though. To make a book from what fits on two pages, the author had to fill chapters with endless anecdotes and repeat everything trice.</p>
-<h3 id="the-subtle-art-of-not-giving-a-f-ck">The Subtle Art of Not Giving a F*ck</h3>
-<p>It&rsquo;s a mix of Stoicisim, Buddhism, Cognitive Behavior Therapy ideas backed up by
-anecdotes from the Manson&rsquo;s life. The &ldquo;potty-mouthed asshole from Boston&rdquo; (as he
-named himself) doesn&rsquo;t give any credit to the sources on which his life
-philosophy is based upon. For a 16yo who can&rsquo;t stand &ldquo;boring old books&rdquo; this one
-might be a revelation, but if you&rsquo;re past that - go straight to the roots.</p>
-<h3 id="7d99b1"><del>Flourish</del></h3>
-<p>The book is watery and dull. Watch Seligman&rsquo;s speech on TED instead.</p>
-<h3 id="when-things-fall-apart">When Things Fall Apart</h3>
-<h3 id="the-practicing-mind">The Practicing Mind</h3>
-<h3 id="digital-minimalism">Digital Minimalism</h3>
-<p>It was a little bit awkward at first that the author itself doesn&rsquo;t struggle
-with internet addiction. He doesn&rsquo;t use facebook for example. Anyway, with a
-thoughtful approach he had conducted a field study on a group of more than a
-thousand participants and basing on the results of it he provided very sound
-recommendations on how to overcome internet addiction.</p>
-<p>If you&rsquo;d like to know the gist of the routine recommended by the author then
-here it is:</p>
-<ol>
-<li>Remove all the tech, save for the critical ones to your life or job, for the
-30 days.</li>
-<li>Have a list of activities to fill the freed time with. Don&rsquo;t let yourself get
-in boredom. Either reconnect with what have sparkled joy in you before or
-find a new ones.</li>
-<li>After 30 days reintroduce tech in your life, one piece at a time. But do it
-only if it&rsquo;is aligned with your core values.</li>
-</ol>
-<h3 id="focusing">Focusing</h3>
-<h3 id="essentialism-the-disciplined-pursuit-of-less">Essentialism: The Disciplined Pursuit of Less</h3>
-<p>Read the contents and then skim the rest of the book for main ideas. Then read &ldquo;Deep Work&rdquo; by Cal Newport and surprisingly &ldquo;The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing&rdquo; by Marie Kondo. These two books accompanied by latest research in &ldquo;psychology of habits&rdquo; (think &ldquo;Power of Habit&rdquo; or &ldquo;The Willpower Instinct&rdquo;) will make you true Essentialist.</p>
-<h3 id="turning-pro">Turning Pro</h3>
-<p>Motivational intro for Cal Newport&rsquo;s &ldquo;Deep Work&rdquo;.</p>
-<h3 id="remember-everything-you-want-and-manage-the-rest">Remember Everything You Want and Manage the Rest</h3>
-<p>If you are not familiar with mnemonics, then read this and have a comprehensive summary of today&rsquo;s techniques.</p>
-<h3 id="how-to-win-friends-and-influence-people">How to Win Friends and Influence People</h3>
-<h3 id="so-good-they-can-t-ignore-you">So Good They Can&rsquo;t Ignore You</h3>
-<h3 id="habits-of-a-happy-brain">Habits of a Happy Brain</h3>
-<h3 id="эмоциональный-интеллект-2-dot-0">Эмоциональный интеллект 2.0 <span class="tag"><span class="ru">ru</span></span></h3>
-<h3 id="эта-странная-жизнь">Эта странная жизнь <span class="tag"><span class="ru">ru</span></span></h3>
-<h3 id="5ef3dc"><del>Дочковедение. Отцы, воспитывающие дочерей</del> <span class="tag"><span class="ru">ru</span></span></h3>
-<p>Советы сводятся к банальному - не игнорируйте ребенка. Местами автор противоречит себе.</p>
-<h3 id="9365f0"><del>Женщина. Учебник для мужчин</del> <span class="tag"><span class="ru">ru</span></span></h3>
-<h2 id="software-engineering">Software Engineering</h2>
-<h3 id="cracking-the-code-to-a-successful-interview">Cracking the Code to a Successful Interview</h3>
-<h3 id="growing-object-oriented-software-guided-by-tests">Growing Object-Oriented Software, Guided by Tests</h3>
-<h3 id="clean-architecture-a-craftsman-s-guide-to-software-structure-and-design">Clean Architecture: A Craftsman&rsquo;s Guide to Software Structure and Design</h3>
-<h3 id="peopleware-productive-projects-and-teams">Peopleware: Productive Projects and Teams</h3>
-<h3 id="the-pragmatic-programmer-from-journeyman-to-master">The Pragmatic Programmer: From Journeyman to Master</h3>
-<p>It&rsquo;s a good intro to a common sense in the art of programming. If you are just starting programming or want to validate your prior knowledge and habits then this book is for you. The book has good structure and all main points are highlighted, so you can skim it fast.</p>
-<h3 id="the-mythical-man-month">The Mythical Man-Month</h3>
-<h3 id="the-new-one-minute-manager">The New One Minute Manager</h3>
-<h3 id="the-principles-of-scientific-management">The Principles of Scientific Management</h3>
-<h3 id="guide-to-the-software-engineering-body-of-knowledge">Guide to the Software Engineering Body of Knowledge</h3>
-<h3 id="measure-what-matters">Measure What Matters</h3>
-<p>Just read the &ldquo;In Sum&rdquo; resource in the end of the book.</p>
-<h2 id="popular-science-knowledge">Popular science / Knowledge</h2>
-<h3 id="how-to-read-a-book">How to Read a Book</h3>
-<p>This book finally relieved the shame that I experienced while skimming books. I always thought that skimming is like cheating, but now I consider it a mandatory step in reading.</p>
-<h3 id="the-vegetarian-myth">The Vegetarian Myth</h3>
-<p>The book lacks structure. It is a 300 pages rant of former vegan who blames modern agriculture in every problem but doesn&rsquo;t offer reasonable alternative.</p>
-<h3 id="factfulness">Factfulness</h3>
-<h3 id="fluent-forever">Fluent Forever</h3>
-<h3 id="sapiens">Sapiens</h3>
-<h2 id="crime-detective">Crime / Detective</h2>
-<h3 id="malavita">Malavita</h3>
-<h3 id="white-jazz">White Jazz</h3>
-<h3 id="l-dot-a-dot-confidential">L.A. Confidential</h3>
-<h3 id="the-big-nowhere">The Big Nowhere</h3>
-<h3 id="the-black-dahlia">The Black Dahlia</h3>
-<h2 id="others">Others</h2>
-<h3 id="total-recall">Total Recall <span class="tag"><span class="bio">bio</span></span></h3>
-<p>Arnold says that he is very secretive and proves that in his book. I hoped to get aqcuainted with this man, to learn from him and to get inspiration. But instead I was fed with endless facts about his public life. Where had he been, whom he had talked, bla-bla-bla.</p>
-<h3 id="where-are-you-going-where-have-you-been">Where Are You Going, Where Have You Been?</h3>
+<ul class="tags">
+<li>de</li>
+<li>ru</li>
+<li>core</li>
+<li>swe</li>
+<li>psycho</li>
+<li>dropped</li>
+<li>fantasy</li>
+<li>fiction</li>
+<li>epic</li>
+<li>5</li>
+<li>4</li>
+<li>3</li>
+<li>2</li>
+<li>1</li>
+</ul>
+<ul class=ratings><li data-tags='5 de'><div class=cover><a href='https://goodreads.com/book/show/5199742'><img src='https://covers.openlibrary.org/b/isbn/9783442546558-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='3 de'><div class=cover><a href='https://goodreads.com/book/show/472626'><img src='https://covers.openlibrary.org/b/isbn/9783522144100-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='3 de'><div class=cover><a href='https://goodreads.com/book/show/31121146'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1468512233l/31121146._SY475_.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='4 de'><div class=cover><a href='https://goodreads.com/book/show/25964440'><img src='https://covers.openlibrary.org/b/isbn/9783772525162-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='5'><div class=cover><a href='https://goodreads.com/book/show/25146229'><div>Leo Tolstoy<br/><br/>Смерть Ивана Ильича</div></div></a><p class=rating>★★★★★</p></li><li data-tags='2'><div class=cover><a href='https://goodreads.com/book/show/36197936'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1506044866l/36197936.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='3'><div class=cover><a href='https://goodreads.com/book/show/646899'><img src='https://upload.wikimedia.org/wikipedia/ru/1/17/Neznaika_1965.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5'><div class=cover><a href='https://goodreads.com/book/show/41950167'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1537433395l/41950167._SY475_.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4'><div class=cover><a href='https://goodreads.com/book/show/41957200'><img src='https://covers.openlibrary.org/b/isbn/9785040984350-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='3'><div class=cover><a href='https://goodreads.com/book/show/1442235'><img src='https://covers.openlibrary.org/b/isbn/9785968000231-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5'><div class=cover><a href='https://goodreads.com/book/show/3045143'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1205821854l/3045141.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4'><div class=cover><a href='https://goodreads.com/book/show/36578922'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1510447176l/36578922._SY475_.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='3'><div class=cover><a href='https://goodreads.com/book/show/54783188'><div>Victor Pelevin<br/><br/>Непобедимое солнце</div></div></a><p class=rating>★★★</p></li><li data-tags='3'><div class=cover><a href='https://goodreads.com/book/show/52852852'><img src='https://covers.openlibrary.org/b/isbn/9785041062224-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='2'><div class=cover><a href='https://goodreads.com/book/show/29610718'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1640101109l/29610718.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='3'><div class=cover><a href='https://goodreads.com/book/show/2132273'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1204332121l/2132273.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5 fantasy'><div class=cover><a href='https://goodreads.com/book/show/12067'><img src='https://covers.openlibrary.org/b/isbn/9780060853969-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 fantasy'><div class=cover><a href='https://goodreads.com/book/show/8785374'><img src='https://covers.openlibrary.org/b/isbn/9780385619264-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 fantasy'><div class=cover><a href='https://goodreads.com/book/show/63720'><img src='https://covers.openlibrary.org/b/isbn/9780552154222-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='2 fantasy'><div class=cover><a href='https://goodreads.com/book/show/68494'><img src='https://covers.openlibrary.org/b/isbn/9780345459404-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='3 fantasy'><div class=cover><a href='https://goodreads.com/book/show/14497'><img src='https://covers.openlibrary.org/b/isbn/9780060557812-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5 fantasy epic core'><div class=cover><a href='https://goodreads.com/book/show/10016013'><img src='https://upload.wikimedia.org/wikipedia/en/e/ec/HPMOR_Yudkowsky.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 fantasy'><div class=cover><a href='https://goodreads.com/book/show/25963071'><div>Scott Alexander<br/><br/>The Study of Anglophysics</div></div></a><p class=rating>★★★★★</p></li><li data-tags='2 sf'><div class=cover><a href='https://goodreads.com/book/show/18245960'><img src='https://covers.openlibrary.org/b/id/9157544-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/156784'><img src='https://covers.openlibrary.org/b/isbn/9780061054815-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4 sf'><div class=cover><a href='https://goodreads.com/book/show/15744759'><div>Eliezer Yudkowsky<br/><br/>Three Worlds Collide</div></div></a><p class=rating>★★★★</p></li><li data-tags='3 sf'><div class=cover><a href='https://goodreads.com/book/show/11570641'><img src='https://covers.openlibrary.org/b/isbn/9781841499888-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/13053326'><img src='https://covers.openlibrary.org/b/isbn/9788498000832-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/41160292'><img src='https://covers.openlibrary.org/b/isbn/9781101947883-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='2 sf'><div class=cover><a href='https://goodreads.com/book/show/860926'><img src='https://covers.openlibrary.org/b/isbn/9781597800587-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='5 sf epic'><div class=cover><a href='https://goodreads.com/book/show/26892110'><img src='https://covers.openlibrary.org/b/isbn/9780553418620-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='0 sf'><div class=cover><a href='https://goodreads.com/book/show/25899336'><div>Paul Kalanithi<br/><br/>When Breath Becomes Air</div></div></a></li><li data-tags='4 sf'><div class=cover><a href='https://goodreads.com/book/show/13055592'><img src='https://covers.openlibrary.org/b/isbn/9780765316998-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/18007564'><img src='https://covers.openlibrary.org/b/isbn/9780804139021-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='3 sf'><div class=cover><a href='https://goodreads.com/book/show/13821'><img src='https://covers.openlibrary.org/b/isbn/9780060567231-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='5 sf epic'><div class=cover><a href='https://goodreads.com/book/show/28589297'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1632785897l/28589297._SX318_.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='2 sf dropped'><div class=cover><a href='https://goodreads.com/book/show/156780'><img src='https://covers.openlibrary.org/b/isbn/9780061073441-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='2 sf'><div class=cover><a href='https://goodreads.com/book/show/7886338'><img src='https://covers.openlibrary.org/b/isbn/9781596063174-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/156783'><img src='https://covers.openlibrary.org/b/isbn/9780061052651-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='0 sf'><div class=cover><a href='https://goodreads.com/book/show/66479'><img src='https://covers.openlibrary.org/b/isbn/9780812575859-M.jpg'/></div></a></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/48484'><img src='https://covers.openlibrary.org/b/isbn/9780765312181-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/223380'><img src='https://covers.openlibrary.org/b/isbn/9780330426640-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/41804'><img src='https://covers.openlibrary.org/b/isbn/9780553803709-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4 sf'><div class=cover><a href='https://goodreads.com/book/show/16690'><img src='https://covers.openlibrary.org/b/isbn/9780340837948-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/350'><div>Robert A. Heinlein<br/><br/>Stranger in a Strange Land</div></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/7082'><img src='https://covers.openlibrary.org/b/isbn/9780345404473-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/5129'><img src='https://covers.openlibrary.org/b/isbn/9780060929879-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/5470'><img src='https://covers.openlibrary.org/b/isbn/9781782124207-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/8698'><img src='https://covers.openlibrary.org/b/isbn/9780330491235-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='0 sf'><div class=cover><a href='https://goodreads.com/book/show/17208'><img src='https://covers.openlibrary.org/b/isbn/9780345414007-M.jpg'/></div></a></li><li data-tags='5 sf'><div class=cover><a href='https://goodreads.com/book/show/17470674'><img src='https://covers.openlibrary.org/b/isbn/9780007491568-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4 sf'><div class=cover><a href='https://goodreads.com/book/show/52317884'><div>Stephen King<br/><br/>The Jaunt</div></div></a><p class=rating>★★★★</p></li><li data-tags='1 sf dropped'><div class=cover><a href='https://goodreads.com/book/show/100343'><img src='https://covers.openlibrary.org/b/isbn/9780765347718-M.jpg'/></div></a><p class=rating>★</p></li><li data-tags='5 fiction'><div class=cover><a href='https://goodreads.com/book/show/28251002'><img src='https://covers.openlibrary.org/b/isbn/9781101946619-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='0 fiction ru'><div class=cover><a href='https://goodreads.com/book/show/1820716'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1290515263l/9753380.jpg'/></div></a></li><li data-tags='0 fiction'><div class=cover><a href='https://goodreads.com/book/show/6186505'><img src='https://covers.openlibrary.org/b/isbn/9783552060937-M.jpg'/></div></a></li><li data-tags='5 fiction bio'><div class=cover><a href='https://goodreads.com/book/show/32085'><img src='https://covers.openlibrary.org/b/isbn/9780312965785-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 fiction bio'><div class=cover><a href='https://goodreads.com/book/show/38736'><img src='https://covers.openlibrary.org/b/isbn/9780312364526-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='5 psycho core'><div class=cover><a href='https://goodreads.com/book/show/25744928'><img src='https://covers.openlibrary.org/b/isbn/9781455586691-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4 psycho core'><div class=cover><a href='https://goodreads.com/book/show/629'><img src='https://covers.openlibrary.org/b/isbn/9780060589462-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='4 psycho core'><div class=cover><a href='https://goodreads.com/book/show/1890922'><img src='https://covers.openlibrary.org/b/isbn/9780380731763-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='5 psycho core'><div class=cover><a href='https://goodreads.com/book/show/22318578'><img src='https://covers.openlibrary.org/b/isbn/9781607747307-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/17788725'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1365578513l/17788725.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/40121378'><img src='https://covers.openlibrary.org/b/isbn/9780735211308-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='2 psycho'><div class=cover><a href='https://goodreads.com/book/show/28257707'><img src='https://covers.openlibrary.org/b/isbn/9781925483598-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='2 psycho dropped'><div class=cover><a href='https://goodreads.com/book/show/9744812'><img src='https://covers.openlibrary.org/b/isbn/9781857885699-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='0 psycho'><div class=cover><a href='https://goodreads.com/book/show/687278'><img src='https://covers.openlibrary.org/b/isbn/9781570623448-M.jpg'/></div></a></li><li data-tags='0 psycho'><div class=cover><a href='https://goodreads.com/book/show/335864'><img src='https://covers.openlibrary.org/b/isbn/9780977657209-M.jpg'/></div></a></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/40672036'><img src='https://covers.openlibrary.org/b/isbn/9780525536543-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='3 psycho'><div class=cover><a href='https://goodreads.com/book/show/666175'><img src='https://covers.openlibrary.org/b/isbn/9780553278330-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='2 psycho'><div class=cover><a href='https://goodreads.com/book/show/18077875'><img src='https://covers.openlibrary.org/b/isbn/9780804137386-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/14912777'><img src='https://covers.openlibrary.org/b/isbn/9781936891030-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='5 psycho'><div class=cover><a href='https://goodreads.com/book/show/17886972'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1369273925l/17886972.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='3 psycho'><div class=cover><a href='https://goodreads.com/book/show/4865'><img src='https://covers.openlibrary.org/b/isbn/9780671027032-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/13525945'><img src='https://covers.openlibrary.org/b/isbn/9781455509102-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='4 psycho'><div class=cover><a href='https://goodreads.com/book/show/26618156'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442819041l/26618156.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='4 psycho ru'><div class=cover><a href='https://goodreads.com/book/show/6796040'><img src='https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1251963363l/6796040.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='1 psycho dropped ru'><div class=cover><a href='https://goodreads.com/book/show/25767914'><div>Nigel Latta<br/><br/>Дочковедение. Отцы, воспитывающие дочерей</div></div></a><p class=rating>★</p></li><li data-tags='0 psycho dropped ru'><div class=cover><a href='https://goodreads.com/book/show/15786274'><div>Олег Новоселов<br/><br/>Женщина. Учебник для мужчин</div></div></a></li><li data-tags='3 swe'><div class=cover><a href='https://goodreads.com/book/show/32794226'><img src='https://covers.openlibrary.org/b/isbn/9781441700537-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='0 swe'><div class=cover><a href='https://goodreads.com/book/show/4268826'><img src='https://covers.openlibrary.org/b/isbn/9780321503626-M.jpg'/></div></a></li><li data-tags='0 swe'><div class=cover><a href='https://goodreads.com/book/show/37564837'><img src='https://covers.openlibrary.org/b/isbn/9780134494166-M.jpg'/></div></a></li><li data-tags='0 swe'><div class=cover><a href='https://goodreads.com/book/show/67825'><img src='https://covers.openlibrary.org/b/isbn/9780932633439-M.jpg'/></div></a></li><li data-tags='4 swe'><div class=cover><a href='https://goodreads.com/book/show/4099'><img src='https://covers.openlibrary.org/b/isbn/9780201616224-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='0 swe'><div class=cover><a href='https://goodreads.com/book/show/13629'><img src='https://covers.openlibrary.org/b/isbn/9780201835953-M.jpg'/></div></a></li><li data-tags='2 swe'><div class=cover><a href='https://goodreads.com/book/show/22895365'><img src='https://covers.openlibrary.org/b/isbn/9780062367549-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='2 swe'><div class=cover><a href='https://goodreads.com/book/show/958259'><img src='https://covers.openlibrary.org/b/isbn/9781596058897-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='4 swe'><div class=cover><a href='https://goodreads.com/book/show/20665102'><img src='https://covers.openlibrary.org/b/isbn/9780769551661-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='2 swe'><div class=cover><a href='https://goodreads.com/book/show/39286958'><div>John E. Doerr<br/><br/>Measure What Matters</div></div></a><p class=rating>★★</p></li><li data-tags='5 popsci'><div class=cover><a href='https://goodreads.com/book/show/567610'><img src='https://covers.openlibrary.org/b/isbn/9780671212094-M.jpg'/></div></a><p class=rating>★★★★★</p></li><li data-tags='1 popsci'><div class=cover><a href='https://goodreads.com/book/show/6396542'><img src='https://covers.openlibrary.org/b/isbn/9781604860801-M.jpg'/></div></a><p class=rating>★</p></li><li data-tags='2 popsci'><div class=cover><a href='https://goodreads.com/book/show/34890015'><img src='https://covers.openlibrary.org/b/isbn/9781473637467-M.jpg'/></div></a><p class=rating>★★</p></li><li data-tags='5 popsci'><div class=cover><a href='https://goodreads.com/book/show/19661852'><div>Gabriel Wyner<br/><br/>Fluent Forever: How to Learn Any Language Fast and Never Forget It</div></div></a><p class=rating>★★★★★</p></li><li data-tags='4 popsci'><div class=cover><a href='https://goodreads.com/book/show/23692271'><img src='https://covers.openlibrary.org/b/isbn/9780771038518-M.jpg'/></div></a><p class=rating>★★★★</p></li><li data-tags='0 crime'><div class=cover><a href='https://goodreads.com/book/show/867149'><div>Tonino Benacquista<br/><br/>Malavita</div></div></a></li><li data-tags='0 crime'><div class=cover><a href='https://goodreads.com/book/show/101000'><img src='https://covers.openlibrary.org/b/isbn/9780375727368-M.jpg'/></div></a></li><li data-tags='0 crime'><div class=cover><a href='https://goodreads.com/book/show/57727'><div>James Ellroy<br/><br/>L.A. Confidential (L.A. Quartet, #3)</div></div></a></li><li data-tags='0 crime'><div class=cover><a href='https://goodreads.com/book/show/36058'><img src='https://covers.openlibrary.org/b/isbn/9780099366614-M.jpg'/></div></a></li><li data-tags='0 crime'><div class=cover><a href='https://goodreads.com/book/show/21704'><img src='https://covers.openlibrary.org/b/isbn/9780446698870-M.jpg'/></div></a></li><li data-tags='3 bio'><div class=cover><a href='https://goodreads.com/book/show/14546626'><img src='https://covers.openlibrary.org/b/isbn/9781849839716-M.jpg'/></div></a><p class=rating>★★★</p></li><li data-tags='4'><div class=cover><a href='https://goodreads.com/book/show/761996'><img src='https://covers.openlibrary.org/b/isbn/9780813521350-M.jpg'/></div></a><p class=rating>★★★★</p></li></ul>
+<script type="text/javascript">
+var filter = {};
+
+function applyFilters() {
+  document.querySelectorAll("ul.ratings > li").forEach(function(el) {
+    var v = true;
+    for (var k in filter) {
+      v = filter[k](el);
+      if (!v) break;
+    }
+    el.hidden = !v;
+  });
+}
+
+document.querySelectorAll("ul.tags > li").forEach(el => el.onclick = function(event) {
+  var active = event.srcElement.classList.toggle('active');
+  var tag = event.srcElement.innerText;
+  if (active) {
+    var rx = new RegExp('\\b' + tag + '\\b');
+    filter[tag] = el => rx.test(el.getAttribute('data-tags'));
+  } else {
+    delete filter[tag];
+  }
+
+  applyFilters();
+});
+</script>
 
 </main>
   <footer>
