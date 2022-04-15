@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Backing up Android phone | Random forest</title>
+    <title>Backing up an Android phone | Random forest</title>
     <link rel="icon" href="data:;base64,=" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
@@ -29,7 +29,7 @@
     </nav>
 
 <div class="article-meta">
-<h1><span class="title">Backing up Android phone</span></h1>
+<h1><span class="title">Backing up an Android phone</span></h1>
 <h2 class="date">2020/04/24</h2>
 </div>
 
@@ -55,7 +55,7 @@ Set <code>&quot;Start on Open&quot;</code> in app settings.</p>
 <li>
 <p>Copy your public key to the phone.</p>
 <p>Please note that <code>ssh-copy-id</code> won&rsquo;t work. Just <code>ssh sshelper</code> and then paste
-the key into <code>authorized_keys</code>. Details <a href="http://www.galexander.org/software/simplesshd/">here</a>.</p>
+the key from <code>ssh-add -L</code> into <code>authorized_keys</code>. Details <a href="http://www.galexander.org/software/simplesshd/">here</a>.</p>
 </li>
 <li>
 <p>Now backup with rsync as usual.</p>
