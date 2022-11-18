@@ -17,5 +17,9 @@ document.querySelectorAll("ul.tags > li").forEach(el => el.onclick = function(ev
         delete filter[tag];
     }
 
+    history.pushState({}, "", '#' + Object.keys(filter).join(","));
     applyFilters();
 });
+
+window.top.location.hash.substr(1).split(",")
+    .forEach(t => document.querySelectorAll("[tag='" + t + "']").forEach(el => el.click()));
