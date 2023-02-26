@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exporting Liked Videos from Youtube | Random forest</title>
+    <link rel="icon" href="data:;base64,=" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Exporting Liked Videos from Youtube</span></h1>
+<h2 class="date">2023/02/26</h2>
+</div>
+
+<main>
+<p>Over the years I&rsquo;ve collected ~300 favourite videos and unfortunately some of
+them have been taken down. I have spent some time re-watching the old videos and
+still enjoy them. Few are just for laughs, some are educational and others are
+just art. As there are not too many of them, I can just download them all to my
+archives. 14 videos that were missing on Youtube I&rsquo;ve recovered from
+<a href="https://web.archive.org">https://web.archive.org</a></p>
+<p>The resulting archive weighs in at just 13G, so it really is a no-brainer to keep it offline.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># https://gist.github.com/guidocella/a272b6e68f9c44532b011f6596e95c61</span>
+<span style="color:#666">{</span>
+    <span style="color:#a2f">echo</span> <span style="color:#b44">&#39;# Netscape HTTP Cookie File&#39;</span> <span style="color:#080;font-style:italic"># needed by youtube-dl</span>
+
+    <span style="color:#b8860b">QUERY</span><span style="color:#666">=</span><span style="color:#b44">&#34;SELECT
+</span><span style="color:#b44">            host_key,
+</span><span style="color:#b44">            IIF(host_key LIKE &#39;.%&#39;, &#39;TRUE&#39;, &#39;FALSE&#39;),
+</span><span style="color:#b44">            path,
+</span><span style="color:#b44">            IIF(is_secure, &#39;TRUE&#39;, &#39;FALSE&#39;),
+</span><span style="color:#b44">            IIF(expires_utc == 0, 0, expires_utc / 1000000 - 11644473600),
+</span><span style="color:#b44">            name,
+</span><span style="color:#b44">            value
+</span><span style="color:#b44">        FROM cookies;&#34;</span>
+
+    <span style="color:#080;font-style:italic"># There is no attempt to url encode $1, but SQLite already handles</span>
+    <span style="color:#080;font-style:italic"># characters like spaces, so only ? % and # should cause issues.</span>
+    sqlite3 -readonly -separator <span style="color:#b44">$&#39;\t&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>        <span style="color:#b44">&#34;file:</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">1</span><span style="color:#a2f;font-weight:bold">:-</span><span style="color:#b8860b">$HOME</span>/.local/share/qutebrowser<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">/webengine/Cookies?nolock=1&#34;</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>        <span style="color:#b44">&#34;</span><span style="color:#b8860b">$QUERY</span><span style="color:#b44">&#34;</span>
+<span style="color:#666">}</span> &gt; cookies.txt
+</code></pre></div><div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 1:</span>
+  Export <code>qutebrowser</code> cookies for <code>yt-dlp</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yt-dlp --ignore-errors <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    --download-archive archive.txt <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    --cookies cookies.txt <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>    <span style="color:#b44">&#39;https://www.youtube.com/playlist?list=LL&#39;</span>
+</code></pre></div><div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 2:</span>
+  Download everything from the Liked Videos playlist
+</div>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+
