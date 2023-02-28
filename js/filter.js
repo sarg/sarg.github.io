@@ -1,7 +1,7 @@
 var filter = {};
 
 function applyFilters() {
-    document.querySelectorAll("ul.ratings > li")
+    document.querySelectorAll(".ratings [data-tags]")
         .forEach(el => el.hidden = Object.values(filter).find(f => !f(el)));
 }
 
