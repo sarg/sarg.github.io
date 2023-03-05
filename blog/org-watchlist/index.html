@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Making org-mode movie diary | Random forest</title>
+    <link rel="icon" href="data:;base64,=" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Making org-mode movie diary</span></h1>
+<h2 class="date">2023/03/05</h2>
+</div>
+
+<main>
+<p>End result is here: <a href="/movies/">Movies</a></p>
+<h2 id="putting-it-in-org-mode">Putting it in org-mode</h2>
+<p>This part is easy. Here is how my file is structured.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#080;font-weight:bold">#+STARTUP</span><span style="color:#080;font-style:italic">: logdrawer</span>
+<span style="color:#080;font-weight:bold">#+TODO</span><span style="color:#080;font-style:italic">: TODO(t) NEXT(n) | DONE(d!) DROPPED(c@)</span>
+
+<span style="color:#000080;font-weight:bold">*</span><span style="color:#b68"> DONE</span><span style="font-weight:bold"> La Jetée (1962) :romance:scifi:</span>
+<span style="color:#080;font-style:italic">:PROPERTIES:
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080;font-weight:bold">:ltbx: https://boxd.it/29Sk
+</span><span style="color:#080;font-weight:bold">:rating: 4
+</span><span style="color:#080;font-weight:bold">:imdb: tt0056119
+</span><span style="color:#080;font-weight:bold"></span><span style="color:#080;font-style:italic">:END:</span>
+<span style="color:#080;font-style:italic">:LOGBOOK:
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080;font-weight:bold">- State &#34;DONE&#34;       from              [2022-07-11 Mon]
+</span><span style="color:#080;font-weight:bold"></span><span style="color:#080;font-style:italic">:END:</span>
+</code></pre></div><p>And here is a small helper function to convert imdb links to journal entries:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a2f">defun</span> <span style="color:#b8860b">template-by-imdb</span> ()
+  (<span style="color:#a2f">interactive</span>)
+  (<span style="color:#00a000">beginning-of-line</span>)
+  (<span style="color:#00a000">search-forward</span> <span style="color:#b44">&#34;imdb.com/title/&#34;</span>)
+  (<span style="color:#a2f">when</span> (<span style="color:#b8860b">not</span> (<span style="color:#00a000">looking-at</span> <span style="color:#b44">&#34;tt[[:digit:]]+&#34;</span>))
+    (<span style="color:#d2413a;font-weight:bold">error</span> <span style="color:#b44">&#34;Not a valid imdb url&#34;</span>))
+  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">imdb</span> (<span style="color:#00a000">buffer-substring</span> (<span style="color:#00a000">match-beginning</span> <span style="color:#666">0</span>) (<span style="color:#00a000">match-end</span> <span style="color:#666">0</span>)))
+         (<span style="color:#b8860b">apikey</span> (<span style="color:#b8860b">password-store-get</span> <span style="color:#b44">&#34;Sites/omdbapi.com&#34;</span>))
+         (<span style="color:#b8860b">movie</span> (<span style="color:#a2f">with-current-buffer</span>
+                    (<span style="color:#b8860b">url-retrieve-synchronously</span>
+                     (<span style="color:#00a000">concat</span> <span style="color:#b44">&#34;http://omdbapi.com/?apikey=&#34;</span> <span style="color:#b8860b">apikey</span> <span style="color:#b44">&#34;&amp;i=&#34;</span> <span style="color:#b8860b">imdb</span>))
+                  (<span style="color:#00a000">goto-char</span> <span style="color:#b8860b">url-http-end-of-headers</span>)
+                  (<span style="color:#b8860b">json-read-from-string</span>
+                   (<span style="color:#00a000">decode-coding-string</span>
+                    (<span style="color:#00a000">buffer-substring</span> (<span style="color:#00a000">point</span>) (<span style="color:#00a000">point-max</span>)) <span style="color:#b8860b">&#39;utf-8</span>))))
+         (<span style="color:#b8860b">genres-str</span> (<span style="color:#b8860b">alist-get</span> <span style="color:#b44">&#34;Genre&#34;</span> <span style="color:#b8860b">movie</span> <span style="color:#800">nil</span> <span style="color:#800">nil</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">string=</span>))
+         (<span style="color:#b8860b">genres</span> (<span style="color:#b8860b">-map</span> <span style="color:#00a000">#&#39;downcase</span> (<span style="color:#b8860b">string-split</span> <span style="color:#b8860b">genres-str</span> <span style="color:#b44">&#34;, &#34;</span>)))
+         (<span style="color:#b8860b">title</span> (<span style="color:#b8860b">alist-get</span> <span style="color:#b44">&#34;Title&#34;</span> <span style="color:#b8860b">movie</span> <span style="color:#800">nil</span> <span style="color:#800">nil</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">string=</span>))
+         (<span style="color:#b8860b">year</span> (<span style="color:#b8860b">alist-get</span> <span style="color:#b44">&#34;Year&#34;</span> <span style="color:#b8860b">movie</span> <span style="color:#800">nil</span> <span style="color:#800">nil</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">string=</span>)))
+
+    (<span style="color:#00a000">beginning-of-line</span>)
+    (<span style="color:#b8860b">delete-line</span>)
+    (<span style="color:#b8860b">org-insert-heading</span>)
+    (<span style="color:#b8860b">org-edit-headline</span> (<span style="color:#00a000">concat</span> <span style="color:#b8860b">title</span> <span style="color:#b44">&#34; (&#34;</span> <span style="color:#b8860b">year</span> <span style="color:#b44">&#34;)&#34;</span>))
+    (<span style="color:#b8860b">org-set-tags</span> <span style="color:#b8860b">genres</span>)
+    (<span style="color:#b8860b">org-todo</span> <span style="color:#b44">&#34;TODO&#34;</span>)
+    (<span style="color:#b8860b">org-set-property</span> <span style="color:#b44">&#34;imdb&#34;</span> <span style="color:#b8860b">imdb</span>)))
+</code></pre></div><h2 id="letterboxd-export">Letterboxd export</h2>
+<p>I&rsquo;ve fallen into this trap again&hellip; I&rsquo;ve relied on a 3rd party website to manage
+my data. Yes, it looks good and it&rsquo;s UX friendly, it&rsquo;s easy to fall prey. This
+time it was <a href="https://letterboxd.com">Letterboxd</a>. I imported my <a href="https://themoviedb.org">TheMovieDB</a> watchlist there and used it as
+a film diary for a couple of years. One day I finally found some time to sort my
+movie collection with <a href="https://www.tinymediamanager.org">tinyMediaManager</a> and the icing on the cake was to add my
+ratings to the NFO files. To my disappointment, Letterboxd doesn&rsquo;t include the
+imdb id in the export files, so I had to write a script to fetch all their short
+urls one by one and extract the imdb ids from the html.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">re</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">requests</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">fileinput</span>
+
+<span style="color:#080;font-style:italic"># takes file with https://boxd.it/71O short links</span>
+<span style="color:#a2f;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> fileinput<span style="color:#666">.</span>input():
+    row <span style="color:#666">=</span> row<span style="color:#666">.</span>strip()
+    d <span style="color:#666">=</span> requests<span style="color:#666">.</span>get(row)
+    imdb <span style="color:#666">=</span> re<span style="color:#666">.</span>findall(<span style="color:#b44">&#39;(?&lt;=imdb.com/title/)tt[^/]+&#39;</span>, d<span style="color:#666">.</span>text)[<span style="color:#666">0</span>]
+    <span style="color:#a2f">print</span>(row, imdb, sep<span style="color:#666">=</span><span style="color:#b44">&#39;,&#39;</span>, flush<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">True</span>)
+</code></pre></div><h2 id="importing-ratings-in-nfo-files">Importing ratings in NFO files</h2>
+<p>Then another script to put the ratings in the NFO files.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">re</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">sys</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">csv</span>
+<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">glob</span>
+
+r <span style="color:#666">=</span> csv<span style="color:#666">.</span>reader(<span style="color:#a2f">open</span>(<span style="color:#b44">&#34;/home/sarg/rated.csv&#34;</span>))
+rates <span style="color:#666">=</span> { row[<span style="color:#666">3</span>]: <span style="color:#a2f">float</span>(row[<span style="color:#666">2</span>])<span style="color:#666">*</span><span style="color:#666">2</span> <span style="color:#a2f;font-weight:bold">for</span> row <span style="color:#a2f;font-weight:bold">in</span> r }
+
+<span style="color:#a2f;font-weight:bold">for</span> n <span style="color:#a2f;font-weight:bold">in</span> glob<span style="color:#666">.</span>glob(<span style="color:#b44">&#39;/media/sarg/2TB/Movies/**/**/*.nfo&#39;</span>):
+    imdb <span style="color:#666">=</span> re<span style="color:#666">.</span>findall(<span style="color:#b44">&#39;(?&lt;=&lt;id&gt;)tt\d+&#39;</span>, <span style="color:#a2f">open</span>(n)<span style="color:#666">.</span>read())[<span style="color:#666">0</span>]
+    <span style="color:#a2f;font-weight:bold">if</span> imdb <span style="color:#a2f;font-weight:bold">in</span> rates:
+        rates<span style="color:#666">.</span>pop(imdb)
+        d <span style="color:#666">=</span> re<span style="color:#666">.</span>sub(<span style="color:#b44">&#39;&lt;userrating&gt;0.0&#39;</span>, <span style="color:#b44">&#39;&lt;userrating&gt;&#39;</span> <span style="color:#666">+</span> <span style="color:#a2f">str</span>(rates[imdb]), d)
+        f <span style="color:#666">=</span> <span style="color:#a2f">open</span>(n <span style="color:#666">+</span> <span style="color:#b44">&#39;.new&#39;</span>, <span style="color:#b44">&#39;w&#39;</span>)
+        f<span style="color:#666">.</span>write(d)
+        f<span style="color:#666">.</span>close()
+
+<span style="color:#a2f">print</span>(<span style="color:#b44">&#34;High rated movies I don&#39;t have:&#34;</span>)
+<span style="color:#a2f;font-weight:bold">for</span> imdb <span style="color:#a2f;font-weight:bold">in</span> rates:
+    <span style="color:#a2f;font-weight:bold">if</span> rates[imdb]<span style="color:#666">&gt;</span><span style="color:#666">7</span>:
+        <span style="color:#a2f">print</span>(<span style="color:#b44">f</span><span style="color:#b44">&#34;https://imdb.com/title/</span><span style="color:#b68;font-weight:bold">{</span>imdb<span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&#34;</span>)
+</code></pre></div>
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+
