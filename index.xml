@@ -8,7 +8,65 @@
     <language>en-us</language>
     <managingEditor>sarg@sarg.org.ru (Sergey Trofimov)</managingEditor>
     <webMaster>sarg@sarg.org.ru (Sergey Trofimov)</webMaster>
-    <lastBuildDate>Sun, 05 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>wpa-manager.el and torrent-mode.el</title>
+      <link>http://sarg.org.ru/blog/wifi-and-torrent/</link>
+      <pubDate>Sun, 12 Mar 2023 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/wifi-and-torrent/</guid>
+      <description>&lt;p&gt;There is a nice &lt;a href=&#34;https://elpa.gnu.org/packages/bluetooth.html&#34;&gt;bluetooth-mode&lt;/a&gt; to scan and connect to bluetooth devices, but no
+such mode for wifi. It&amp;rsquo;s time to fix that. I&amp;rsquo;ve started implementing &lt;a href=&#34;https://github.com/sarg/wpa-manager.el&#34;&gt;wpa-manager&lt;/a&gt;
+which controls &lt;a href=&#34;https://w1.fi/wpa_supplicant/&#34;&gt;wpa_supplicant&lt;/a&gt; over its D-Bus interface. Currently the manager
+supports scanning and connecting using WPA PSK. It already solves most of my
+use cases.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SSID                     BSSID                            Freq  Signal▼
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SARG                     5B:32:C6:8F:55:03                5180   -47
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FRITZ!Box 7362 SL        7D:3D:12:D4:C1:1C                2417   -53
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ZYXEL-795                65:18:77:8E:6B:0C                2412   -56
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WLAN-123488              27:49:1B:71:5D:F7                2412   -62
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FRITZ!Box 7530 IG        F0:B4:4A:AB:B4:9F                2462   -63
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WLAN-WWAAAB              83:F9:C3:23:C1:1C                2462   -65
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FRITZ!Box 7430 DR        63:E7:BC:09:16:C0                2462   -73
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WLAN-123488              B2:8A:27:3B:C7:39                5500   -75
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Another package is &lt;a href=&#34;https://github.com/sarg/torrent-mode.el&#34;&gt;torrent-mode&lt;/a&gt; which provides a tabulated view of a torrent
+file content. An example of how it looks like.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Idx ▼Size     Name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   000  2.1k     dumpruninfo.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   001  4.8G     enwiki-20170220-abstract.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   002  741M     enwiki-20170220-abstract1.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   003  353M     enwiki-20170220-abstract2.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   004  259M     enwiki-20170220-abstract3.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   005  202M     enwiki-20170220-abstract4.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  006  168M     enwiki-20170220-abstract5.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  007  161M     enwiki-20170220-abstract6.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  008  183M     enwiki-20170220-abstract7.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  009  161M     enwiki-20170220-abstract8.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  010  133M     enwiki-20170220-abstract9.xml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This mode supports selecting individual files which could then be fed into &lt;a href=&#34;https://github.com/ukaszg/aria2&#34;&gt;aria2&lt;/a&gt;
+using small defun:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;torrent-mode-download-selected&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;dest-dir&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Download ARG entries.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   (&lt;span style=&#34;color:#00a000&#34;&gt;list&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;read-directory-name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Directory: &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#a2f&#34;&gt;or&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;dired-dwim-target-directory&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#b8860b&#34;&gt;aria2-download-directory&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#800&#34;&gt;t&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;torrent-mode&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; aria2.addTorrent([secret, ]torrent[, uris[, options[, position]]])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#b8860b&#34;&gt;make-request&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b8860b&#34;&gt;aria2--cc&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;aria2.addTorrent&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   (&lt;span style=&#34;color:#b8860b&#34;&gt;aria2--base64-encode-file&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;buffer-file-name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#666&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;:select-file&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;,&lt;/span&gt;(&lt;span style=&#34;color:#b8860b&#34;&gt;seq-map&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;car&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;tablist-get-marked-items&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#a2f&#34;&gt;:dir&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;,&lt;/span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;expand-file-name&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;dest-dir&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
 
     <item>
       <title>Making org-mode movie diary</title>
