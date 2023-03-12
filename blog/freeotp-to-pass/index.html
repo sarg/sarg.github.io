@@ -24,6 +24,8 @@
       
       <li><a href="/movies">Movies</a></li>
       
+      <li><a href="/index.xml">RSS</a></li>
+      
     </ul>
     <hr/>
     </nav>
@@ -41,27 +43,27 @@ because now both password and otp are on the same device.</p>
 <p>So, first I need to find where FreeOTP stores OTP secrets. Android apps
 usually use sqlite db for that, but not in this case. FreeOTP uses shared_prefs.</p>
 <p>Pull prefs from the phone (root needed).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">adb root
-adb pull /data/data/org.fedorahosted.freeotp/shared_prefs/tokens.xml
-</code></pre></div><p>Here is what they look like.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; standalone=&#39;yes&#39; ?&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;map&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;string</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Amazon Web Services:sarg@organization&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>{<span style="color:#999;font-weight:bold">&amp;quot;</span>algo<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>SHA1<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>counter<span style="color:#999;font-weight:bold">&amp;quot;</span>:0,<span style="color:#999;font-weight:bold">&amp;quot;</span>digits<span style="color:#999;font-weight:bold">&amp;quot;</span>:6,<span style="color:#999;font-weight:bold">&amp;quot;</span>issuerExt<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>issuerInt<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>label<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>sarg@organization<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>period<span style="color:#999;font-weight:bold">&amp;quot;</span>:30,<span style="color:#999;font-weight:bold">&amp;quot;</span>secret<span style="color:#999;font-weight:bold">&amp;quot;</span>:[52,19,105,64,67,-120,-45],<span style="color:#999;font-weight:bold">&amp;quot;</span>type<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>TOTP<span style="color:#999;font-weight:bold">&amp;quot;</span>}<span style="color:#008000;font-weight:bold">&lt;/string&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;string</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;tokenOrder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>[<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services:sarg@organization<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>Google:sarg@sarg.org.ru<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>GitHub:sarg<span style="color:#999;font-weight:bold">&amp;quot;</span>]<span style="color:#008000;font-weight:bold">&lt;/string&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/map&gt;</span>
-</code></pre></div><p>Storing JSON in XML - that&rsquo;s a beaty. If you decode the value, it looks better:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#008000;font-weight:bold">&#34;type&#34;</span>: <span style="color:#b44">&#34;TOTP&#34;</span>,
-    <span style="color:#008000;font-weight:bold">&#34;secret&#34;</span>: [<span style="color:#666">52</span>, <span style="color:#666">19</span>, <span style="color:#666">105</span>, <span style="color:#666">64</span>, <span style="color:#666">67</span>, <span style="color:#666">-120</span>, <span style="color:#666">-45</span>],
-    <span style="color:#008000;font-weight:bold">&#34;period&#34;</span>: <span style="color:#666">30</span>,
-    <span style="color:#008000;font-weight:bold">&#34;label&#34;</span>: <span style="color:#b44">&#34;sarg@organization&#34;</span>,
-    <span style="color:#008000;font-weight:bold">&#34;issuerInt&#34;</span>: <span style="color:#b44">&#34;Amazon Web Services&#34;</span>,
-    <span style="color:#008000;font-weight:bold">&#34;issuerExt&#34;</span>: <span style="color:#b44">&#34;Amazon Web Services&#34;</span>,
-    <span style="color:#008000;font-weight:bold">&#34;digits&#34;</span>: <span style="color:#666">6</span>,
-    <span style="color:#008000;font-weight:bold">&#34;counter&#34;</span>: <span style="color:#666">0</span>,
-    <span style="color:#008000;font-weight:bold">&#34;algo&#34;</span>: <span style="color:#b44">&#34;SHA1&#34;</span>
-}
-</code></pre></div><p>Now I need to:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>adb root
+</span></span><span style="display:flex;"><span>adb pull /data/data/org.fedorahosted.freeotp/shared_prefs/tokens.xml
+</span></span></code></pre></div><p>Here is what they look like.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; standalone=&#39;yes&#39; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;map&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;string</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Amazon Web Services:sarg@organization&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>{<span style="color:#999;font-weight:bold">&amp;quot;</span>algo<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>SHA1<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>counter<span style="color:#999;font-weight:bold">&amp;quot;</span>:0,<span style="color:#999;font-weight:bold">&amp;quot;</span>digits<span style="color:#999;font-weight:bold">&amp;quot;</span>:6,<span style="color:#999;font-weight:bold">&amp;quot;</span>issuerExt<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>issuerInt<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>label<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>sarg@organization<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>period<span style="color:#999;font-weight:bold">&amp;quot;</span>:30,<span style="color:#999;font-weight:bold">&amp;quot;</span>secret<span style="color:#999;font-weight:bold">&amp;quot;</span>:[52,19,105,64,67,-120,-45],<span style="color:#999;font-weight:bold">&amp;quot;</span>type<span style="color:#999;font-weight:bold">&amp;quot;</span>:<span style="color:#999;font-weight:bold">&amp;quot;</span>TOTP<span style="color:#999;font-weight:bold">&amp;quot;</span>}<span style="color:#008000;font-weight:bold">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;string</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;tokenOrder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>[<span style="color:#999;font-weight:bold">&amp;quot;</span>Amazon Web Services:sarg@organization<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>Google:sarg@sarg.org.ru<span style="color:#999;font-weight:bold">&amp;quot;</span>,<span style="color:#999;font-weight:bold">&amp;quot;</span>GitHub:sarg<span style="color:#999;font-weight:bold">&amp;quot;</span>]<span style="color:#008000;font-weight:bold">&lt;/string&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/map&gt;</span>
+</span></span></code></pre></div><p>Storing JSON in XML - that&rsquo;s a beaty. If you decode the value, it looks better:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;type&#34;</span>: <span style="color:#b44">&#34;TOTP&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;secret&#34;</span>: [<span style="color:#666">52</span>, <span style="color:#666">19</span>, <span style="color:#666">105</span>, <span style="color:#666">64</span>, <span style="color:#666">67</span>, <span style="color:#666">-120</span>, <span style="color:#666">-45</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;period&#34;</span>: <span style="color:#666">30</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;label&#34;</span>: <span style="color:#b44">&#34;sarg@organization&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;issuerInt&#34;</span>: <span style="color:#b44">&#34;Amazon Web Services&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;issuerExt&#34;</span>: <span style="color:#b44">&#34;Amazon Web Services&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;digits&#34;</span>: <span style="color:#666">6</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;counter&#34;</span>: <span style="color:#666">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&#34;algo&#34;</span>: <span style="color:#b44">&#34;SHA1&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now I need to:</p>
 <ul>
 <li>parse xml</li>
 <li>extract json from xml</li>
@@ -69,53 +71,53 @@ adb pull /data/data/org.fedorahosted.freeotp/shared_prefs/tokens.xml
 <li>construct otpauth:// uri using details from json</li>
 </ul>
 <p>URI format is described in google-authenticator <a href="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">wiki</a>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Provision a TOTP key for user alice@google.com, to use with a service provided
-by Example, Inc:
-
-otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&amp;issuer=Example
-</code></pre></div><p>For one-time scripts I prefer using python.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Provision a TOTP key for user alice@google.com, to use with a service provided
+</span></span><span style="display:flex;"><span>by Example, Inc:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&amp;issuer=Example
+</span></span></code></pre></div><p>For one-time scripts I prefer using python.
 There is a handy library for dealing with html/xml - BeautifulSoup.
 And I will consult with FreeOTP <a href="https://github.com/freeotp/freeotp-android">sources</a> to get things right.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-style:italic">#!/usr/bin/env python3</span>
-
-<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">urllib.parse</span>
-<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">base64</span>
-<span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">json</span>
-<span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">bs4</span> <span style="color:#a2f;font-weight:bold">import</span> BeautifulSoup
-
-inp <span style="color:#666">=</span> <span style="color:#a2f">open</span>(<span style="color:#b44">&#39;tokens.xml&#39;</span>)
-soup <span style="color:#666">=</span> BeautifulSoup(inp, <span style="color:#b44">&#39;lxml&#39;</span>)
-
-<span style="color:#a2f;font-weight:bold">for</span> tag <span style="color:#a2f;font-weight:bold">in</span> soup<span style="color:#666">.</span>find_all(<span style="color:#b44">&#39;string&#39;</span>):
-    <span style="color:#080;font-style:italic"># it&#39;s a special setting, skip it</span>
-    <span style="color:#a2f;font-weight:bold">if</span> tag[<span style="color:#b44">&#39;name&#39;</span>] <span style="color:#666">==</span> <span style="color:#b44">&#39;tokenOrder&#39;</span>:
-        <span style="color:#a2f;font-weight:bold">continue</span>
-
-    token <span style="color:#666">=</span> json<span style="color:#666">.</span>loads(tag<span style="color:#666">.</span>text)
-
-    <span style="color:#080;font-style:italic"># secret is stored as signed byte array</span>
-    <span style="color:#080;font-style:italic"># so first make it unsigned by adding 256 modulo 256</span>
-    <span style="color:#080;font-style:italic"># and then convert to python&#39;s bytearray</span>
-    secret <span style="color:#666">=</span> <span style="color:#a2f">bytearray</span>(<span style="color:#a2f">map</span>(<span style="color:#a2f;font-weight:bold">lambda</span> x: (x<span style="color:#666">+</span><span style="color:#666">256</span>)<span style="color:#666">%</span><span style="color:#666">256</span>, token[<span style="color:#b44">&#39;secret&#39;</span>]))
-
-    issuer <span style="color:#666">=</span> token<span style="color:#666">.</span>get(<span style="color:#b44">&#39;issuerExt&#39;</span>, <span style="color:#b44">&#39;&#39;</span>)
-    <span style="color:#a2f">print</span>(<span style="color:#b44">&#39;otpauth://</span><span style="color:#b68;font-weight:bold">{type}</span><span style="color:#b44">/</span><span style="color:#b68;font-weight:bold">{issuer}</span><span style="color:#b44">?</span><span style="color:#b68;font-weight:bold">{args}</span><span style="color:#b44">&#39;</span><span style="color:#666">.</span>format(
-        <span style="color:#a2f">type</span><span style="color:#666">=</span>token[<span style="color:#b44">&#39;type&#39;</span>]<span style="color:#666">.</span>lower(),
-
-        <span style="color:#080;font-style:italic"># issuer should be URL encoded</span>
-        issuer<span style="color:#666">=</span>urllib<span style="color:#666">.</span>parse<span style="color:#666">.</span>quote(
-            <span style="color:#b44">&#39;:&#39;</span><span style="color:#666">.</span>join(<span style="color:#a2f">filter</span>(<span style="color:#a2f;font-weight:bold">None</span>, (issuer, token[<span style="color:#b44">&#39;label&#39;</span>])))),
-
-        args<span style="color:#666">=</span>urllib<span style="color:#666">.</span>parse<span style="color:#666">.</span>urlencode({
-            <span style="color:#b44">&#39;secret&#39;</span>: base64<span style="color:#666">.</span>b32encode(secret)<span style="color:#666">.</span>decode(<span style="color:#b44">&#39;utf-8&#39;</span>),
-            <span style="color:#b44">&#39;algo  &#39;</span>: token[<span style="color:#b44">&#39;algo&#39;</span>],
-            <span style="color:#b44">&#39;digits&#39;</span>: token[<span style="color:#b44">&#39;digits&#39;</span>],
-            <span style="color:#b44">&#39;period&#39;</span>: token[<span style="color:#b44">&#39;period&#39;</span>]
-        })
-    ))
-
-inp<span style="color:#666">.</span>close()
-</code></pre></div><p>Now what&rsquo;s left is just to import everything into pass with <code>pass otp insert -e</code>.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-style:italic">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">urllib.parse</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">base64</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">json</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">bs4</span> <span style="color:#a2f;font-weight:bold">import</span> BeautifulSoup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>inp <span style="color:#666">=</span> <span style="color:#a2f">open</span>(<span style="color:#b44">&#39;tokens.xml&#39;</span>)
+</span></span><span style="display:flex;"><span>soup <span style="color:#666">=</span> BeautifulSoup(inp, <span style="color:#b44">&#39;lxml&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">for</span> tag <span style="color:#a2f;font-weight:bold">in</span> soup<span style="color:#666">.</span>find_all(<span style="color:#b44">&#39;string&#39;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># it&#39;s a special setting, skip it</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> tag[<span style="color:#b44">&#39;name&#39;</span>] <span style="color:#666">==</span> <span style="color:#b44">&#39;tokenOrder&#39;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    token <span style="color:#666">=</span> json<span style="color:#666">.</span>loads(tag<span style="color:#666">.</span>text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># secret is stored as signed byte array</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># so first make it unsigned by adding 256 modulo 256</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># and then convert to python&#39;s bytearray</span>
+</span></span><span style="display:flex;"><span>    secret <span style="color:#666">=</span> <span style="color:#a2f">bytearray</span>(<span style="color:#a2f">map</span>(<span style="color:#a2f;font-weight:bold">lambda</span> x: (x<span style="color:#666">+</span><span style="color:#666">256</span>)<span style="color:#666">%</span><span style="color:#666">256</span>, token[<span style="color:#b44">&#39;secret&#39;</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    issuer <span style="color:#666">=</span> token<span style="color:#666">.</span>get(<span style="color:#b44">&#39;issuerExt&#39;</span>, <span style="color:#b44">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f">print</span>(<span style="color:#b44">&#39;otpauth://</span><span style="color:#b68;font-weight:bold">{type}</span><span style="color:#b44">/</span><span style="color:#b68;font-weight:bold">{issuer}</span><span style="color:#b44">?</span><span style="color:#b68;font-weight:bold">{args}</span><span style="color:#b44">&#39;</span><span style="color:#666">.</span>format(
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f">type</span><span style="color:#666">=</span>token[<span style="color:#b44">&#39;type&#39;</span>]<span style="color:#666">.</span>lower(),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-style:italic"># issuer should be URL encoded</span>
+</span></span><span style="display:flex;"><span>        issuer<span style="color:#666">=</span>urllib<span style="color:#666">.</span>parse<span style="color:#666">.</span>quote(
+</span></span><span style="display:flex;"><span>            <span style="color:#b44">&#39;:&#39;</span><span style="color:#666">.</span>join(<span style="color:#a2f">filter</span>(<span style="color:#a2f;font-weight:bold">None</span>, (issuer, token[<span style="color:#b44">&#39;label&#39;</span>])))),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        args<span style="color:#666">=</span>urllib<span style="color:#666">.</span>parse<span style="color:#666">.</span>urlencode({
+</span></span><span style="display:flex;"><span>            <span style="color:#b44">&#39;secret&#39;</span>: base64<span style="color:#666">.</span>b32encode(secret)<span style="color:#666">.</span>decode(<span style="color:#b44">&#39;utf-8&#39;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#b44">&#39;algo  &#39;</span>: token[<span style="color:#b44">&#39;algo&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#b44">&#39;digits&#39;</span>: token[<span style="color:#b44">&#39;digits&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#b44">&#39;period&#39;</span>: token[<span style="color:#b44">&#39;period&#39;</span>]
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    ))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>inp<span style="color:#666">.</span>close()
+</span></span></code></pre></div><p>Now what&rsquo;s left is just to import everything into pass with <code>pass otp insert -e</code>.
 Or you can manually put <code>otpauth://</code> string in an appropriate pass file. I did
 the latter way, because my already existing entries have had another names.
 Then check that everything went fine - <code>pass otp 'Amazon Web Services/sarg@organization'</code></p>

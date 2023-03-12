@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random forest</title>
+    <link>http://sarg.org.ru/index.xml</link>
+    <description>Recent content on Random forest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>sarg@sarg.org.ru (Sergey Trofimov)</managingEditor>
+    <webMaster>sarg@sarg.org.ru (Sergey Trofimov)</webMaster>
+    <lastBuildDate>Sun, 05 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Making org-mode movie diary</title>
+      <link>http://sarg.org.ru/blog/org-watchlist/</link>
+      <pubDate>Sun, 05 Mar 2023 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/org-watchlist/</guid>
+      <description>End result is here: Movies
+Putting it in org-mode Small demo of my flow:
+Your browser does not support the video tag.
+File organisation:
+#+STARTUP: logdrawer #+TODO: TODO(t) NEXT(n) | DONE(d!) DROPPED(c@) * DONE La Jetée (1962) :romance:scifi: :PROPERTIES: :rating: 4 :imdb: tt0056119 :END: :LOGBOOK: - State &amp;#34;DONE&amp;#34; from [2022-07-11 Mon] :END: * Watch List [0/1] ** TODO Big Buck Bunny (2008) :animation:short:comedy: :PROPERTIES: :imdb: tt1254207 :END: And here is a minor mode to automate inserting new entries.</description>
+    </item>
+    
+
+    <item>
+      <title>Exporting Liked Videos from Youtube</title>
+      <link>http://sarg.org.ru/blog/export-youtube-liked/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/export-youtube-liked/</guid>
+      <description>Over the years I&amp;rsquo;ve collected ~300 favourite videos and unfortunately some of them have been taken down. I have spent some time re-watching the old videos and still enjoy them. Few are just for laughs, some are educational and others are just art. As there are not too many of them, I can just download them all to my archives. 14 videos that were missing on Youtube I&amp;rsquo;ve recovered from https://web.</description>
+    </item>
+    
+
+    <item>
+      <title>📖 Cracking The Code To A Successful Interview</title>
+      <link>http://sarg.org.ru/blog/cracking-interview/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/cracking-interview/</guid>
+      <description>Goodreads - 3/5.
+First impression: Overall the tone of the book is slightly arrogant. The author&amp;rsquo;s ego is soaking from every page.
+After the read: The book is best suited for a sales position in corporate America. Overall the message of the book is: Be prepared, know what&amp;rsquo;s expected of you and give it to the inverviewer in advance. In chapter 9 there is a summary of REAPRICH method. Chapter 10-12,15 are unrelated to hiring process.</description>
+    </item>
+    
+
+    <item>
+      <title>📖 Growing Object-Oriented Softwared, Guided by Tests.</title>
+      <link>http://sarg.org.ru/blog/tdd-freeman/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/tdd-freeman/</guid>
+      <description>I&amp;rsquo;ve finished reading Growing Object-Oriented Softwared, Guided by Tests by Steve Freeman and Nat Pryce. The book is a good introduction into TDD. First it goes through core concepts and then demonstrates how to implement TDD on a simple project.
+My takeouts throughout the reading:
+TDD is a core practice of XP. TDD is not about keeping defects from the users, but helping the team to understand the features and to deliver them reliably and predictably.</description>
+    </item>
+    
+
+    <item>
+      <title>Exporting watch list from TMDb</title>
+      <link>http://sarg.org.ru/blog/tmdb-export/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/tmdb-export/</guid>
+      <description>I keep list of movies I&amp;rsquo;ve watched on TheMovieDB. The service is great and I&amp;rsquo;ve used it for quite a long time (&amp;gt;700 movies in my list). I was using another service before, which unfortunately had closed without giving me a chance to export the data and I had to scrape my watchlist from the google cache.
+To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from TMDb and will use the service only as a secondary source with a nice UI.</description>
+    </item>
+    
+
+    <item>
+      <title>Android apps that I use</title>
+      <link>http://sarg.org.ru/blog/android-apps/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/android-apps/</guid>
+      <description>My phone is running AOSP without google services and almost all of the applications I use come from F-Droid. Few exceptions are the apps for paid services that I use and they are installed from Aurora Store.
+I use fdroidcl to install and update applications. Backup is covered in the post &amp;ldquo;Backing up an Android phone&amp;rdquo;. I use syncthing to share a directory between my laptops and the phone. I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to passwords on the phone (rarely).</description>
+    </item>
+    
+
+    <item>
+      <title>Backing up an Android phone</title>
+      <link>http://sarg.org.ru/blog/android-backup/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/android-backup/</guid>
+      <description>One day my wife asked me to help her backup about 30Gb of photos from her android phone. At first we had tried to copy files over MTP (in Win10). This idea quickly showed its incapacity. You see, Win10 wants to be nice and tries to calculate ETA. But 30Gb is a lot of files and over MTP it takes one request per file to get its size. So, we waited half an hour while Win10 was preparing to start the transfer and I had aborted this madness.</description>
+    </item>
+    
+
+    <item>
+      <title>Making a hugo powered blog in emacs</title>
+      <link>http://sarg.org.ru/blog/emacs-hugo/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0200</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/emacs-hugo/</guid>
+      <description>&lt;p&gt;Starting a blog this days couldn&amp;rsquo;t be easier. Ten simple steps to get started.&lt;/p&gt;</description>
+    </item>
+    
+
+    <item>
+      <title>Advent of Code 2019</title>
+      <link>http://sarg.org.ru/blog/aoc2019/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/aoc2019/</guid>
+      <description>For the first time I&amp;rsquo;ve participated in &amp;ldquo;Advent of Code&amp;rdquo; contest. It promised to be a fun time and a good opportunity to learn a new programming language. I&amp;rsquo;ve taken Clojure from my bucket list and dived head first into the contest.
+The first few tasks are deliberately very easy, so that participants firstly would get into the mood and would not detract by the bar raised too high, and secondly to let one to get acquainted with the platform and rules, set up the coding environment and get hands-on with the new language (if you one uses such).</description>
+    </item>
+    
+
+    <item>
+      <title>Exporting secrets from FreeOTP to Pass</title>
+      <link>http://sarg.org.ru/blog/freeotp-to-pass/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/freeotp-to-pass/</guid>
+      <description>&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
+replacement is on the way I will extract credentials from &lt;a href=&#34;https://freeotp.github.io/&#34;&gt;FreeOTP&lt;/a&gt; and import
+them in &lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;password store&lt;/a&gt;. Be aware that it is completeley against the idea of 2FA,
+because now both password and otp are on the same device.&lt;/p&gt;</description>
+    </item>
+    
+
+    <item>
+      <title>Get the brain off the instant gratification hook</title>
+      <link>http://sarg.org.ru/blog/telega-otp/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/telega-otp/</guid>
+      <description>&lt;p&gt;It easily becomes automatic to check for notifications/new messages/new emails
+etc. To give my rational self some time to intercept compulsive behaviour I have
+made this elisp snippet.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

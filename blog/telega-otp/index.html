@@ -24,6 +24,8 @@
       
       <li><a href="/movies">Movies</a></li>
       
+      <li><a href="/index.xml">RSS</a></li>
+      
     </ul>
     <hr/>
     </nav>
@@ -37,25 +39,25 @@
 <p>It easily becomes automatic to check for notifications/new messages/new emails
 etc. To give my rational self some time to intercept compulsive behaviour I have
 made this elisp snippet.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#a2f">defun</span> <span style="color:#b8860b">sarg/otp-for-confirm</span> ()
-  <span style="color:#b44">&#34;Generates random hex string&#34;</span>
-  (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;%06x%06x%06x&#34;</span>
-          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
-          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
-          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))))
-
-(<span style="color:#a2f">defun</span> <span style="color:#b8860b">confirm-advice</span> (<span style="color:#b8860b">proc</span> <span style="color:#a2f">&amp;rest</span> <span style="color:#b8860b">args</span>)
-  <span style="color:#b44">&#34;Asks to enter random string as confirmation before executing PROC.&#34;</span>
-  (<span style="color:#a2f">interactive</span>)
-  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">pass</span> (<span style="color:#b8860b">sarg/otp-for-confirm</span>))
-         (<span style="color:#b8860b">input</span> (<span style="color:#00a000">read-string</span> (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;Enter %s if you wish to proceed: &#34;</span> <span style="color:#b8860b">pass</span>))))
-
-    (<span style="color:#a2f">if</span> (<span style="color:#b8860b">string=</span> <span style="color:#b8860b">input</span> <span style="color:#b8860b">pass</span>)
-        (<span style="color:#00a000">apply</span> <span style="color:#b8860b">proc</span> <span style="color:#b8860b">args</span>))))
-
-<span style="color:#080;font-style:italic">;; Apply the advice.</span>
-(<span style="color:#b8860b">advice-add</span> <span style="color:#b8860b">&#39;ivy-telega-chat-with</span> <span style="color:#a2f">:around</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">confirm-advice</span>)
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">sarg/otp-for-confirm</span> ()
+</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Generates random hex string&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;%06x%06x%06x&#34;</span>
+</span></span><span style="display:flex;"><span>          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#00a000">random</span> (<span style="color:#00a000">expt</span> <span style="color:#666">16</span> <span style="color:#666">6</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">confirm-advice</span> (<span style="color:#b8860b">proc</span> <span style="color:#a2f">&amp;rest</span> <span style="color:#b8860b">args</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Asks to enter random string as confirmation before executing PROC.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">interactive</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">pass</span> (<span style="color:#b8860b">sarg/otp-for-confirm</span>))
+</span></span><span style="display:flex;"><span>         (<span style="color:#b8860b">input</span> (<span style="color:#00a000">read-string</span> (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;Enter %s if you wish to proceed: &#34;</span> <span style="color:#b8860b">pass</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">if</span> (<span style="color:#b8860b">string=</span> <span style="color:#b8860b">input</span> <span style="color:#b8860b">pass</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#00a000">apply</span> <span style="color:#b8860b">proc</span> <span style="color:#b8860b">args</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; Apply the advice.</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">advice-add</span> <span style="color:#b8860b">&#39;ivy-telega-chat-with</span> <span style="color:#a2f">:around</span> <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">confirm-advice</span>)
+</span></span></code></pre></div>
 </main>
 
   <footer>

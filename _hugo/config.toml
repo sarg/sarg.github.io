@@ -3,7 +3,18 @@ languageCode = "en-us"
 title = "Random forest"
 theme = "xmin"
 publishDir = "../"
-disableKinds = ["RSS", "sitemap", "taxonomy", "term"]
+disableKinds = ["sitemap", "taxonomy", "term"]
+
+[author]
+name = "Sergey Trofimov"
+email = "sarg@sarg.org.ru"
+
+[outputs]
+home = ["RSS", "HTML"]
+section = ["HTML"]
+
+[outputFormats.RSS]
+mediatype = "application/rss"
 
 [markup]
   [markup.goldmark.renderer]
@@ -47,3 +58,8 @@ weight = 6
 name = "Movies"
 url = "/movies"
 weight = 7
+
+[[menu.main]]
+name = "RSS"
+url = "/index.xml"
+weight = 8
