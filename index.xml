@@ -20,7 +20,122 @@
 &lt;h2 id=&#34;putting-it-in-org-mode&#34;&gt;Putting it in org-mode&lt;/h2&gt;
 &lt;p&gt;Small demo of my flow:&lt;/p&gt;
 &lt;p&gt;&lt;video controls&gt;&lt;source src=&#34;http://sarg.org.ru/ox-hugo/demo-org-movies.mp4&#34; type=&#34;video/mp4&#34;&gt;
-Your browser does not support the video tag.&lt;/video&gt;&lt;/p&gt;</description>
+Your browser does not support the video tag.&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;File organisation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;#+STARTUP&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;: logdrawer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;#+TODO&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;: TODO(t) NEXT(n) | DONE(d!) DROPPED(c@)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#b68&#34;&gt; DONE&lt;/span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt; La Jetée (1962) :romance:scifi:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:PROPERTIES:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;:rating: 4
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;:imdb: tt0056119
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:END:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:LOGBOOK:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;- State &amp;#34;DONE&amp;#34;       from              [2022-07-11 Mon]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:END:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt; Watch List [0/1]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#800080;font-weight:bold&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;&#34;&gt; TODO&lt;/span&gt; Big Buck Bunny (2008) :animation:short:comedy:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:PROPERTIES:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;:imdb:     tt1254207
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;:END:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And here is a minor mode to automate inserting new entries.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;code-snippet--api&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;define-minor-mode&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-mode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Helper functions for movies.org&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a2f&#34;&gt;:keymap&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (&lt;span style=&#34;color:#00a000&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;C-c C-i&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-template&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (&lt;span style=&#34;color:#00a000&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;C-c C-o&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-open-letterboxd&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-open-letterboxd&lt;/span&gt; ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Open letterboxd for current entry.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;org-movies-mode&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#b8860b&#34;&gt;browse-url&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;format&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;https://letterboxd.com/imdb/%s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      (&lt;span style=&#34;color:#b8860b&#34;&gt;cdar&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-entry-properties&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;imdb&amp;#34;&lt;/span&gt;)))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-template&lt;/span&gt; ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Convert imdb url at point to a diary entry.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;org-movies-mode&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#b8860b&#34;&gt;ctx&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-element-context&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;link&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;eq&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;car&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;ctx&lt;/span&gt;) &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;link&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   (&lt;span style=&#34;color:#00a000&#34;&gt;plist-get&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;cadr&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;ctx&lt;/span&gt;) &lt;span style=&#34;color:#a2f&#34;&gt;:raw-link&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (&lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Not an org link&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;imdb&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;or&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;nth&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;s-match&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           (&lt;span style=&#34;color:#a2f&#34;&gt;rx&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;imdb.com/title/&amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;group&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;tt&amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;digit&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           &lt;span style=&#34;color:#b8860b&#34;&gt;link&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   (&lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Not an imdb link&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;apikey&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;password-store-get&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Sites/omdbapi.com&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;movie&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;with-current-buffer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    (&lt;span style=&#34;color:#b8860b&#34;&gt;url-retrieve-synchronously&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     (&lt;span style=&#34;color:#00a000&#34;&gt;concat&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;http://omdbapi.com/?apikey=&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;apikey&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;&amp;amp;i=&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;imdb&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  (&lt;span style=&#34;color:#00a000&#34;&gt;goto-char&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;url-http-end-of-headers&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  (&lt;span style=&#34;color:#b8860b&#34;&gt;json-read-from-string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   (&lt;span style=&#34;color:#00a000&#34;&gt;decode-coding-string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    (&lt;span style=&#34;color:#00a000&#34;&gt;buffer-substring&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;point&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;point-max&lt;/span&gt;)) &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;utf-8&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;genres-str&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;alist-get&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Genre&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;movie&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;genres&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;-map&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;downcase&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;string-split&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;genres-str&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;title&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;alist-get&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;movie&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;year&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;alist-get&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Year&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;movie&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a2f&#34;&gt;pcase&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-element-type&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-element-at-point&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;headline&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;ignore&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#b8860b&#34;&gt;_&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;beginning-of-line&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;kill-line&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;org-insert-heading&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#b8860b&#34;&gt;org-edit-headline&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;concat&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;title&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34; (&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;year&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;)&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#b8860b&#34;&gt;org-set-tags&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;genres&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#b8860b&#34;&gt;org-todo&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;TODO&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#b8860b&#34;&gt;org-set-property&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;imdb&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;imdb&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#b8860b&#34;&gt;org-movies-mode&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;&lt;a href=&#34;#code-snippet--api&#34;&gt;Code Snippet 1&lt;/a&gt;:&lt;/span&gt;
+  Minor mode with useful helpers
+&lt;/div&gt;
+&lt;!--more--&gt;
+&lt;h2 id=&#34;letterboxd-export&#34;&gt;Letterboxd export&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve fallen into this trap again&amp;hellip; I&amp;rsquo;ve relied on a 3rd party website to manage
+my data. Yes, it looks good and it&amp;rsquo;s UX friendly, it&amp;rsquo;s easy to fall prey. This
+time it was &lt;a href=&#34;https://letterboxd.com&#34;&gt;Letterboxd&lt;/a&gt;. I imported my &lt;a href=&#34;https://themoviedb.org&#34;&gt;TheMovieDB&lt;/a&gt; watchlist there and used it as
+a film diary for a couple of years. One day I finally found some time to sort my
+movie collection with &lt;a href=&#34;https://www.tinymediamanager.org&#34;&gt;tinyMediaManager&lt;/a&gt; and the icing on the cake was to add my
+ratings to the NFO files. To my disappointment, Letterboxd doesn&amp;rsquo;t include the
+imdb id in the export files, so I had to write a script to fetch all their short
+urls one by one and extract the imdb ids from the html.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;re&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;requests&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;fileinput&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# takes file with https://boxd.it/71O short links&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; fileinput&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;input():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    row &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; row&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;strip()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    d &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; requests&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(row)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    imdb &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;findall(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;(?&amp;lt;=imdb.com/title/)tt[^/]+&amp;#39;&lt;/span&gt;, d&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;text)[&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(row, imdb, sep&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;, flush&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;importing-ratings-in-nfo-files&#34;&gt;Importing ratings in NFO files&lt;/h2&gt;
+&lt;p&gt;Then another script to put the ratings in the NFO files.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;re&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;sys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;csv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;glob&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;r &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; csv&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;reader(&lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;/home/sarg/rated.csv&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rates &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; {}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; n &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; glob&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;glob(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;/media/sarg/2TB/Movies/**/**/*.nfo&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    imdb &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;findall(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;(?&amp;lt;=&amp;lt;id&amp;gt;)tt\d+&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(n)&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;read())[&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; imdb &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; rates:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rates&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;pop(imdb)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        d &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;sub(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;&amp;lt;userrating&amp;gt;0.0&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;&amp;lt;userrating&amp;gt;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;str&lt;/span&gt;(rates[imdb]), d)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        f &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(n &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;.new&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        f&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;write(d)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        f&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;High rated movies I don&amp;#39;t have:&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; imdb &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; rates:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; rates[imdb]&lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;7&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;https://imdb.com/title/&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{&lt;/span&gt;imdb&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
 
@@ -68,7 +183,8 @@ archives. 14 videos that were missing on Youtube I&amp;rsquo;ve recovered from
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
   &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 2:&lt;/span&gt;
   Download everything from the Liked Videos playlist
-&lt;/div&gt;</description>
+&lt;/div&gt;
+</description>
     </item>
     
 
@@ -78,9 +194,67 @@ archives. 14 videos that were missing on Youtube I&amp;rsquo;ve recovered from
       <pubDate>Thu, 28 May 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/cracking-interview/</guid>
-      <description>Goodreads - 3/5.
-First impression: Overall the tone of the book is slightly arrogant. The author&amp;rsquo;s ego is soaking from every page.
-After the read: The book is best suited for a sales position in corporate America. Overall the message of the book is: Be prepared, know what&amp;rsquo;s expected of you and give it to the inverviewer in advance. In chapter 9 there is a summary of REAPRICH method. Chapter 10-12,15 are unrelated to hiring process.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/32794226-cracking-the-code-to-a-successful-interview&#34;&gt;Goodreads&lt;/a&gt; - 3/5.&lt;/p&gt;
+&lt;p&gt;First impression:
+Overall the tone of the book is slightly arrogant. The author&amp;rsquo;s ego is soaking from every page.&lt;/p&gt;
+&lt;p&gt;After the read:
+The book is best suited for a sales position in corporate America.
+Overall the message of the book is: &lt;strong&gt;Be prepared, know what&amp;rsquo;s expected of you and give it to the inverviewer in advance.&lt;/strong&gt;
+In chapter 9 there is a summary of REAPRICH method. Chapter 10-12,15 are unrelated to hiring process.&lt;/p&gt;
+&lt;h2 id=&#34;chapter-1-dot&#34;&gt;Chapter 1.&lt;/h2&gt;
+&lt;p&gt;Hiring managers could be of 4 types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the power tripper - tries to prove his own intellectual prowess&lt;/li&gt;
+&lt;li&gt;the defensive crouhcer - feels unsafe with poeple they fear could do their jobs better&lt;/li&gt;
+&lt;li&gt;method man - follows script and expects valid answers&lt;/li&gt;
+&lt;li&gt;rogue agent - not fitting in 3 types above, dark horse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;REAPRICH - 8 step plan to win the interview.
+results / energy / attitude / process / relationships / interview the  interviewer / close the interviewer / humanity&lt;/p&gt;
+&lt;h2 id=&#34;chapter-2&#34;&gt;Chapter 2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;research the company&lt;/li&gt;
+&lt;li&gt;polish resume&lt;/li&gt;
+&lt;li&gt;be tenacious&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On the day of interview - be on time, dress well, shine your shoes, bring hard copy of your resume, give a firm handshake, look into the eye.&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t discuss personal problems, family, bad experiences with past employers.&lt;/p&gt;
+&lt;h2 id=&#34;chapter-3-dot-rea&#34;&gt;Chapter 3. REA&lt;/h2&gt;
+&lt;p&gt;Be enthusiastic (E - energy) and have positive A (attitude).&lt;/p&gt;
+&lt;h2 id=&#34;chapter-4-dot-p-spotlight-on-creativity&#34;&gt;Chapter 4. P - Spotlight on creativity&lt;/h2&gt;
+&lt;p&gt;You’re in great shape if the manager ends up saying, “I want you on board so you can do this for me or my team. I want this to be a part of our skill set and our arsenal as we move forward as an organization.”&lt;/p&gt;
+&lt;h2 id=&#34;chapter-5-dot-r-relationships&#34;&gt;Chapter 5. R - Relationships&lt;/h2&gt;
+&lt;p&gt;One of the biggest fears of hiring managers is having a personality conflict on their team. Showing that you have the ability to create and maintain relationships alleviates this fear.&lt;/p&gt;
+&lt;p&gt;Exercise:
+Write down two long-term relationships such as bosses, coaches, mentors, or friends (one which affected your career). Answer the following questions in writing for each: How did you secure this relationship? Was it through performance? How did this person become interested in you? How did he or she see positive qualities in you? How did you build and nurture this connection?&lt;/p&gt;
+&lt;h2 id=&#34;chapter-6-dot-i-interview-the-interviewer&#34;&gt;Chapter 6. I - interview the interviewer&lt;/h2&gt;
+&lt;p&gt;Ask something that you can&amp;rsquo;t find in public sources.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tell me about some of your most successful people. What’s made them great?&lt;/li&gt;
+&lt;li&gt;How can I help your team? What is the best way my skills could add value?&lt;/li&gt;
+&lt;li&gt;If you hired me today, what would you have me help you and your team with in the first three months?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chapter-7-dot-close-the-interview&#34;&gt;Chapter 7. Close the interview&lt;/h2&gt;
+&lt;p&gt;Like in sales - try to close the deal.&lt;/p&gt;
+&lt;h2 id=&#34;chapter-8-dot-humanity&#34;&gt;Chapter 8. Humanity&lt;/h2&gt;
+&lt;p&gt;Small talk in the end. Author suggests to directly ask if you&amp;rsquo;re recommended for hire.&lt;/p&gt;
+&lt;h2 id=&#34;chapter-9-dot-recap-dot&#34;&gt;Chapter 9. Recap.&lt;/h2&gt;
+&lt;p&gt;The most successful interview candidates aren’t necessarily the most experienced, the most educated, or the most qualified for the job. They are the best prepared.&lt;/p&gt;
+&lt;h2 id=&#34;chapter-14-dot-tough-questions&#34;&gt;Chapter 14. Tough questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Who are you?&lt;/li&gt;
+&lt;li&gt;Why should I hire you?&lt;/li&gt;
+&lt;li&gt;Give an example of a time you tried your best and failed.&lt;/li&gt;
+&lt;li&gt;Who was the worst boss (or employee) you ever worked with?&lt;/li&gt;
+&lt;li&gt;What four words would someone close to you use to describe you?&lt;/li&gt;
+&lt;li&gt;Who was your best mentor?&lt;/li&gt;
+&lt;li&gt;What do you feel you will bring to this organization?&lt;/li&gt;
+&lt;li&gt;Where do you want to be in five years?&lt;/li&gt;
+&lt;li&gt;What is your greatest weakness?&lt;/li&gt;
+&lt;li&gt;What is your ninety-day plan to be successful here?&lt;/li&gt;
+&lt;li&gt;Give me an example of where you took a difficult customer or situation and turned it into a win.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
 
@@ -90,9 +264,37 @@ After the read: The book is best suited for a sales position in corporate Americ
       <pubDate>Tue, 19 May 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/tdd-freeman/</guid>
-      <description>I&amp;rsquo;ve finished reading Growing Object-Oriented Softwared, Guided by Tests by Steve Freeman and Nat Pryce. The book is a good introduction into TDD. First it goes through core concepts and then demonstrates how to implement TDD on a simple project.
-My takeouts throughout the reading:
-TDD is a core practice of XP. TDD is not about keeping defects from the users, but helping the team to understand the features and to deliver them reliably and predictably.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve finished reading &lt;a href=&#34;https://www.goodreads.com/book/show/4268826-growing-object-oriented-software-guided-by-tests&#34;&gt;Growing Object-Oriented Softwared, Guided by Tests&lt;/a&gt; by
+Steve Freeman and Nat Pryce. The book is a good introduction into TDD. First it
+goes through core concepts and then demonstrates how to implement TDD on a simple project.&lt;/p&gt;
+&lt;p&gt;My takeouts throughout the reading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TDD is a core practice of XP. TDD is not about keeping defects from the users, but helping the team to understand the features and to deliver them reliably and predictably.&lt;/li&gt;
+&lt;li&gt;Making code accessible for testing often drives it towards being cleaner and more modular.&lt;/li&gt;
+&lt;li&gt;TDD cycle: red/green/refactor&lt;/li&gt;
+&lt;li&gt;Different kinds of tests:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;acceptance&lt;/strong&gt; - exercises the functionality we want to build. Does the whole system work? Whenever possible should be end-to-end without directly calling internal code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;integration&lt;/strong&gt; - does our code work against code we can&amp;rsquo;t change?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;unit&lt;/strong&gt; - do our objects do the right thing, are they convenient to work with?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;External/internal quality: customer facing or developer/admin facing&lt;/li&gt;
+&lt;li&gt;OOP focuses more on the communication between objects than on the objects themselves. An object has a method of handling every type of message that it understands and in encapsulates some internal state.&lt;/li&gt;
+&lt;li&gt;Objects could have different semantics:&lt;br /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;values&lt;/strong&gt; model unchanging quantities&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;objects&lt;/strong&gt; have identity that may change over time and model computational process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TDD best practices:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First make a minimal &amp;ldquo;skeleton&amp;rdquo; of an app and set up deployment infrastructure. E.g. for a web app it would be a one page site which shows a field in database.&lt;/li&gt;
+&lt;li&gt;Develop from outer boundary. E.g. write end-to-end acceptance test and start unrolling the logic from the incoming external message.&lt;/li&gt;
+&lt;li&gt;The development cycle goes like this. When implementing an object, we discover that it needs a service to be provided by another object. We give the new service a name and mock it out in the client object’s unit tests, to clarify the relationship between the two. Then we write an object to provide that service and, in doing so, discover what services that object needs. We follow this chain (or perhaps a directed graph) of collaborator relationships until we connect up to existing objects, either our own or from a third-party API. We think of this as “on-demand” design: we “pull” interfaces and their implementations into existence from the needs of the client, rather than “pushing” out the features that we think a class should provide.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
 
@@ -102,8 +304,69 @@ TDD is a core practice of XP. TDD is not about keeping defects from the users, b
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/tmdb-export/</guid>
-      <description>I keep list of movies I&amp;rsquo;ve watched on TheMovieDB. The service is great and I&amp;rsquo;ve used it for quite a long time (&amp;gt;700 movies in my list). I was using another service before, which unfortunately had closed without giving me a chance to export the data and I had to scrape my watchlist from the google cache.
-To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from TMDb and will use the service only as a secondary source with a nice UI.</description>
+      <description>&lt;p&gt;I keep list of movies I&amp;rsquo;ve watched on &lt;a href=&#34;https://www.themoviedb.org/u/sarg/ratings&#34;&gt;TheMovieDB&lt;/a&gt;. The service is great and I&amp;rsquo;ve
+used it for quite a long time (&amp;gt;700 movies in my list). I was using another
+service before, which unfortunately had closed without giving me a chance to
+export the data and I had to scrape my watchlist from the google cache.&lt;/p&gt;
+&lt;p&gt;To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from TMDb and
+will use the service only as a secondary source with a nice UI.&lt;/p&gt;
+&lt;p&gt;TMDb has a decent API and there are several python wrappers for it. The script
+for export is pretty straightforward. Retrieve &lt;code&gt;request_token&lt;/code&gt;, open a session
+(login) for your account and retrieve the list of rated movies from a paginated
+endpoint.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;tmdbsimple&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;as&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;tmdb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;json&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;subprocess&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tmdb&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;API_KEY &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;bafca4e813ca8fc43b3c9f1e32d1932b&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;res &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; subprocess&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;run(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;pass&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Sites/themoviedb.org&amp;#34;&lt;/span&gt;], capture_output&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;True&lt;/span&gt;, check&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;password &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; res&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;stdout&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;splitlines()[&lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;auth &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; tmdb&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Authentication()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;token &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; auth&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;token_new()[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;request_token&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;auth&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;token_validate_with_login(request_token&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;token, username&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;sarg&amp;#34;&lt;/span&gt;, password&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;password)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;session_id &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; auth&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;session_new(request_token&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;token)[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;session_id&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;acc &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; tmdb&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;Account(session_id)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;acc&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;info()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;movies &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;idx &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; acc&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;rated_movies(page&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;idx)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    movies &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; movies &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; res[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;results&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    idx &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; idx &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; idx &lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt; res[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;total_pages&amp;#34;&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;idx &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;True&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    res &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; acc&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;watchlist_movies(page&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;idx)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    movies &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; movies &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; res[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;results&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    idx &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; idx &lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; idx &lt;span style=&#34;color:#666&#34;&gt;&amp;gt;&lt;/span&gt; res[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;total_pages&amp;#34;&lt;/span&gt;]:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;break&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(movies, indent&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Unfortunately TMDb does not expose &lt;code&gt;Rated Date&lt;/code&gt; via API. It could be extracted
+from the CSV export though. Request the CSV export on the &amp;ldquo;My Ratings&amp;rdquo;
+page (under three dots icon). It would be sent by email. Download the file and
+use the following script to merge the json and csv.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;csv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;json&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rates &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; { row[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;TMDb ID&amp;#34;&lt;/span&gt;]: row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; row &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; csv&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;DictReader(&lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;ratings.csv&amp;#34;&lt;/span&gt;)) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;films &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;load(&lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;movies.json&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; film &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; films:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;str&lt;/span&gt;(film[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;]) &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; rates:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        film[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;rated_date&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; rates[&lt;span style=&#34;color:#a2f&#34;&gt;str&lt;/span&gt;(film[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])][&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;Date Rated&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;dumps(films, indent&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
 
@@ -113,8 +376,249 @@ To prevent that from happening again, I&amp;rsquo;ve exported my watchlist from 
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/android-apps/</guid>
-      <description>My phone is running AOSP without google services and almost all of the applications I use come from F-Droid. Few exceptions are the apps for paid services that I use and they are installed from Aurora Store.
-I use fdroidcl to install and update applications. Backup is covered in the post &amp;ldquo;Backing up an Android phone&amp;rdquo;. I use syncthing to share a directory between my laptops and the phone. I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to passwords on the phone (rarely).</description>
+      <description>&lt;p&gt;My phone is running &lt;a href=&#34;https://github.com/phhusson/treble_experimentations&#34;&gt;AOSP&lt;/a&gt; without google services and almost all of the
+applications I use come from &lt;a href=&#34;https://f-droid.org&#34;&gt;F-Droid&lt;/a&gt;. Few exceptions are the apps for paid
+services that I use and they are installed from Aurora Store.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I use &lt;a href=&#34;https://github.com/mvdan/fdroidcl&#34;&gt;fdroidcl&lt;/a&gt; to install and update applications.&lt;/li&gt;
+&lt;li&gt;Backup is covered in the post &amp;ldquo;&lt;a href=&#34;http://sarg.org.ru/blog/android-backup/&#34;&gt;Backing up an Android phone&lt;/a&gt;&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;I use syncthing to share a directory between my laptops and the phone.&lt;/li&gt;
+&lt;li&gt;I have &amp;ldquo;Password Store&amp;rdquo; files in the shared directory in case I need access to
+passwords on the phone (rarely).&lt;/li&gt;
+&lt;li&gt;In AFWall+ I whitelist only selected apps. All others are denied to access the net.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;f-droid-apps&#34;&gt;F-Droid apps&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;table--fdroid-apps&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.ichi2.anki&#34;&gt;AnkiDroid&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A flashcard-based study aid&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.danoeh.antennapod&#34;&gt;AntennaPod&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Easy-to-use, flexible and open-source podcast manager and player&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.aurora.store&#34;&gt;Aurora Store&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Play store alternative&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.markusfisch.android.binaryeye&#34;&gt;BinaryEye&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Yet another barcode scanner for Android. Free, no ads and open source.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.solovyev.android.calculator&#34;&gt;Calculator++&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Scientific calculator with sleek interface and powerful capabilities&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.mozilla.fennec_fdroid&#34;&gt;Fennec F-Droid&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Browse the web&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.apps.adrcotfas.goodtime&#34;&gt;Goodtime&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Minimalist Pomodoro Timer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.fsck.k9&#34;&gt;K-9 Mail&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Full-featured email client&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/fr.neamar.kiss&#34;&gt;KISS launcher&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Custom launcher&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.koreader.launcher.fdroid&#34;&gt;KOReader&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Ebook reader supporting multiple formats like PDF, DjVu, EPUB, FB2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.linphone&#34;&gt;LinPhone&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;SIP (VOIP) phone&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.secuso.privacyfriendlymemory&#34;&gt;Memo Game&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Find pairs of cards&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.artifex.mupdf.viewer.app&#34;&gt;MuPDF viewer&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Lightweight document viewer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.schabi.newpipe&#34;&gt;NewPipe&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Lightweight YouTube frontend&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.schildbach.oeffi&#34;&gt;Offi Stations&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;King of public transit planning!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.sufficientlysecure.keychain&#34;&gt;OpenKeychain&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Encrypt your Files and Communications. Compatible with the OpenPGP Standard.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.blinkt.openvpn&#34;&gt;OpenVPN for Android&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;OpenVPN without root&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.orgzly&#34;&gt;Orgzly&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Outliner for notes and tasks in plain-text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/net.osmand.plus&#34;&gt;OsmAnd~&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Global Mobile Map Viewing &amp;amp; Navigation for Offline and Online OSM Maps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.ligi.passandroid&#34;&gt;PassAndroid&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;View Passbook files&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/dev.msfjarvis.aps&#34;&gt;Password Store&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Manage your passwords&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.olgsoft.apipepanic&#34;&gt;PipePanic&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A plumbers favorite game&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/name.boyle.chris.sgtpuzzles&#34;&gt;Puzzles&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;39 single-player logic games&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.moez.QKSMS&#34;&gt;QKSMS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Messaging app&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.reimardoeffinger.quickdic&#34;&gt;QuickDic&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Offline translation dictionary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/xyz.deepdaikon.quinb&#34;&gt;Quinb&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A multiplayer reaction game: train your mind and your reflexes while having fun.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.vonglasow.michael.satstat&#34;&gt;SatStat&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GPS, sensor and network status&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.galexander.sshd&#34;&gt;SimpleSSHD&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Easy to use SSH server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.nutomic.syncthingandroid&#34;&gt;Syncthing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;File synchronization&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.telegram.messenger&#34;&gt;Telegram&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Telegram is a messaging app with a focus on speed and security.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.videolan.vlc&#34;&gt;VLC&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The best video and music player. Fast and “just works”, plays any file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.ph1b.audiobook&#34;&gt;Voice&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Simple audiobook player&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;archive&#34;&gt;Archive&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/dev.ukanth.ufirewall&#34;&gt;AFWall+&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Control network traffic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.menny.android.anysoftkeyboard&#34;&gt;AnySoftKeyboard&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Keyboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.amaze.filemanager&#34;&gt;Amaze&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Manage local files&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.shadowice.flocke.andotp&#34;&gt;andOTP&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Time-based One-time Passwords (TOTP) from QR codes for two-factor authentication&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.simplemobiletools.clock&#34;&gt;Clock&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;A combination of a clock, alarm, stopwatch and timer.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.isoron.uhabits&#34;&gt;Loop Habit Tracker&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Track your habits and long-term goals&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.github.axet.binauralbeats&#34;&gt;Binaural Beats&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Meditation helper&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.ligi.survivalmanual&#34;&gt;Survival Manual&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Learn how to survive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/de.meonwax.soundboard&#34;&gt;Soundboard&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Play short sound samples on touch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.jmstudios.redmoon&#34;&gt;Red Moon&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Filter blue light from your screen for a better sleep&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.mendhak.gpslogger&#34;&gt;GPSLogger&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Lightweight GPS Logging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.spitslide.derdiedas&#34;&gt;Der Die Das&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;learning genders of German nouns&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/net.sourceforge.opencamera&#34;&gt;Open Camera&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Camera App&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.google.android.gms&#34;&gt;UnifiedNlp (no GAPPS)&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Location provider middleware (UnifiedNlp)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/com.nicue.onetwo&#34;&gt;OneTwo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides you with dices, counter and timers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/sh.ftp.rocketninelabs.meditationassistant.opensource&#34;&gt;Meditation Assistant&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Feature packed meditation session timer and recorder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.fitchfamily.android.gsmlocation&#34;&gt;LocalGsmNlpBackend&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;UnifiedNlp location provider (local GSM database)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/saschpe.poker&#34;&gt;Planning Poker&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Planning Poker for phone, tablet and wear devices&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.microg.nlp.backend.nominatim&#34;&gt;NominatimNlpBackend&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;UnifiedNlp geocoding provider (MapQuest Nominatim)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://f-droid.org/packages/org.openbmap&#34;&gt;RadioBeacon&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Contribute to coverage maps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
     </item>
     
 
@@ -124,7 +628,46 @@ I use fdroidcl to install and update applications. Backup is covered in the post
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/android-backup/</guid>
-      <description>One day my wife asked me to help her backup about 30Gb of photos from her android phone. At first we had tried to copy files over MTP (in Win10). This idea quickly showed its incapacity. You see, Win10 wants to be nice and tries to calculate ETA. But 30Gb is a lot of files and over MTP it takes one request per file to get its size. So, we waited half an hour while Win10 was preparing to start the transfer and I had aborted this madness.</description>
+      <description>&lt;p&gt;One day my wife asked me to help her backup about 30Gb of photos from her
+android phone. At first we had tried to copy files over MTP (in Win10). This
+idea quickly showed its incapacity. You see, Win10 wants to be nice and tries
+to calculate ETA. But 30Gb is a lot of files and over MTP it takes one request
+per file to get its size. So, we waited half an hour while Win10 was preparing
+to start the transfer and I had aborted this madness.&lt;/p&gt;
+&lt;p&gt;Here is a sane approach to do the job.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://f-droid.org/packages/org.galexander.sshd/&#34;&gt;SimpleSSHD&lt;/a&gt; on the phone.
+Set &lt;code&gt;&amp;quot;Start on Open&amp;quot;&lt;/code&gt; in app settings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Grab &lt;a href=&#34;https://github.com/google/adb-sync#adb-channel&#34;&gt;&lt;code&gt;adb-channel&lt;/code&gt;&lt;/a&gt; script and add this snippet to &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Host sshelper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       Port 2222
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       ProxyCommand adb-channel tcp:%p org.galexander.sshd/.SimpleSSHD 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy your public key to the phone.&lt;/p&gt;
+&lt;p&gt;Please note that &lt;code&gt;ssh-copy-id&lt;/code&gt; won&amp;rsquo;t work. Just &lt;code&gt;ssh sshelper&lt;/code&gt; and then paste
+the key from &lt;code&gt;ssh-add -L&lt;/code&gt; into &lt;code&gt;authorized_keys&lt;/code&gt;. Details &lt;a href=&#34;http://www.galexander.org/software/simplesshd/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now backup with rsync as usual.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   rsync -e ssh -av sshelper:/sdcard/DCIM .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional&lt;/p&gt;
+&lt;p&gt;This setup assumes that you copy files over USB. But nothing stops you from
+starting SimpleSSHD manually and copy files over WiFi.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   rsync -e &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;ssh -p 2222&amp;#39;&lt;/span&gt; -av 192.168.178.42:/sdcard/DCIM .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now that newer Android versions (newer than 12 I believe) don&amp;rsquo;t allow apps to
+access files of other apps, I had to revisit my backup solution.&lt;/p&gt;
+&lt;p&gt;Now I simply use the &lt;code&gt;adb-sync&lt;/code&gt; script, but I also do &lt;code&gt;adb root&lt;/code&gt; to give the
+script full access to any files. The script is pretty smart and it works kind of
+like rsync, downloading only newer files. It fits perfect the use case.&lt;/p&gt;
+</description>
     </item>
     
 
@@ -134,7 +677,65 @@ I use fdroidcl to install and update applications. Backup is covered in the post
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0200</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/emacs-hugo/</guid>
-      <description>&lt;p&gt;Starting a blog this days couldn&amp;rsquo;t be easier. Ten simple steps to get started.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Starting a blog this days couldn&amp;rsquo;t be easier. Ten simple steps to get started.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site&#34;&gt;Create a repo&lt;/a&gt; for github pages.&lt;/p&gt;
+&lt;p&gt;Every file you put in the repo would be published &lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#configuring-jekyll-in-your-github-pages-site&#34;&gt;automatically&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   By default, Jekyll doesn&amp;#39;t build files or folders that:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   are located in a folder called /node_modules or /vendor
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   start with _, ., or #
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   end with
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   are excluded by the exclude setting in your configuration file
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;Configure&lt;/a&gt; custom domain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create &lt;code&gt;_hugo/config.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   baseURL = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;http://sarg.org.ru/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   languageCode = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   title = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Random forest&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# see next step&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   theme = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;anubis&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# publish to the repo root&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# where github pages search for files&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   publishDir = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;../&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout some &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;theme&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   git submodule add &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;       https://github.com/Mitrichius/hugo-theme-anubis.git &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;       _hugo/themes/anubis
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add &lt;code&gt;_hugo/content&lt;/code&gt; to &lt;code&gt;.gitignore&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This directory would be generated by ox-hugo, no need to store it in git.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create &lt;code&gt;org-mode&lt;/code&gt; file where all the content would be placed.&lt;/p&gt;
+&lt;p&gt;Use the &lt;a href=&#34;https://ox-hugo.scripter.co/#screenshot-one-post-per-subtree&#34;&gt;instruction&lt;/a&gt; from &lt;code&gt;ox-hugo&lt;/code&gt; documentation. But make sure that
+&lt;code&gt;#+HUGO_BASE_DIR&lt;/code&gt; points to &lt;code&gt;_hugo&lt;/code&gt; directory. You can put the file whenever
+you want, not strictly necessary in the repository.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Export the file with &lt;code&gt;ox-hugo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Press (&lt;code&gt;C-c C-e H A&lt;/code&gt;) to export everything. Now &lt;code&gt;_hugo/content&lt;/code&gt; should be
+populated.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check that your blog works locally.&lt;/p&gt;
+&lt;p&gt;Go to &lt;code&gt;_hugo/&lt;/code&gt; and run &lt;code&gt;hugo server -D&lt;/code&gt;. Hugo should start on &lt;a href=&#34;http://localhost:1313&#34;&gt;http://localhost:1313&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate html for github pages.&lt;/p&gt;
+&lt;p&gt;Run &lt;code&gt;hugo&lt;/code&gt; and it&amp;rsquo;ll create all the files in &lt;code&gt;publishDir&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Commit and push all the changes. You&amp;rsquo;re done! 🎉&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
 
@@ -144,8 +745,36 @@ I use fdroidcl to install and update applications. Backup is covered in the post
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0100</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/aoc2019/</guid>
-      <description>For the first time I&amp;rsquo;ve participated in &amp;ldquo;Advent of Code&amp;rdquo; contest. It promised to be a fun time and a good opportunity to learn a new programming language. I&amp;rsquo;ve taken Clojure from my bucket list and dived head first into the contest.
-The first few tasks are deliberately very easy, so that participants firstly would get into the mood and would not detract by the bar raised too high, and secondly to let one to get acquainted with the platform and rules, set up the coding environment and get hands-on with the new language (if you one uses such).</description>
+      <description>&lt;p&gt;For the first time I&amp;rsquo;ve participated in &lt;a href=&#34;https://adventofcode.com/2019&#34;&gt;&amp;ldquo;Advent of Code&amp;rdquo;&lt;/a&gt; contest. It promised to
+be a fun time and a good opportunity to learn a new programming language. I&amp;rsquo;ve
+taken Clojure from my bucket list and dived head first into the contest.&lt;/p&gt;
+&lt;p&gt;The first few tasks are deliberately very easy, so that participants firstly
+would get into the mood and would not detract by the bar raised too high, and
+secondly to let one to get acquainted with the platform and rules, set up the
+coding environment and get hands-on with the new language (if you one uses
+such).&lt;/p&gt;
+&lt;p&gt;The problems were of varying complexity and some of them required prior
+knowledge of algorithms. The hardest one were about searching a path in a maze.
+The cool twist was the addition of the IntCode virtual machine. Over the course
+of a few days the problems were shaping the definition of the IndCode VM.
+Participants were expected to implement and to debug it in order to solve the
+problem.&lt;/p&gt;
+&lt;p&gt;Clojure has shown strong and I&amp;rsquo;ve rarely struggled with the language. Debugging
+tools could be better though. All the solutions could be found &lt;a href=&#34;https://github.com/sarg/advent2019&#34;&gt;here on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For an additional fun I&amp;rsquo;ve produced animations for some of the problems. For
+that I&amp;rsquo;ve used awesome &lt;a href=&#34;https://github.com/quil/quil&#34;&gt;Quil&lt;/a&gt; library which implements &lt;a href=&#34;https://processing.org/reference&#34;&gt;Processing.org API&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;problem-13-care-package&#34;&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/13&#34;&gt;Problem 13 - Care Package&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Arkanoid AI should be implemented in IntCode. Each block in the game has its own
+unique value and the answer of the problem is the end score.&lt;/p&gt;
+&lt;p&gt;&lt;video controls&gt;&lt;source src=&#34;https://raw.githubusercontent.com/sarg/advent2019/master/resources/day13.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+&lt;h2 id=&#34;problem-15-oxygen-system&#34;&gt;&lt;a href=&#34;https://adventofcode.com/2019/day/15&#34;&gt;Problem 15 - Oxygen System&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A robot have been deployed to a maze of unknown structure. By issuing movement
+and observation commands the maze should be fully explored and a marked cell
+should be found. Then the time to fill the maze with air should be calculated,
+given that the air is injected in the bottome left corner and it spreads each
+tick to the adjacent cells.&lt;/p&gt;
+&lt;p&gt;&lt;video controls&gt;&lt;source src=&#34;https://raw.githubusercontent.com/sarg/advent2019/master/resources/day15.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
+</description>
     </item>
     
 
@@ -158,7 +787,88 @@ The first few tasks are deliberately very easy, so that participants firstly wou
       <description>&lt;p&gt;I have broken my phone screen. Not a big deal but I use it for 2FA. While
 replacement is on the way I will extract credentials from &lt;a href=&#34;https://freeotp.github.io/&#34;&gt;FreeOTP&lt;/a&gt; and import
 them in &lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;password store&lt;/a&gt;. Be aware that it is completeley against the idea of 2FA,
-because now both password and otp are on the same device.&lt;/p&gt;</description>
+because now both password and otp are on the same device.&lt;/p&gt;
+&lt;p&gt;So, first I need to find where FreeOTP stores OTP secrets. Android apps
+usually use sqlite db for that, but not in this case. FreeOTP uses shared_prefs.&lt;/p&gt;
+&lt;p&gt;Pull prefs from the phone (root needed).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;adb root
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;adb pull /data/data/org.fedorahosted.freeotp/shared_prefs/tokens.xml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here is what they look like.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080&#34;&gt;&amp;lt;?xml version=&amp;#39;1.0&amp;#39; encoding=&amp;#39;utf-8&amp;#39; standalone=&amp;#39;yes&amp;#39; ?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;map&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;string&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services:sarg@organization&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;{&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;algo&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;SHA1&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;counter&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:0,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;digits&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:6,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;issuerExt&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;issuerInt&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;label&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;sarg@organization&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;period&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:30,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;secret&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:[52,19,105,64,67,-120,-45],&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;type&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;:&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;TOTP&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;}&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;string&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;tokenOrder&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;[&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Amazon Web Services:sarg@organization&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;Google:sarg@sarg.org.ru&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;,&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;GitHub:sarg&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt;&amp;amp;quot;&lt;/span&gt;]&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;lt;/map&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Storing JSON in XML - that&amp;rsquo;s a beaty. If you decode the value, it looks better:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;TOTP&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;secret&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#666&#34;&gt;52&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;19&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;64&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;67&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;-120&lt;/span&gt;, &lt;span style=&#34;color:#666&#34;&gt;-45&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;period&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;30&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;sarg@organization&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;issuerInt&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;issuerExt&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Amazon Web Services&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;digits&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;counter&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#008000;font-weight:bold&#34;&gt;&amp;#34;algo&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;SHA1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now I need to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;parse xml&lt;/li&gt;
+&lt;li&gt;extract json from xml&lt;/li&gt;
+&lt;li&gt;extract secret from json and encode it with base32&lt;/li&gt;
+&lt;li&gt;construct otpauth:// uri using details from json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;URI format is described in google-authenticator &lt;a href=&#34;https://github.com/google/google-authenticator/wiki/Key-Uri-Format&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Provision a TOTP key for user alice@google.com, to use with a service provided
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;by Example, Inc:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;otpauth://totp/Example:alice@google.com?secret=JBSWY3DPEHPK3PXP&amp;amp;issuer=Example
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For one-time scripts I prefer using python.
+There is a handy library for dealing with html/xml - BeautifulSoup.
+And I will consult with FreeOTP &lt;a href=&#34;https://github.com/freeotp/freeotp-android&#34;&gt;sources&lt;/a&gt; to get things right.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;urllib.parse&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;base64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;json&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#00f;font-weight:bold&#34;&gt;bs4&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;import&lt;/span&gt; BeautifulSoup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;inp &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;tokens.xml&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;soup &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; BeautifulSoup(inp, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;lxml&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;for&lt;/span&gt; tag &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;in&lt;/span&gt; soup&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;find_all(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;string&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# it&amp;#39;s a special setting, skip it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;if&lt;/span&gt; tag[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color:#666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;tokenOrder&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;continue&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    token &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; json&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;loads(tag&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;text)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# secret is stored as signed byte array&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# so first make it unsigned by adding 256 modulo 256&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# and then convert to python&amp;#39;s bytearray&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    secret &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;bytearray&lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;map&lt;/span&gt;(&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;lambda&lt;/span&gt; x: (x&lt;span style=&#34;color:#666&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;256&lt;/span&gt;)&lt;span style=&#34;color:#666&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;256&lt;/span&gt;, token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    issuer &lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt; token&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;issuerExt&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;otpauth://&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{type}&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{issuer}&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;?&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;{args}&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;format(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a2f&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;]&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;lower(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# issuer should be URL encoded&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        issuer&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;urllib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;parse&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;quote(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#a2f&#34;&gt;filter&lt;/span&gt;(&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;None&lt;/span&gt;, (issuer, token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;label&amp;#39;&lt;/span&gt;])))),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        args&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;urllib&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;parse&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;urlencode({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;secret&amp;#39;&lt;/span&gt;: base64&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;b32encode(secret)&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;algo  &amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;algo&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;digits&amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;digits&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;period&amp;#39;&lt;/span&gt;: token[&lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;period&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;inp&lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt;close()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now what&amp;rsquo;s left is just to import everything into pass with &lt;code&gt;pass otp insert -e&lt;/code&gt;.
+Or you can manually put &lt;code&gt;otpauth://&lt;/code&gt; string in an appropriate pass file. I did
+the latter way, because my already existing entries have had another names.
+Then check that everything went fine - &lt;code&gt;pass otp &#39;Amazon Web Services/sarg@organization&#39;&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
 
@@ -170,7 +880,26 @@ because now both password and otp are on the same device.&lt;/p&gt;</description
       <guid>http://sarg.org.ru/blog/telega-otp/</guid>
       <description>&lt;p&gt;It easily becomes automatic to check for notifications/new messages/new emails
 etc. To give my rational self some time to intercept compulsive behaviour I have
-made this elisp snippet.&lt;/p&gt;</description>
+made this elisp snippet.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;sarg/otp-for-confirm&lt;/span&gt; ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Generates random hex string&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#00a000&#34;&gt;format&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;%06x%06x%06x&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#00a000&#34;&gt;random&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;expt&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;6&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#00a000&#34;&gt;random&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;expt&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;6&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#00a000&#34;&gt;random&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;expt&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;6&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;confirm-advice&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;proc&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;&amp;amp;rest&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;args&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Asks to enter random string as confirmation before executing PROC.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#b8860b&#34;&gt;pass&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;sarg/otp-for-confirm&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;input&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;read-string&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;format&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Enter %s if you wish to proceed: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;pass&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a2f&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;pass&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#00a000&#34;&gt;apply&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;proc&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;args&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; Apply the advice.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#b8860b&#34;&gt;advice-add&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;ivy-telega-chat-with&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;:around&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;confirm-advice&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>
