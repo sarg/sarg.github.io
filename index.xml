@@ -16,11 +16,11 @@
       <pubDate>Sun, 05 Mar 2023 00:00:00 +0100</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/org-watchlist/</guid>
-      <description>End result is here: Movies
-Putting it in org-mode Small demo of my flow:
-Your browser does not support the video tag.
-File organisation:
-#+STARTUP: logdrawer #+TODO: TODO(t) NEXT(n) | DONE(d!) DROPPED(c@) * DONE La Jetée (1962) :romance:scifi: :PROPERTIES: :rating: 4 :imdb: tt0056119 :END: :LOGBOOK: - State &amp;#34;DONE&amp;#34; from [2022-07-11 Mon] :END: * Watch List [0/1] ** TODO Big Buck Bunny (2008) :animation:short:comedy: :PROPERTIES: :imdb: tt1254207 :END: And here is a minor mode to automate inserting new entries.</description>
+      <description>&lt;p&gt;End result is here: &lt;a href=&#34;http://sarg.org.ru/movies/&#34;&gt;Movies&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;putting-it-in-org-mode&#34;&gt;Putting it in org-mode&lt;/h2&gt;
+&lt;p&gt;Small demo of my flow:&lt;/p&gt;
+&lt;p&gt;&lt;video controls&gt;&lt;source src=&#34;http://sarg.org.ru/ox-hugo/demo-org-movies.mp4&#34; type=&#34;video/mp4&#34;&gt;
+Your browser does not support the video tag.&lt;/video&gt;&lt;/p&gt;</description>
     </item>
     
 
@@ -30,7 +30,45 @@ File organisation:
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0100</pubDate>
       <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
       <guid>http://sarg.org.ru/blog/export-youtube-liked/</guid>
-      <description>Over the years I&amp;rsquo;ve collected ~300 favourite videos and unfortunately some of them have been taken down. I have spent some time re-watching the old videos and still enjoy them. Few are just for laughs, some are educational and others are just art. As there are not too many of them, I can just download them all to my archives. 14 videos that were missing on Youtube I&amp;rsquo;ve recovered from https://web.</description>
+      <description>&lt;p&gt;Over the years I&amp;rsquo;ve collected ~300 favourite videos and unfortunately some of
+them have been taken down. I have spent some time re-watching the old videos and
+still enjoy them. Few are just for laughs, some are educational and others are
+just art. As there are not too many of them, I can just download them all to my
+archives. 14 videos that were missing on Youtube I&amp;rsquo;ve recovered from
+&lt;a href=&#34;https://web.archive.org&#34;&gt;https://web.archive.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The resulting archive weighs in at just 13G, so it really is a no-brainer to keep it offline.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# https://gist.github.com/guidocella/a272b6e68f9c44532b011f6596e95c61&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a2f&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;# Netscape HTTP Cookie File&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# needed by youtube-dl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b8860b&#34;&gt;QUERY&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;SELECT
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            host_key,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            IIF(host_key LIKE &amp;#39;.%&amp;#39;, &amp;#39;TRUE&amp;#39;, &amp;#39;FALSE&amp;#39;),
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            path,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            IIF(is_secure, &amp;#39;TRUE&amp;#39;, &amp;#39;FALSE&amp;#39;),
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            IIF(expires_utc == 0, 0, expires_utc / 1000000 - 11644473600),
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            name,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;            value
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b44&#34;&gt;        FROM cookies;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# There is no attempt to url encode $1, but SQLite already handles&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# characters like spaces, so only ? % and # should cause issues.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    sqlite3 -readonly -separator &lt;span style=&#34;color:#b44&#34;&gt;$&amp;#39;\t&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;file:&lt;/span&gt;&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;$HOME&lt;/span&gt;/.local/share/qutebrowser&lt;span style=&#34;color:#b68;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;/webengine/Cookies?nolock=1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;$QUERY&lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#666&#34;&gt;}&lt;/span&gt; &amp;gt; cookies.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 1:&lt;/span&gt;
+  Export &lt;code&gt;qutebrowser&lt;/code&gt; cookies for &lt;code&gt;yt-dlp&lt;/code&gt;
+&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yt-dlp --ignore-errors &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;    --download-archive archive.txt &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;    --cookies cookies.txt &lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;https://www.youtube.com/playlist?list=LL&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 2:&lt;/span&gt;
+  Download everything from the Liked Videos playlist
+&lt;/div&gt;</description>
     </item>
     
 
