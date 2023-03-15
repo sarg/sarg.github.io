@@ -65,7 +65,7 @@ file content. An example of how it looks like.</p>
 </span></span><span style="display:flex;"><span>*  009  161M     enwiki-20170220-abstract8.xml
 </span></span><span style="display:flex;"><span>*  010  133M     enwiki-20170220-abstract9.xml
 </span></span></code></pre></div><p>This mode supports selecting individual files which could then be fed into <a href="https://github.com/ukaszg/aria2">aria2</a>
-using small defun:</p>
+using a small defun:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">torrent-mode-download-selected</span> (<span style="color:#b8860b">dest-dir</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Download ARG entries.&#34;</span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#a2f">interactive</span>

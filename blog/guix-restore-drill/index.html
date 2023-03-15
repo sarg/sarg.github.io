@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reprovisioning Guix on a new machine | Random forest</title>
+    <link rel="icon" href="data:;base64,=" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+      <li><a href="/index.xml">RSS</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Reprovisioning Guix on a new machine</span></h1>
+<h2 class="date">2023/03/15</h2>
+</div>
+
+<main>
+<style>
+.src-block-number {
+  display: none;
+}
+.src-block-caption {
+  text-align: center;
+}
+</style>
+<p>No matter how often you backup, if you never test your recovery procedures -
+you&rsquo;ll be surprised when it comes to it. So let&rsquo;s make a recovery plan and give
+it a test.</p>
+<h2 id="back-up-user-files">Back up user files</h2>
+<p>Currently a simple <code>rsync</code> approach is used.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rsync --no-checksum -a --info<span style="color:#666">=</span>progress2 /storage /media/sarg/backup
+</span></span></code></pre></div><h2 id="disaster-happens">Disaster happens</h2>
+<p>I see two options:</p>
+<ol>
+<li>I just need to move my digital stuff to a new machine.</li>
+<li>I&rsquo;ve lost access to my current machine.</li>
+</ol>
+<p>Let&rsquo;s follow the first option for now and prepare everything to migrate smoothly.</p>
+<h2 id="make-a-raw-disk-image">Make a raw disk image</h2>
+<p>Let&rsquo;s define what the disk image should be.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; NOTE: this image is necessary only because efi-disk-image uses mbr partition table</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; otherwise just `guix system image --save-provenance --image-type=efi-raw --persistent system.scm`</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#00a000">use-modules</span> (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span> <span style="color:#b8860b">image</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">image</span>))
+</span></span><span style="display:flex;"><span>(<span style="color:#00a000">image</span>
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">inherit</span> <span style="color:#b8860b">efi-disk-image</span>)
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">operating-system</span> (<span style="color:#00a000">operating-system-with-provenance</span> (<span style="color:#a2f">load </span><span style="color:#b44">&#34;./system.scm&#34;</span>)))
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">volatile-root?</span> <span style="color:#800">#f</span><span style="color:#b8860b">alse</span>)
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">partition-table-type</span> <span style="color:#b8860b">&#39;gpt</span>))
+</span></span></code></pre></div><p>And then ask <code>guix</code> to produce it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>guix system image image.scm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The following derivations will be built:
+</span></span><span style="display:flex;"><span>  /gnu/store/q0gvw0s79wkjlanfq4yjjyf2f9ddk4iq-disk-image.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/dp0p01bzgb9aarzx040iv7k5w1r7z5xx-genimage.cfg.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/kr39hrsyvwp17ny5hcrj6ynfn56i2cq8-partition.img.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/758yrvd3m7016i5vflzjyg9232j75k2r-system.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/58xsyrsaqaqh3dsxzb7zc0h72v7ha3as-etc.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/5kifgf0yqnki7k9wg0a8jlviqibirmxy-activate.scm.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/rqyl2kcj5q84daw4qriza38l0vkrax0m-activate-service.scm.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/5lnmmgrgpy58nnkcpy8z22a0kf54yv0k-boot.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/ri65rz6rgh5kv6ff8g2q313fr9fjd5ac-provenance.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/z62g9qwy9k65awaaxg2f3jzdadsk5iha-grub.cfg.drv
+</span></span><span style="display:flex;"><span>  /gnu/store/x1zyd14c5xnpd51ql6bcfdv0q06nla8a-partition.img.drv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>building /gnu/store/ri65rz6rgh5kv6ff8g2q313fr9fjd5ac-provenance.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/58xsyrsaqaqh3dsxzb7zc0h72v7ha3as-etc.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/rqyl2kcj5q84daw4qriza38l0vkrax0m-activate-service.scm.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/5kifgf0yqnki7k9wg0a8jlviqibirmxy-activate.scm.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/5lnmmgrgpy58nnkcpy8z22a0kf54yv0k-boot.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/758yrvd3m7016i5vflzjyg9232j75k2r-system.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/z62g9qwy9k65awaaxg2f3jzdadsk5iha-grub.cfg.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/kr39hrsyvwp17ny5hcrj6ynfn56i2cq8-partition.img.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/x1zyd14c5xnpd51ql6bcfdv0q06nla8a-partition.img.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/dp0p01bzgb9aarzx040iv7k5w1r7z5xx-genimage.cfg.drv...
+</span></span><span style="display:flex;"><span>building /gnu/store/q0gvw0s79wkjlanfq4yjjyf2f9ddk4iq-disk-image.drv...
+</span></span></code></pre></div><p>And the disk image is: <code>/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image</code></p>
+<p>Let&rsquo;s check its partition table:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>fdisk -l <span style="color:#b8860b">$disk_image</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Disk /gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image: 2.32 GiB, 2488737792 bytes, 4860816 sectors
+</span></span><span style="display:flex;"><span>Units: sectors of 1 * 512 = 512 bytes
+</span></span><span style="display:flex;"><span>Sector size (logical/physical): 512 bytes / 512 bytes
+</span></span><span style="display:flex;"><span>I/O size (minimum/optimal): 512 bytes / 512 bytes
+</span></span><span style="display:flex;"><span>Disklabel type: gpt
+</span></span><span style="display:flex;"><span>Disk identifier: 389B45C2-0EC7-42EC-9D96-49B40F820311
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Device                                                  Start     End Sectors  Size Type
+</span></span><span style="display:flex;"><span>/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image1  2048   83967   81920   40M EFI System
+</span></span><span style="display:flex;"><span>/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image2 83968 4860775 4776808  2.3G Linux filesystem
+</span></span></code></pre></div><p>And filesystems labels are:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#a2f">alias</span> <span style="color:#b8860b">kpartx</span><span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">$(</span>guix build multipath-tools<span style="color:#a2f;font-weight:bold">)</span>/sbin/kpartx
+</span></span><span style="display:flex;"><span>kpartx -av <span style="color:#b8860b">$disk_image</span> &gt;/dev/null
+</span></span><span style="display:flex;"><span>lsblk -o NAME,FSTYPE,FSVER,LABEL,UUID /dev/loop0
+</span></span><span style="display:flex;"><span>kpartx -d <span style="color:#b8860b">$disk_image</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>NAME      FSTYPE FSVER LABEL      UUID
+</span></span><span style="display:flex;"><span>loop0
+</span></span><span style="display:flex;"><span>|-loop0p1 vfat   FAT16 GNU-ESP    572A-DDF3
+</span></span><span style="display:flex;"><span>`-loop0p2 ext4   1.0   Guix_image f6bc8ad8-ff1a-1754-eb2b-35d0f6bc8ad8
+</span></span></code></pre></div><p>Note that the partition labels chosen by <code>guix system image</code> are not taken from
+the <code>operating-system</code> definition. They&rsquo;re hardcoded in the <code>guix</code> sources and
+therefore I have to hardcode the same values in my <code>operating-system</code>. Without
+matching labels the system would just refuse to boot as they&rsquo;re used in the EFI
+loader to find the boot partition and also in the <code>fstab</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>LABEL=Guix_image  /         ext4  defaults
+</span></span><span style="display:flex;"><span>LABEL=GNU-ESP     /boot     vfat  defaults
+</span></span><span style="display:flex;"><span>LABEL=STORAGE     /storage  ext4  defaults
+</span></span></code></pre></div><h2 id="putting-disk-image-on-a-real-machine">Putting disk image on a real machine</h2>
+<p>I have a <a href="https://www.ventoy.net/en/index.html">Ventoy</a> USB stick with <a href="https://lubuntu.me/downloads/">Lubuntu Live CD</a> on it. Let&rsquo;s just copy the
+resulting image to the stick. Note, you might need to follow this recipe: <a href="https://github.com/ventoy/Ventoy/issues/79">Access
+USB stick on live ISO</a> as by default the USB drive will not be accessible.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#a2f">eval</span> <span style="color:#a2f;font-weight:bold">$(</span>lsblk -P -o LABEL,MOUNTPOINT | grep Ventoy<span style="color:#a2f;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>cp <span style="color:#b8860b">$disk_image</span> <span style="color:#b8860b">$MOUNTPOINT</span>/guixdisk.img
+</span></span><span style="display:flex;"><span>eject <span style="color:#b8860b">$MOUNTPOINT</span>
+</span></span></code></pre></div><p>And then reboot to the Live CD environment and run the following provisioning script.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dd /media/lubuntu/Ventoy/guixdisk.img <span style="color:#b8860b">of</span><span style="color:#666">=</span>/dev/sda <span style="color:#b8860b">status</span><span style="color:#666">=</span>progress
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parted /dev/sda print
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Warning: Not all of the space available to /dev/sda appears to be used, you</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># can fix the GPT to use all of the space (an extra 346740088 blocks) or</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># continue with the current setting?</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Fix/Ignore? fix</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parted -s /dev/sda resizepart <span style="color:#666">2</span> 60g mkpart STORAGE ext4 60g 100%
+</span></span><span style="display:flex;"><span>fsck /dev/sda2
+</span></span><span style="display:flex;"><span>resize2fs /dev/sda2
+</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/sda3 -L STORAGE
+</span></span></code></pre></div><h2 id="restoring-backup">Restoring backup</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir /storage
+</span></span><span style="display:flex;"><span>mount /dev/sda3 /storage
+</span></span><span style="display:flex;"><span>rsync -a --info<span style="color:#666">=</span>progress2 /mnt/backup/storage /storage
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><h2 id="revitalising-guix">Revitalising Guix</h2>
+<p>Log in as root (password is empty)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>passwd root
+</span></span><span style="display:flex;"><span>passwd sarg
+</span></span><span style="display:flex;"><span>login sarg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> /storage/devel/dotfiles/guix
+</span></span><span style="display:flex;"><span>guix pull -C /run/current-system/channels.scm
+</span></span><span style="display:flex;"><span>sudo guix system reconfigure system.scm
+</span></span><span style="display:flex;"><span>guix home reconfigure home.scm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>doom sync
+</span></span><span style="display:flex;"><span>mu init -m ~/.mail
+</span></span><span style="display:flex;"><span>mu index
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">logout</span> <span style="color:#080;font-style:italic"># sarg</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">logout</span> <span style="color:#080;font-style:italic"># root</span>
+</span></span></code></pre></div>
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

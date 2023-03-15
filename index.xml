@@ -8,7 +8,146 @@
     <language>en-us</language>
     <managingEditor>sarg@sarg.org.ru (Sergey Trofimov)</managingEditor>
     <webMaster>sarg@sarg.org.ru (Sergey Trofimov)</webMaster>
-    <lastBuildDate>Sun, 12 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Reprovisioning Guix on a new machine</title>
+      <link>http://sarg.org.ru/blog/guix-restore-drill/</link>
+      <pubDate>Wed, 15 Mar 2023 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/guix-restore-drill/</guid>
+      <description>&lt;style&gt;
+.src-block-number {
+  display: none;
+}
+.src-block-caption {
+  text-align: center;
+}
+&lt;/style&gt;
+&lt;p&gt;No matter how often you backup, if you never test your recovery procedures -
+you&amp;rsquo;ll be surprised when it comes to it. So let&amp;rsquo;s make a recovery plan and give
+it a test.&lt;/p&gt;
+&lt;h2 id=&#34;back-up-user-files&#34;&gt;Back up user files&lt;/h2&gt;
+&lt;p&gt;Currently a simple &lt;code&gt;rsync&lt;/code&gt; approach is used.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rsync --no-checksum -a --info&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;progress2 /storage /media/sarg/backup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;disaster-happens&#34;&gt;Disaster happens&lt;/h2&gt;
+&lt;p&gt;I see two options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I just need to move my digital stuff to a new machine.&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;ve lost access to my current machine.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let&amp;rsquo;s follow the first option for now and prepare everything to migrate smoothly.&lt;/p&gt;
+&lt;h2 id=&#34;make-a-raw-disk-image&#34;&gt;Make a raw disk image&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s define what the disk image should be.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; NOTE: this image is necessary only because efi-disk-image uses mbr partition table&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; otherwise just `guix system image --save-provenance --image-type=efi-raw --persistent system.scm`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;use-modules&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;inherit&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;efi-disk-image&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./system.scm&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;volatile-root?&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;#f&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;alse&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;partition-table-type&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;gpt&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then ask &lt;code&gt;guix&lt;/code&gt; to produce it.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix system image image.scm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The following derivations will be built:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/q0gvw0s79wkjlanfq4yjjyf2f9ddk4iq-disk-image.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/dp0p01bzgb9aarzx040iv7k5w1r7z5xx-genimage.cfg.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/kr39hrsyvwp17ny5hcrj6ynfn56i2cq8-partition.img.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/758yrvd3m7016i5vflzjyg9232j75k2r-system.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/58xsyrsaqaqh3dsxzb7zc0h72v7ha3as-etc.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/5kifgf0yqnki7k9wg0a8jlviqibirmxy-activate.scm.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/rqyl2kcj5q84daw4qriza38l0vkrax0m-activate-service.scm.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/5lnmmgrgpy58nnkcpy8z22a0kf54yv0k-boot.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/ri65rz6rgh5kv6ff8g2q313fr9fjd5ac-provenance.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/z62g9qwy9k65awaaxg2f3jzdadsk5iha-grub.cfg.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/x1zyd14c5xnpd51ql6bcfdv0q06nla8a-partition.img.drv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/ri65rz6rgh5kv6ff8g2q313fr9fjd5ac-provenance.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/58xsyrsaqaqh3dsxzb7zc0h72v7ha3as-etc.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/rqyl2kcj5q84daw4qriza38l0vkrax0m-activate-service.scm.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/5kifgf0yqnki7k9wg0a8jlviqibirmxy-activate.scm.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/5lnmmgrgpy58nnkcpy8z22a0kf54yv0k-boot.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/758yrvd3m7016i5vflzjyg9232j75k2r-system.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/z62g9qwy9k65awaaxg2f3jzdadsk5iha-grub.cfg.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/kr39hrsyvwp17ny5hcrj6ynfn56i2cq8-partition.img.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/x1zyd14c5xnpd51ql6bcfdv0q06nla8a-partition.img.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/dp0p01bzgb9aarzx040iv7k5w1r7z5xx-genimage.cfg.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;building /gnu/store/q0gvw0s79wkjlanfq4yjjyf2f9ddk4iq-disk-image.drv...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the disk image is: &lt;code&gt;/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s check its partition table:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fdisk -l &lt;span style=&#34;color:#b8860b&#34;&gt;$disk_image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Disk /gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image: 2.32 GiB, 2488737792 bytes, 4860816 sectors
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Units: sectors of 1 * 512 = 512 bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sector size (logical/physical): 512 bytes / 512 bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;I/O size (minimum/optimal): 512 bytes / 512 bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Disklabel type: gpt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Disk identifier: 389B45C2-0EC7-42EC-9D96-49B40F820311
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Device                                                  Start     End Sectors  Size Type
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image1  2048   83967   81920   40M EFI System
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/gnu/store/rj2i98lw7vjj0k48dbwfs0q9aqnd9nxk-disk-image2 83968 4860775 4776808  2.3G Linux filesystem
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And filesystems labels are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;alias&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;kpartx&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;$(&lt;/span&gt;guix build multipath-tools&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;)&lt;/span&gt;/sbin/kpartx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kpartx -av &lt;span style=&#34;color:#b8860b&#34;&gt;$disk_image&lt;/span&gt; &amp;gt;/dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lsblk -o NAME,FSTYPE,FSVER,LABEL,UUID /dev/loop0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kpartx -d &lt;span style=&#34;color:#b8860b&#34;&gt;$disk_image&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME      FSTYPE FSVER LABEL      UUID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;loop0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|-loop0p1 vfat   FAT16 GNU-ESP    572A-DDF3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;`-loop0p2 ext4   1.0   Guix_image f6bc8ad8-ff1a-1754-eb2b-35d0f6bc8ad8
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that the partition labels chosen by &lt;code&gt;guix system image&lt;/code&gt; are not taken from
+the &lt;code&gt;operating-system&lt;/code&gt; definition. They&amp;rsquo;re hardcoded in the &lt;code&gt;guix&lt;/code&gt; sources and
+therefore I have to hardcode the same values in my &lt;code&gt;operating-system&lt;/code&gt;. Without
+matching labels the system would just refuse to boot as they&amp;rsquo;re used in the EFI
+loader to find the boot partition and also in the &lt;code&gt;fstab&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=Guix_image  /         ext4  defaults
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=GNU-ESP     /boot     vfat  defaults
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=STORAGE     /storage  ext4  defaults
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;putting-disk-image-on-a-real-machine&#34;&gt;Putting disk image on a real machine&lt;/h2&gt;
+&lt;p&gt;I have a &lt;a href=&#34;https://www.ventoy.net/en/index.html&#34;&gt;Ventoy&lt;/a&gt; USB stick with &lt;a href=&#34;https://lubuntu.me/downloads/&#34;&gt;Lubuntu Live CD&lt;/a&gt; on it. Let&amp;rsquo;s just copy the
+resulting image to the stick. Note, you might need to follow this recipe: &lt;a href=&#34;https://github.com/ventoy/Ventoy/issues/79&#34;&gt;Access
+USB stick on live ISO&lt;/a&gt; as by default the USB drive will not be accessible.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;eval&lt;/span&gt; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;$(&lt;/span&gt;lsblk -P -o LABEL,MOUNTPOINT | grep Ventoy&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp &lt;span style=&#34;color:#b8860b&#34;&gt;$disk_image&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;$MOUNTPOINT&lt;/span&gt;/guixdisk.img
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;eject &lt;span style=&#34;color:#b8860b&#34;&gt;$MOUNTPOINT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then reboot to the Live CD environment and run the following provisioning script.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dd /media/lubuntu/Ventoy/guixdisk.img &lt;span style=&#34;color:#b8860b&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;/dev/sda &lt;span style=&#34;color:#b8860b&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;progress
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;parted /dev/sda print
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# Warning: Not all of the space available to /dev/sda appears to be used, you&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# can fix the GPT to use all of the space (an extra 346740088 blocks) or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# continue with the current setting?&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# Fix/Ignore? fix&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;parted -s /dev/sda resizepart &lt;span style=&#34;color:#666&#34;&gt;2&lt;/span&gt; 60g mkpart STORAGE ext4 60g 100%
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fsck /dev/sda2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;resize2fs /dev/sda2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.ext4 /dev/sda3 -L STORAGE
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;restoring-backup&#34;&gt;Restoring backup&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir /storage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mount /dev/sda3 /storage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rsync -a --info&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;progress2 /mnt/backup/storage /storage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;revitalising-guix&#34;&gt;Revitalising Guix&lt;/h2&gt;
+&lt;p&gt;Log in as root (password is empty)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd root
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd sarg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;login sarg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;cd&lt;/span&gt; /storage/devel/dotfiles/guix
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix pull -C /run/current-system/channels.scm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo guix system reconfigure system.scm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix home reconfigure home.scm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;doom sync
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mu init -m ~/.mail
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mu index
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;logout&lt;/span&gt; &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# sarg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;logout&lt;/span&gt; &lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# root&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
 
     <item>
       <title>wpa-manager.el and torrent-mode.el</title>
@@ -45,7 +184,7 @@ file content. An example of how it looks like.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  009  161M     enwiki-20170220-abstract8.xml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*  010  133M     enwiki-20170220-abstract9.xml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This mode supports selecting individual files which could then be fed into &lt;a href=&#34;https://github.com/ukaszg/aria2&#34;&gt;aria2&lt;/a&gt;
-using small defun:&lt;/p&gt;
+using a small defun:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;torrent-mode-download-selected&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;dest-dir&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Download ARG entries.&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt;
@@ -121,7 +260,7 @@ Your browser does not support the video tag.&lt;/video&gt;&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           (&lt;span style=&#34;color:#a2f&#34;&gt;rx&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;imdb.com/title/&amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;group&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;tt&amp;#34;&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;digit&lt;/span&gt;)))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           &lt;span style=&#34;color:#b8860b&#34;&gt;link&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   (&lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Not an imdb link&amp;#34;&lt;/span&gt;)))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;apikey&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;password-store-get&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Sites/omdbapi.com&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;apikey&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;auth-source-pass-get&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;secret&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Sites/omdbapi.com&amp;#34;&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#b8860b&#34;&gt;movie&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;with-current-buffer&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    (&lt;span style=&#34;color:#b8860b&#34;&gt;url-retrieve-synchronously&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                     (&lt;span style=&#34;color:#00a000&#34;&gt;concat&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;http://omdbapi.com/?apikey=&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;apikey&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;&amp;amp;i=&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;imdb&lt;/span&gt;))
