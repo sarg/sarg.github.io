@@ -123,9 +123,8 @@ the <code>operating-system</code> definition. They&rsquo;re hardcoded in the <co
 therefore I have to hardcode the same values in my <code>operating-system</code>. Without
 matching labels the system would just refuse to boot as they&rsquo;re used in the EFI
 loader to find the boot partition and also in the <code>fstab</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>LABEL=Guix_image  /         ext4  defaults
-</span></span><span style="display:flex;"><span>LABEL=GNU-ESP     /boot     vfat  defaults
-</span></span><span style="display:flex;"><span>LABEL=STORAGE     /storage  ext4  defaults
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>LABEL=Guix_image  /      ext4  defaults
+</span></span><span style="display:flex;"><span>LABEL=GNU-ESP     /boot  vfat  defaults
 </span></span></code></pre></div><h2 id="putting-disk-image-on-a-real-machine">Putting disk image on a real machine</h2>
 <p>I have a <a href="https://www.ventoy.net/en/index.html">Ventoy</a> USB stick with <a href="https://lubuntu.me/downloads/">Lubuntu Live CD</a> on it. Let&rsquo;s just copy the
 resulting image to the stick. Note, you might need to follow this recipe: <a href="https://github.com/ventoy/Ventoy/issues/79">Access
@@ -142,16 +141,14 @@ USB stick on live ISO</a> as by default the USB drive will not be accessible.</p
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># continue with the current setting?</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Fix/Ignore? fix</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>parted -s /dev/sda resizepart <span style="color:#666">2</span> 60g mkpart STORAGE ext4 60g 100%
-</span></span><span style="display:flex;"><span>fsck /dev/sda2
+</span></span><span style="display:flex;"><span>parted -s /dev/sda resizepart <span style="color:#666">2</span> 100%
+</span></span><span style="display:flex;"><span>fsck -y -f /dev/sda2
 </span></span><span style="display:flex;"><span>resize2fs /dev/sda2
-</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/sda3 -L STORAGE
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>reboot
 </span></span></code></pre></div><h2 id="restoring-backup">Restoring backup</h2>
 <p>Log in as root (password is empty)</p>
 <p><code>borgmatic</code> is baked in the disk image, use it to restore <code>/storage</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir /storage
-</span></span><span style="display:flex;"><span>mount /dev/sda3 /storage
 </span></span><span style="display:flex;"><span>mount /dev/sdb1 /mnt
 </span></span><span style="display:flex;"><span>borgmatic extract --destination / --progress <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --repository /mnt/backup --archive latest
