@@ -28,8 +28,8 @@
 you&amp;rsquo;ll be surprised when it comes to it. So let&amp;rsquo;s make a recovery plan and give
 it a test.&lt;/p&gt;
 &lt;h2 id=&#34;back-up-user-files&#34;&gt;Back up user files&lt;/h2&gt;
-&lt;p&gt;Currently a simple &lt;code&gt;rsync&lt;/code&gt; approach is used.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rsync --no-checksum -a --info&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;progress2 /storage /media/sarg/backup
+&lt;p&gt;Having &lt;a href=&#34;https://github.com/sarg/dotfiles/blob/483e71b4ecf5aef17a102a31dded84c8697703a8/backup/.config/borgmatic/config.yaml&#34;&gt;~/.config/borgmatic/config.yaml&lt;/a&gt; in place it&amp;rsquo;s just one command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;borgmatic create
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;disaster-happens&#34;&gt;Disaster happens&lt;/h2&gt;
 &lt;p&gt;I see two options:&lt;/p&gt;
 &lt;ol&gt;
@@ -41,12 +41,15 @@ it a test.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s define what the disk image should be.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; NOTE: this image is necessary only because efi-disk-image uses mbr partition table&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; otherwise just `guix system image --save-provenance --image-type=efi-raw --persistent system.scm`&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;use-modules&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;use-modules&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;home&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;image&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;inherit&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;efi-disk-image&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./system.scm&amp;#34;&lt;/span&gt;)))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;volatile-root?&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;#f&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;alse&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;partition-table-type&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;gpt&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./vm.scm&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;inputs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#666&#34;&gt;`&lt;/span&gt;((&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;guix-home&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#666&#34;&gt;,&lt;/span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;home-environment-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./vm-home.scm&amp;#34;&lt;/span&gt;)))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;partition-table-type&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;mbr&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;volatile-root?&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;#f&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;alse&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then ask &lt;code&gt;guix&lt;/code&gt; to produce it.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix system image image.scm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The following derivations will be built:
@@ -123,13 +126,17 @@ USB stick on live ISO&lt;/a&gt; as by default the USB drive will not be accessib
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fsck /dev/sda2
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;resize2fs /dev/sda2
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.ext4 /dev/sda3 -L STORAGE
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;restoring-backup&#34;&gt;Restoring backup&lt;/h2&gt;
+&lt;p&gt;Log in as root (password is empty)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;borgmatic&lt;/code&gt; is baked in the disk image, use it to restore &lt;code&gt;/storage&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir /storage
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mount /dev/sda3 /storage
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rsync -a --info&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;progress2 /mnt/backup/storage /storage
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mount /dev/sdb1 /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;borgmatic extract --progress --destination /&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b62;font-weight:bold&#34;&gt;&lt;/span&gt;    --repository /mnt/backup --archive latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;umount /dev/sdb1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;revitalising-guix&#34;&gt;Revitalising Guix&lt;/h2&gt;
-&lt;p&gt;Log in as root (password is empty)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd root
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd sarg
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;login sarg
@@ -879,18 +886,21 @@ like rsync, downloading only newer files. It fits perfect the use case.&lt;/p&gt
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site&#34;&gt;Create a repo&lt;/a&gt; for github pages.&lt;/p&gt;
 &lt;p&gt;Every file you put in the repo would be published &lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#configuring-jekyll-in-your-github-pages-site&#34;&gt;automatically&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   By default, Jekyll doesn&amp;#39;t build files or folders that:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   are located in a folder called /node_modules or /vendor
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   start with _, ., or #
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   end with
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   are excluded by the exclude setting in your configuration file
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By default, Jekyll doesn&amp;rsquo;t build files or folders that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;are located in a folder called &lt;code&gt;/node_modules&lt;/code&gt; or &lt;code&gt;/vendor&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;start with &lt;code&gt;_&lt;/code&gt;, &lt;code&gt;.&lt;/code&gt;, or &lt;code&gt;#&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;end with &lt;code&gt;~&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;are excluded by the exclude setting in your configuration file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;Configure&lt;/a&gt; custom domain.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create &lt;code&gt;_hugo/config.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Create &lt;code&gt;_hugo/config.toml&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   baseURL = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;http://sarg.org.ru/&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   languageCode = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   title = &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Random forest&amp;#34;&lt;/span&gt;
@@ -908,7 +918,7 @@ like rsync, downloading only newer files. It fits perfect the use case.&lt;/p&gt
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Add &lt;code&gt;_hugo/content&lt;/code&gt; to &lt;code&gt;.gitignore&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This directory would be generated by ox-hugo, no need to store it in git.&lt;/p&gt;
+&lt;p&gt;This directory would be generated by &lt;code&gt;ox-hugo&lt;/code&gt;, no need to store it in git.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Create &lt;code&gt;org-mode&lt;/code&gt; file where all the content would be placed.&lt;/p&gt;
@@ -918,8 +928,9 @@ you want, not strictly necessary in the repository.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Export the file with &lt;code&gt;ox-hugo&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Press (&lt;code&gt;C-c C-e H A&lt;/code&gt;) to export everything. Now &lt;code&gt;_hugo/content&lt;/code&gt; should be
+&lt;p&gt;Press &lt;code&gt;C-c C-e H A&lt;/code&gt; to export everything. Now &lt;code&gt;_hugo/content&lt;/code&gt; should be
 populated.&lt;/p&gt;
+&lt;p&gt;You might want to enable &lt;a href=&#34;https://ox-hugo.scripter.co/doc/auto-export-on-saving/&#34;&gt;auto export on saving&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Check that your blog works locally.&lt;/p&gt;

@@ -48,8 +48,8 @@
 you&rsquo;ll be surprised when it comes to it. So let&rsquo;s make a recovery plan and give
 it a test.</p>
 <h2 id="back-up-user-files">Back up user files</h2>
-<p>Currently a simple <code>rsync</code> approach is used.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>rsync --no-checksum -a --info<span style="color:#666">=</span>progress2 /storage /media/sarg/backup
+<p>Having <a href="https://github.com/sarg/dotfiles/blob/483e71b4ecf5aef17a102a31dded84c8697703a8/backup/.config/borgmatic/config.yaml">~/.config/borgmatic/config.yaml</a> in place it&rsquo;s just one command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>borgmatic create
 </span></span></code></pre></div><h2 id="disaster-happens">Disaster happens</h2>
 <p>I see two options:</p>
 <ol>
@@ -61,12 +61,15 @@ it a test.</p>
 <p>Let&rsquo;s define what the disk image should be.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; NOTE: this image is necessary only because efi-disk-image uses mbr partition table</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">;; otherwise just `guix system image --save-provenance --image-type=efi-raw --persistent system.scm`</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#00a000">use-modules</span> (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span> <span style="color:#b8860b">image</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">image</span>))
+</span></span><span style="display:flex;"><span>(<span style="color:#00a000">use-modules</span> (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">system</span> <span style="color:#b8860b">image</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">image</span>) (<span style="color:#00a000">gnu</span> <span style="color:#b8860b">home</span>))
 </span></span><span style="display:flex;"><span>(<span style="color:#00a000">image</span>
 </span></span><span style="display:flex;"><span> (<span style="color:#00a000">inherit</span> <span style="color:#b8860b">efi-disk-image</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#00a000">operating-system</span> (<span style="color:#00a000">operating-system-with-provenance</span> (<span style="color:#a2f">load </span><span style="color:#b44">&#34;./system.scm&#34;</span>)))
-</span></span><span style="display:flex;"><span> (<span style="color:#00a000">volatile-root?</span> <span style="color:#800">#f</span><span style="color:#b8860b">alse</span>)
-</span></span><span style="display:flex;"><span> (<span style="color:#00a000">partition-table-type</span> <span style="color:#b8860b">&#39;gpt</span>))
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">operating-system</span> (<span style="color:#00a000">operating-system-with-provenance</span> (<span style="color:#a2f">load </span><span style="color:#b44">&#34;./vm.scm&#34;</span>)))
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">inputs</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#666">`</span>((<span style="color:#b44">&#34;guix-home&#34;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#666">,</span>(<span style="color:#00a000">home-environment-with-provenance</span> (<span style="color:#a2f">load </span><span style="color:#b44">&#34;./vm-home.scm&#34;</span>)))))
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">partition-table-type</span> <span style="color:#b8860b">&#39;mbr</span>)
+</span></span><span style="display:flex;"><span> (<span style="color:#00a000">volatile-root?</span> <span style="color:#800">#f</span><span style="color:#b8860b">alse</span>))
 </span></span></code></pre></div><p>And then ask <code>guix</code> to produce it.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>guix system image image.scm
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>The following derivations will be built:
@@ -143,13 +146,17 @@ USB stick on live ISO</a> as by default the USB drive will not be accessible.</p
 </span></span><span style="display:flex;"><span>fsck /dev/sda2
 </span></span><span style="display:flex;"><span>resize2fs /dev/sda2
 </span></span><span style="display:flex;"><span>mkfs.ext4 /dev/sda3 -L STORAGE
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>reboot
 </span></span></code></pre></div><h2 id="restoring-backup">Restoring backup</h2>
+<p>Log in as root (password is empty)</p>
+<p><code>borgmatic</code> is baked in the disk image, use it to restore <code>/storage</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir /storage
 </span></span><span style="display:flex;"><span>mount /dev/sda3 /storage
-</span></span><span style="display:flex;"><span>rsync -a --info<span style="color:#666">=</span>progress2 /mnt/backup/storage /storage
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>reboot
+</span></span><span style="display:flex;"><span>mount /dev/sdb1 /mnt
+</span></span><span style="display:flex;"><span>borgmatic extract --progress --destination /<span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --repository /mnt/backup --archive latest
+</span></span><span style="display:flex;"><span>umount /dev/sdb1
 </span></span></code></pre></div><h2 id="revitalising-guix">Revitalising Guix</h2>
-<p>Log in as root (password is empty)</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>passwd root
 </span></span><span style="display:flex;"><span>passwd sarg
 </span></span><span style="display:flex;"><span>login sarg
