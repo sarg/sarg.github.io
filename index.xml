@@ -25,7 +25,7 @@
 }
 &lt;/style&gt;
 &lt;p&gt;No matter how often you backup, if you never test your recovery procedures -
-you&amp;rsquo;ll be surprised when it comes to it. So let&amp;rsquo;s make a recovery plan and give
+you&amp;rsquo;d be surprised when it comes to it. So let&amp;rsquo;s make a recovery plan and give
 it a test.&lt;/p&gt;
 &lt;h2 id=&#34;back-up-user-files&#34;&gt;Back up user files&lt;/h2&gt;
 &lt;p&gt;Having &lt;a href=&#34;https://github.com/sarg/dotfiles/blob/483e71b4ecf5aef17a102a31dded84c8697703a8/backup/.config/borgmatic/config.yaml&#34;&gt;~/.config/borgmatic/config.yaml&lt;/a&gt; in place it&amp;rsquo;s just one command:&lt;/p&gt;
@@ -38,39 +38,8 @@ it a test.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;Let&amp;rsquo;s follow the first option for now and prepare everything to migrate smoothly.&lt;/p&gt;
 &lt;h2 id=&#34;make-a-raw-disk-image&#34;&gt;Make a raw disk image&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s define what the disk image should be.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; NOTES: this image is WIP and requires patching guix&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; - https://issues.guix.gnu.org/62223&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;;; - https://git.sr.ht/~abcdw/rde/tree/044de83e980b7038b87d27a090aef24229df85eb/src/gnu/services/home.scm&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;use-modules&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;system&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;image&lt;/span&gt;) (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;home&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;services&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;home&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-homes&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;os&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;homes&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#00a000&#34;&gt;inherit&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;os&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#00a000&#34;&gt;packages&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (&lt;span style=&#34;color:#a2f&#34;&gt;cons &lt;/span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;@&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;gnu&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;packages&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;backup&lt;/span&gt;) &lt;span style=&#34;color:#b8860b&#34;&gt;borg&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-packages&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;os&lt;/span&gt;)))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#00a000&#34;&gt;services&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (&lt;span style=&#34;color:#00a000&#34;&gt;cons&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#00a000&#34;&gt;service&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;guix-home-service-type&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#a2f&#34;&gt;map &lt;/span&gt;(&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;lambda &lt;/span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;p&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      (&lt;span style=&#34;color:#a2f&#34;&gt;cons &lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;car &lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;p&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                            (&lt;span style=&#34;color:#00a000&#34;&gt;home-environment-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;cdr &lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;p&lt;/span&gt;))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#b8860b&#34;&gt;homes&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-user-services&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;os&lt;/span&gt;)))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#00a000&#34;&gt;image&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;inherit&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;efi-disk-image&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-homes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#00a000&#34;&gt;operating-system-with-provenance&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./vm.scm&amp;#34;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#666&#34;&gt;`&lt;/span&gt;((&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;sarg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;,&lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;load &lt;/span&gt;&lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;./vm-home.scm&amp;#34;&lt;/span&gt;)))))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;volatile-root?&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;#f&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;alse&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then ask &lt;code&gt;guix&lt;/code&gt; to produce it.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix system image image.scm
+&lt;p&gt;That&amp;rsquo;s as simple as running &lt;code&gt;guix system image&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;guix system image --volatile --image-type&lt;span style=&#34;color:#666&#34;&gt;=&lt;/span&gt;efi-raw ~/.dotfiles/guix/system.scm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The following derivations will be built:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/q0gvw0s79wkjlanfq4yjjyf2f9ddk4iq-disk-image.drv
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /gnu/store/dp0p01bzgb9aarzx040iv7k5w1r7z5xx-genimage.cfg.drv
@@ -159,7 +128,10 @@ USB stick on live ISO&lt;/a&gt; as by default the USB drive will not be accessib
 &lt;p&gt;&lt;code&gt;guix-home&lt;/code&gt; profile is already in the image and it&amp;rsquo;s activated using a one-off
 shepherd service. It takes some time, so don&amp;rsquo;t rush to log in under your user.
 Check &lt;code&gt;herd status guix-home-sarg&lt;/code&gt; first and &lt;code&gt;/var/log/messages&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd root
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Wait guix-home-sarg to complete&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;until&lt;/span&gt; herd status guix-home-sarg | grep &lt;span style=&#34;color:#b44&#34;&gt;&amp;#39;It is stopped&amp;#39;&lt;/span&gt;; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#a2f&#34;&gt;echo&lt;/span&gt; -n .; sleep 1; &lt;span style=&#34;color:#a2f;font-weight:bold&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd root
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd sarg
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;login sarg
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
