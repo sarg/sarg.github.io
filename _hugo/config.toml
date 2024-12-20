@@ -5,7 +5,7 @@ theme = "xmin"
 publishDir = "../"
 disableKinds = ["sitemap", "taxonomy", "term"]
 
-[author]
+[params.author]
 name = "Sergey Trofimov"
 email = "sarg@sarg.org.ru"
 
