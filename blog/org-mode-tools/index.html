@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Self-hosted org-mode tools | Random forest</title>
+    <link rel="icon" href="data:;base64,=" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+      <li><a href="/index.xml">RSS</a></li>
+      
+      <li><a href="https://github.com/sarg">Github</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Self-hosted org-mode tools</span></h1>
+<h2 class="date">2025/01/09</h2>
+</div>
+
+<main>
+<p>I have a couple org-mode based tools now:</p>
+<ul>
+<li><a href="/blog/export-youtube-liked/">youtube.org</a> for saving liked videos</li>
+<li><a href="/blog/org-watchlist/">movies.org</a> to keep a log of watched movies</li>
+<li><a href="/blog/emacs-hugo/">blog.org</a> for this blog</li>
+<li><a href="/books/">books.org</a> to keep a reading log</li>
+</ul>
+<p>Each of these has an <code>API</code> heading that defines interactive helpers relevant for
+the file. E.g.:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span><span style="color:#000080;font-weight:bold">*</span><span style="color:#999;font-weight:bold"> COMMENT</span><span style="font-weight:bold"> API</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">#+NAME</span><span style="color:#080;font-style:italic">: api</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#+begin_src </span><span style="color:#080;font-weight:bold">elisp</span><span style="color:#080;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>(<span style="color:#a2f">define-minor-mode</span> <span style="color:#b8860b">org-books-mode</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Helper functions for books.org&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f">:interactive</span> <span style="color:#800">nil</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f">:keymap</span> (<span style="color:#00a000">list</span>
+</span></span><span style="display:flex;"><span>           (<span style="color:#00a000">cons</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-c C-o&#34;</span>) <span style="color:#00a000">#&#39;</span><span style="color:#b8860b">org-books-open-goodreads</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">org-books-open-goodreads</span> ()
+</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Open goodreads for current entry.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">interactive</span> <span style="color:#800">nil</span> <span style="color:#b8860b">&#39;org-books-mode</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#b8860b">browse-url</span> (<span style="color:#00a000">format</span> <span style="color:#b44">&#34;https://goodreads.com/book/show/%s&#34;</span>
+</span></span><span style="display:flex;"><span>                      (<span style="color:#b8860b">cdar</span> (<span style="color:#b8860b">org-entry-properties</span> <span style="color:#800">nil</span> <span style="color:#b44">&#34;goodreadsid&#34;</span>)))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">org-books-mode</span> <span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#+end_src</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Local Variables:</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># eval: (sarg/eval-org-src-block &#34;api&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># End:</span>
+</span></span></code></pre></div><div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 1:</span>
+  API section
+</div>
+<p>Where <code>sarg/eval-org-src-block</code> is defined as:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#a2f">defun</span> <span style="color:#b8860b">sarg/eval-org-src-block</span> (<span style="color:#b8860b">name</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#b44">&#34;Eval elisp block NAME. To be used in org files in Local variables section.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">save-excursion</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#b8860b">org-babel-goto-named-src-block</span> <span style="color:#b8860b">name</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">block-info</span> (<span style="color:#b8860b">org-babel-get-src-block-info</span>))
+</span></span><span style="display:flex;"><span>           (<span style="color:#b8860b">lang</span> (<span style="color:#00a000">nth</span> <span style="color:#666">0</span> <span style="color:#b8860b">block-info</span>))
+</span></span><span style="display:flex;"><span>           (<span style="color:#b8860b">body</span> (<span style="color:#00a000">nth</span> <span style="color:#666">1</span> <span style="color:#b8860b">block-info</span>)))
+</span></span><span style="display:flex;"><span>      (<span style="color:#a2f">if</span> (<span style="color:#a2f">or</span> (<span style="color:#b8860b">string=</span> <span style="color:#b8860b">lang</span> <span style="color:#b44">&#34;emacs-lisp&#34;</span>)
+</span></span><span style="display:flex;"><span>              (<span style="color:#b8860b">string=</span> <span style="color:#b8860b">lang</span> <span style="color:#b44">&#34;elisp&#34;</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#a2f">cl-loop</span> <span style="color:#b8860b">with</span> <span style="color:#b8860b">next</span> <span style="color:#00a000">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#b8860b">with</span> <span style="color:#b8860b">maxlen</span> <span style="color:#00a000">=</span> (<span style="color:#00a000">length</span> <span style="color:#b8860b">body</span>)
+</span></span><span style="display:flex;"><span>                   <span style="color:#b8860b">for</span> (<span style="color:#b8860b">sexp</span> <span style="color:#666">.</span> <span style="color:#b8860b">next</span>) <span style="color:#00a000">=</span> (<span style="color:#00a000">read-from-string</span> <span style="color:#b8860b">body</span> <span style="color:#b8860b">next</span>)
+</span></span><span style="display:flex;"><span>                   <span style="color:#a2f">do</span> (<span style="color:#00a000">eval</span> <span style="color:#b8860b">sexp</span>)
+</span></span><span style="display:flex;"><span>                   <span style="color:#a2f">while</span> (<span style="color:#00a000">&lt;</span> <span style="color:#b8860b">next</span> <span style="color:#b8860b">maxlen</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#d2413a;font-weight:bold">error</span> <span style="color:#b44">&#34;%s is not an emacs-lisp src block&#34;</span> <span style="color:#b8860b">name</span>)))))
+</span></span></code></pre></div><div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 2:</span>
+  sarg/eval-org-src-block
+</div>
+<p>This way when such org file is opened, the API code block gets loaded and a
+buffer-local minor mode gets activated. The mode is marked as <code>:interactive nil</code>
+so it doesn&rsquo;t pollute <code>M-x</code>. Helper functions are restricted to this mode as
+well with <code>(interactive nil 'org-books-mode)</code>. I like that such an &ldquo;API&rdquo; is
+contained in the file itself, making it a kind of self-hosted program.</p>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

@@ -8,7 +8,78 @@
     <language>en-us</language>
     <managingEditor>sarg@sarg.org.ru (Sergey Trofimov)</managingEditor>
     <webMaster>sarg@sarg.org.ru (Sergey Trofimov)</webMaster>
-    <lastBuildDate>Wed, 15 Mar 2023 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0100</lastBuildDate><atom:link href="http://sarg.org.ru/index.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Self-hosted org-mode tools</title>
+      <link>http://sarg.org.ru/blog/org-mode-tools/</link>
+      <pubDate>Thu, 09 Jan 2025 00:00:00 +0100</pubDate>
+      <author>sarg@sarg.org.ru (Sergey Trofimov)</author>
+      <guid>http://sarg.org.ru/blog/org-mode-tools/</guid>
+      <description>&lt;p&gt;I have a couple org-mode based tools now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sarg.org.ru/blog/export-youtube-liked/&#34;&gt;youtube.org&lt;/a&gt; for saving liked videos&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sarg.org.ru/blog/org-watchlist/&#34;&gt;movies.org&lt;/a&gt; to keep a log of watched movies&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sarg.org.ru/blog/emacs-hugo/&#34;&gt;blog.org&lt;/a&gt; for this blog&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sarg.org.ru/books/&#34;&gt;books.org&lt;/a&gt; to keep a reading log&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each of these has an &lt;code&gt;API&lt;/code&gt; heading that defines interactive helpers relevant for
+the file. E.g.:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000080;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#999;font-weight:bold&#34;&gt; COMMENT&lt;/span&gt;&lt;span style=&#34;font-weight:bold&#34;&gt; API&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;#+NAME&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;: api&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;#+begin_src &lt;/span&gt;&lt;span style=&#34;color:#080;font-weight:bold&#34;&gt;elisp&lt;/span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;&lt;/span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;define-minor-mode&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;org-books-mode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Helper functions for books.org&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a2f&#34;&gt;:interactive&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a2f&#34;&gt;:keymap&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (&lt;span style=&#34;color:#00a000&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;C-c C-o&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#00a000&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#b8860b&#34;&gt;org-books-open-goodreads&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;org-books-open-goodreads&lt;/span&gt; ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Open goodreads for current entry.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;interactive&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;&amp;#39;org-books-mode&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#b8860b&#34;&gt;browse-url&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;format&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;https://goodreads.com/book/show/%s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      (&lt;span style=&#34;color:#b8860b&#34;&gt;cdar&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-entry-properties&lt;/span&gt; &lt;span style=&#34;color:#800&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;goodreadsid&amp;#34;&lt;/span&gt;)))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#b8860b&#34;&gt;org-books-mode&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;#+end_src&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# Local Variables:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# eval: (sarg/eval-org-src-block &amp;#34;api&amp;#34;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#080;font-style:italic&#34;&gt;# End:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 1:&lt;/span&gt;
+  API section
+&lt;/div&gt;
+&lt;p&gt;Where &lt;code&gt;sarg/eval-org-src-block&lt;/code&gt; is defined as:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a2f&#34;&gt;defun&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;sarg/eval-org-src-block&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;Eval elisp block NAME. To be used in org files in Local variables section.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a2f&#34;&gt;save-excursion&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#b8860b&#34;&gt;org-babel-goto-named-src-block&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a2f&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#b8860b&#34;&gt;block-info&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;org-babel-get-src-block-info&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (&lt;span style=&#34;color:#b8860b&#34;&gt;lang&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;nth&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;block-info&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (&lt;span style=&#34;color:#b8860b&#34;&gt;body&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;nth&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;block-info&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#a2f&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a2f&#34;&gt;or&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;lang&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;emacs-lisp&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              (&lt;span style=&#34;color:#b8860b&#34;&gt;string=&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;lang&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;elisp&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#a2f&#34;&gt;cl-loop&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   &lt;span style=&#34;color:#b8860b&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;maxlen&lt;/span&gt; &lt;span style=&#34;color:#00a000&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;body&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   &lt;span style=&#34;color:#b8860b&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#b8860b&#34;&gt;sexp&lt;/span&gt; &lt;span style=&#34;color:#666&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;next&lt;/span&gt;) &lt;span style=&#34;color:#00a000&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;read-from-string&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;body&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;next&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   &lt;span style=&#34;color:#a2f&#34;&gt;do&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;eval&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;sexp&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   &lt;span style=&#34;color:#a2f&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#00a000&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;next&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;maxlen&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#d2413a;font-weight:bold&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#b44&#34;&gt;&amp;#34;%s is not an emacs-lisp src block&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#b8860b&#34;&gt;name&lt;/span&gt;)))))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;
+  &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 2:&lt;/span&gt;
+  sarg/eval-org-src-block
+&lt;/div&gt;
+&lt;p&gt;This way when such org file is opened, the API code block gets loaded and a
+buffer-local minor mode gets activated. The mode is marked as &lt;code&gt;:interactive nil&lt;/code&gt;
+so it doesn&amp;rsquo;t pollute &lt;code&gt;M-x&lt;/code&gt;. Helper functions are restricted to this mode as
+well with &lt;code&gt;(interactive nil &#39;org-books-mode)&lt;/code&gt;. I like that such an &amp;ldquo;API&amp;rdquo; is
+contained in the file itself, making it a kind of self-hosted program.&lt;/p&gt;
+</description>
+    </item>
+    
 
     <item>
       <title>Reprovisioning Guix on a new machine</title>
