@@ -122,7 +122,8 @@ USB stick on live ISO</a> as by default the USB drive will not be accessible.</p
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#a2f">eval</span> <span style="color:#a2f;font-weight:bold">$(</span>lsblk -P -o LABEL,MOUNTPOINT | grep Ventoy<span style="color:#a2f;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>cp <span style="color:#b8860b">$disk_image</span> <span style="color:#b8860b">$MOUNTPOINT</span>/guixdisk.img
 </span></span><span style="display:flex;"><span>eject <span style="color:#b8860b">$MOUNTPOINT</span>
-</span></span></code></pre></div><p>And then reboot to the Live CD environment and run the following provisioning script.</p>
+</span></span></code></pre></div><p><strong>TODO</strong> Replace with <code>resize-file-system-service-type</code>
+And then reboot to the Live CD environment and run the following provisioning script.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>dd /media/lubuntu/Ventoy/guixdisk.img <span style="color:#b8860b">of</span><span style="color:#666">=</span>/dev/sda <span style="color:#b8860b">status</span><span style="color:#666">=</span>progress
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>parted /dev/sda print
