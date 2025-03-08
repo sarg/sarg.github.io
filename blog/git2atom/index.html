@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Following git changelogs in elfeed | Random forest</title>
+    <link rel="icon" href="data:;base64,=" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about">About</a></li>
+      
+      <li><a href="/cv">CV</a></li>
+      
+      <li><a href="/books">Books</a></li>
+      
+      <li><a href="/movies">Movies</a></li>
+      
+      <li><a href="/index.xml">RSS</a></li>
+      
+      <li><a href="https://github.com/sarg">Github</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Following git changelogs in elfeed</span></h1>
+<h2 class="date">2025/02/08</h2>
+</div>
+
+<main>
+<p>I wanted a simple solution to read daily commit logs of the repos I follow,
+but couldn&rsquo;t find any. For a while I resorted to an <code>org-mode</code> block that I had
+to execute time to time:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span><span style="color:#080;font-style:italic">#+begin_src </span><span style="color:#080;font-weight:bold">sh</span><span style="color:#080;font-style:italic"> :results drawer :var repo=&#39;guix&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f">cd</span> ~/devel/ext/<span style="color:#b8860b">$repo</span>
+</span></span><span style="display:flex;"><span>git fetch origin master
+</span></span><span style="display:flex;"><span>git show-branch _track &gt; /dev/null <span style="color:#666">||</span> git branch -f _track origin/master~20
+</span></span><span style="display:flex;"><span>git log --date<span style="color:#666">=</span>short --pretty<span style="color:#666">=</span><span style="color:#b44">&#39;%ad %s&#39;</span> _track..origin/master
+</span></span><span style="display:flex;"><span>git branch -f _track origin/master &gt; /dev/null
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#+end_src</span>
+</span></span></code></pre></div><p>But quickly it started bothering me and I&rsquo;ve jotted down a <a href="https://github.com/babashka/babashka">Babashka</a> script that
+does the same:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span><span style="color:#666">#</span><span style="color:#b8860b">!/usr/bin/env</span> <span style="color:#b8860b">-S</span> <span style="color:#b8860b">guix</span> <span style="color:#b8860b">shell</span> <span style="color:#b8860b">--pure</span> <span style="color:#b8860b">git</span> <span style="color:#b8860b">babashka</span> <span style="color:#b8860b">--</span> <span style="color:#b8860b">bb</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#00a000">require</span> <span style="color:#666">&#39;</span>[<span style="color:#b8860b">clojure.zip</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">zip</span>]
+</span></span><span style="display:flex;"><span>         <span style="color:#666">&#39;</span>[<span style="color:#b8860b">clojure.data.zip.xml</span> <span style="color:#b8860b">:refer</span> [<span style="color:#b8860b">xml1-&gt;</span> <span style="color:#b8860b">text</span>]])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">defn </span><span style="color:#b8860b">commits-for</span> [<span style="color:#b8860b">gitdir</span> <span style="color:#b8860b">last-seen</span> <span style="color:#b8860b">before</span>]
+</span></span><span style="display:flex;"><span>  (<span style="color:#00a000">-&gt;&gt;</span> (<span style="color:#00a000">shell/with-sh-dir</span> <span style="color:#b8860b">gitdir</span>
+</span></span><span style="display:flex;"><span>         (<span style="color:#00a000">shell/sh</span> <span style="color:#b44">&#34;git&#34;</span> <span style="color:#b44">&#34;fetch&#34;</span> <span style="color:#b44">&#34;origin&#34;</span> <span style="color:#b44">&#34;master&#34;</span>)
+</span></span><span style="display:flex;"><span>         (<span style="color:#00a000">shell/sh</span> <span style="color:#b44">&#34;git&#34;</span> <span style="color:#b44">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>                   (<span style="color:#a2f">str </span><span style="color:#b44">&#34;--format=%H%n%an%n%cI%n%s&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (<span style="color:#a2f">str </span><span style="color:#b44">&#34;--before=&#34;</span> <span style="color:#b8860b">before</span> <span style="color:#b44">&#34;T00:00:00Z&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (<span style="color:#a2f">str </span><span style="color:#b8860b">last-seen</span> <span style="color:#b44">&#34;..origin/master&#34;</span>)))
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">:out</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">str/split-lines</span>
+</span></span><span style="display:flex;"><span>       (<span style="color:#00a000">partition</span> <span style="color:#666">4</span>)
+</span></span><span style="display:flex;"><span>       (<span style="color:#a2f">map </span>(<span style="color:#a2f">partial zipmap </span><span style="color:#666">&#39;</span>(<span style="color:#b8860b">:commit</span> <span style="color:#b8860b">:author</span> <span style="color:#b8860b">:date</span> <span style="color:#b8860b">:subject</span>)))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#00a000">let*</span> [<span style="color:#b8860b">filename</span> (<span style="color:#a2f">first </span><span style="color:#b8860b">*command-line-args*</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">now</span> (<span style="color:#a2f">-&gt; </span>(<span style="color:#00a000">java.time.Instant/now</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#00a000">.truncatedTo</span> <span style="color:#b8860b">java.time.temporal.ChronoUnit/SECONDS</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">yesterday</span> (<span style="color:#a2f">-&gt; </span><span style="color:#b8860b">now</span>
+</span></span><span style="display:flex;"><span>                     (<span style="color:#00a000">.atZone</span> <span style="color:#b8860b">java.time.ZoneOffset/UTC</span>)
+</span></span><span style="display:flex;"><span>                     <span style="color:#b8860b">.toLocalDate</span>
+</span></span><span style="display:flex;"><span>                     (<span style="color:#00a000">.minusDays</span> <span style="color:#666">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">feed</span> (<span style="color:#a2f">-&gt; </span><span style="color:#b8860b">filename</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#b8860b">io/reader</span>
+</span></span><span style="display:flex;"><span>                (<span style="color:#00a000">xml/parse</span> <span style="color:#b8860b">:namespace-aware</span> <span style="color:#b8860b">false</span>
+</span></span><span style="display:flex;"><span>                           <span style="color:#b8860b">:skip-whitespace</span> <span style="color:#b8860b">true</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#b8860b">zip/xml-zip</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#080;font-style:italic">;; state from the input file</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">last-seen</span> (<span style="color:#a2f">or </span>(<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">feed</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:last-seen</span> <span style="color:#b8860b">text</span>) <span style="color:#b44">&#34;origin/master~10&#34;</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">gitdir</span> (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">feed</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:dir</span> <span style="color:#b8860b">text</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">commit-url</span> (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">feed</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:commit-url</span> <span style="color:#b8860b">text</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#b8860b">range-url</span> (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">feed</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:range-url</span> <span style="color:#b8860b">text</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f;font-weight:bold">def </span><span style="color:#b8860b">commits</span> (<span style="color:#00a000">commits-for</span> <span style="color:#b8860b">gitdir</span> <span style="color:#b8860b">last-seen</span> (<span style="color:#00a000">.plusDays</span> <span style="color:#b8860b">yesterday</span> <span style="color:#666">1</span>)))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">when </span>(<span style="color:#00a000">empty?</span> <span style="color:#b8860b">commits</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">println </span><span style="color:#b44">&#34;No new commits.&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#00a000">System/exit</span> <span style="color:#666">0</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f;font-weight:bold">def </span><span style="color:#b8860b">latest-commit</span> (<span style="color:#b8860b">:commit</span> (<span style="color:#a2f">first </span><span style="color:#b8860b">commits</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f;font-weight:bold">def </span><span style="color:#b8860b">new-entry</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#00a000">xml/sexp-as-element</span>
+</span></span><span style="display:flex;"><span>     [<span style="color:#b8860b">:entry</span>
+</span></span><span style="display:flex;"><span>      [<span style="color:#b8860b">:title</span> (<span style="color:#a2f">str </span><span style="color:#b44">&#34;Commits for &#34;</span> <span style="color:#b8860b">yesterday</span>)]
+</span></span><span style="display:flex;"><span>      [<span style="color:#b8860b">:id</span> (<span style="color:#a2f">str </span><span style="color:#b44">&#34;urn:git2rss:&#34;</span> <span style="color:#b8860b">yesterday</span>)]
+</span></span><span style="display:flex;"><span>      [<span style="color:#b8860b">:link</span> {<span style="color:#b8860b">:rel</span> <span style="color:#b44">&#34;alternate&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#b8860b">:href</span> (<span style="color:#00a000">format</span> <span style="color:#b8860b">range-url</span> <span style="color:#b8860b">last-seen</span> <span style="color:#b8860b">latest-commit</span>)}]
+</span></span><span style="display:flex;"><span>      [<span style="color:#b8860b">:updated</span> <span style="color:#b8860b">now</span>]
+</span></span><span style="display:flex;"><span>      [<span style="color:#b8860b">:content</span> {<span style="color:#b8860b">:type</span> <span style="color:#b44">&#34;xhtml&#34;</span>}
+</span></span><span style="display:flex;"><span>       [<span style="color:#b8860b">:div</span> {<span style="color:#b8860b">:xmlns</span> <span style="color:#b44">&#34;http://www.w3.org/1999/xhtml&#34;</span>}
+</span></span><span style="display:flex;"><span>        [<span style="color:#b8860b">:p</span> <span style="color:#b44">&#34;Commits&#34;</span>
+</span></span><span style="display:flex;"><span>         [<span style="color:#b8860b">:ul</span>
+</span></span><span style="display:flex;"><span>          (<span style="color:#a2f">for </span>[<span style="color:#b8860b">c</span> <span style="color:#b8860b">commits</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">:li</span> [<span style="color:#b8860b">:a</span> {<span style="color:#b8860b">:href</span> (<span style="color:#00a000">format</span> <span style="color:#b8860b">commit-url</span> (<span style="color:#b8860b">:commit</span> <span style="color:#b8860b">c</span>))} (<span style="color:#b8860b">:subject</span> <span style="color:#b8860b">c</span>)]])]]]]]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#00a000">spit</span> <span style="color:#b8860b">filename</span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#a2f">-&gt; </span><span style="color:#b8860b">feed</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">:updated</span>)
+</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">zip/replace</span> (<span style="color:#00a000">xml/element</span> <span style="color:#b8860b">:updated</span> <span style="color:#b8860b">nil</span> (<span style="color:#00a000">.toString</span> <span style="color:#b8860b">now</span>)))
+</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">zip/up</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:last-seen</span>)
+</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">zip/replace</span> (<span style="color:#00a000">xml/element</span> <span style="color:#b8860b">:last-seen</span> <span style="color:#b8860b">nil</span> <span style="color:#b8860b">latest-commit</span>))
+</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">zip/up</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">zip/rightmost</span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#00a000">zip/insert-right</span> <span style="color:#b8860b">new-entry</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">zip/root</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#b8860b">xml/indent-str</span>)))
+</span></span></code></pre></div><p>The last touch was to register a scheduled job in <a href="https://github.com/sarg/dotfiles/commit/0ee195be">Guix configuration</a> and to fix
+<code>file://</code> style link support in <a href="https://github.com/remyhonig/elfeed-org/commit/1197cf29f6604e572ec604874a8f50b58081176a">elfeed-org</a>.</p>
+<p>And voila:
+<img src="/ox-hugo/20250110_084034screenshot.png" alt=""></p>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+
