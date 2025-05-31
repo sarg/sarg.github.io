@@ -77,14 +77,16 @@ using a small defun:</p>
 </span></span><span style="display:flex;"><span>              <span style="color:#b8860b">aria2-download-directory</span>)
 </span></span><span style="display:flex;"><span>          <span style="color:#800">nil</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#800">t</span>))
-</span></span><span style="display:flex;"><span>   <span style="color:#b8860b">&#39;torrent-mode</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#b8860b">torrent-mode</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">;; aria2.addTorrent([secret, ]torrent[, uris[, options[, position]]])</span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#b8860b">make-request</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#b8860b">aria2--cc</span> <span style="color:#b44">&#34;aria2.addTorrent&#34;</span>
 </span></span><span style="display:flex;"><span>   (<span style="color:#b8860b">aria2--base64-encode-file</span> <span style="color:#00a000">buffer-file-name</span>)
 </span></span><span style="display:flex;"><span>   []
-</span></span><span style="display:flex;"><span>   <span style="color:#666">`</span>(<span style="color:#a2f">:select-file</span> <span style="color:#666">,</span>(<span style="color:#b8860b">seq-map</span> <span style="color:#00a000">#&#39;car</span> (<span style="color:#b8860b">tablist-get-marked-items</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#666">`</span>(<span style="color:#a2f">:select-file</span> <span style="color:#666">,</span>(<span style="color:#b8860b">string-join</span> (<span style="color:#b8860b">seq-map</span> (<span style="color:#a2f">lambda</span> (<span style="color:#b8860b">el</span>) (<span style="color:#00a000">number-to-string</span> (<span style="color:#00a000">car</span> <span style="color:#b8860b">el</span>)))
+</span></span><span style="display:flex;"><span>                                         (<span style="color:#b8860b">tablist-get-marked-items</span>))
+</span></span><span style="display:flex;"><span>                                <span style="color:#b44">&#34;,&#34;</span>)
 </span></span><span style="display:flex;"><span>     <span style="color:#a2f">:dir</span> <span style="color:#666">,</span>(<span style="color:#00a000">expand-file-name</span> <span style="color:#b8860b">dest-dir</span>))))
 </span></span></code></pre></div>
 </main>

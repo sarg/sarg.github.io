@@ -50,10 +50,15 @@ to execute time to time:</p>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#+end_src</span>
 </span></span></code></pre></div><p>But quickly it started bothering me and I&rsquo;ve jotted down a <a href="https://github.com/babashka/babashka">Babashka</a> script that
 does the same:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span><span style="color:#666">#</span><span style="color:#b8860b">!/usr/bin/env</span> <span style="color:#b8860b">-S</span> <span style="color:#b8860b">guix</span> <span style="color:#b8860b">shell</span> <span style="color:#b8860b">--pure</span> <span style="color:#b8860b">git</span> <span style="color:#b8860b">babashka</span> <span style="color:#b8860b">--</span> <span style="color:#b8860b">bb</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span><span style="color:#666">#</span><span style="color:#b8860b">!/usr/bin/env</span> <span style="color:#b8860b">bb</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#00a000">require</span> <span style="color:#666">&#39;</span>[<span style="color:#b8860b">clojure.zip</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">zip</span>]
-</span></span><span style="display:flex;"><span>         <span style="color:#666">&#39;</span>[<span style="color:#b8860b">clojure.data.zip.xml</span> <span style="color:#b8860b">:refer</span> [<span style="color:#b8860b">xml1-&gt;</span> <span style="color:#b8860b">text</span>]])
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">ns </span><span style="color:#b8860b">git2rss</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#b8860b">:require</span> [<span style="color:#b8860b">clojure.zip</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">zip</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">clojure.string</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">str</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">clojure.java.shell</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">shell</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">clojure.data.xml</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">xml</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">clojure.java.io</span> <span style="color:#b8860b">:as</span> <span style="color:#b8860b">io</span>]
+</span></span><span style="display:flex;"><span>            [<span style="color:#b8860b">clojure.data.zip.xml</span> <span style="color:#b8860b">:refer</span> [<span style="color:#b8860b">xml1-&gt;</span> <span style="color:#b8860b">text</span>]]))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(<span style="color:#a2f;font-weight:bold">defn </span><span style="color:#b8860b">commits-for</span> [<span style="color:#b8860b">gitdir</span> <span style="color:#b8860b">last-seen</span> <span style="color:#b8860b">before</span>]
 </span></span><span style="display:flex;"><span>  (<span style="color:#00a000">-&gt;&gt;</span> (<span style="color:#00a000">shell/with-sh-dir</span> <span style="color:#b8860b">gitdir</span>
@@ -90,9 +95,8 @@ does the same:</p>
 </span></span><span style="display:flex;"><span>       <span style="color:#b8860b">range-url</span> (<span style="color:#00a000">xml1-&gt;</span> <span style="color:#b8860b">feed</span> <span style="color:#b8860b">:git2rss</span> <span style="color:#b8860b">:range-url</span> <span style="color:#b8860b">text</span>)]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#a2f;font-weight:bold">def </span><span style="color:#b8860b">commits</span> (<span style="color:#00a000">commits-for</span> <span style="color:#b8860b">gitdir</span> <span style="color:#b8860b">last-seen</span> (<span style="color:#00a000">.plusDays</span> <span style="color:#b8860b">yesterday</span> <span style="color:#666">1</span>)))
-</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">when </span>(<span style="color:#00a000">empty?</span> <span style="color:#b8860b">commits</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a2f">println </span><span style="color:#b44">&#34;No new commits.&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#00a000">System/exit</span> <span style="color:#666">0</span>))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">println </span>(<span style="color:#a2f">count </span><span style="color:#b8860b">commits</span>) <span style="color:#b44">&#34; new commits.&#34;</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a2f">when </span>(<span style="color:#00a000">empty?</span> <span style="color:#b8860b">commits</span>) (<span style="color:#00a000">System/exit</span> <span style="color:#666">0</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#a2f;font-weight:bold">def </span><span style="color:#b8860b">latest-commit</span> (<span style="color:#b8860b">:commit</span> (<span style="color:#a2f">first </span><span style="color:#b8860b">commits</span>)))
 </span></span><span style="display:flex;"><span>
